@@ -2,17 +2,17 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Arizona Cardinals (+890) @ Kansas City Chiefs (-1560)",
+    "matchFormatted": "Arizona Cardinals (+900) @ Kansas City Chiefs (-1580)",
     "spread": "CHI -15.5",
-    "leadML": -1560,
+    "leadML": -1580,
     "gap": 34
   },
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Baltimore Ravens (+126) @ Carolina Panthers (-149)",
+    "matchFormatted": "Baltimore Ravens (+128) @ Carolina Panthers (-151)",
     "spread": "PAN -3.0",
-    "leadML": -149,
+    "leadML": -151,
     "gap": 22
   },
   {
@@ -26,23 +26,23 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "New Orleans Saints (+455) @ Chicago Bears (-620)",
+    "matchFormatted": "New Orleans Saints (+450) @ Chicago Bears (-610)",
     "spread": "BEA -11.5",
-    "leadML": -620,
+    "leadML": -610,
     "gap": 0
   },
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Tennessee Titans (+285) @ Dallas Cowboys (-356)",
+    "matchFormatted": "Tennessee Titans (+286) @ Dallas Cowboys (-357)",
     "spread": "COW -7.5",
-    "leadML": -356,
+    "leadML": -357,
     "gap": 35
   },
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Tampa Bay Buccaneers (+185) @ Detroit Lions (-222)",
+    "matchFormatted": "Tampa Bay Buccaneers (+184) @ Detroit Lions (-222)",
     "spread": "LIO -4.5",
     "leadML": -222,
     "gap": 0
@@ -66,9 +66,9 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Las Vegas Raiders (+445) @ Denver Broncos (-597)",
+    "matchFormatted": "Las Vegas Raiders (+448) @ Denver Broncos (-600)",
     "spread": "BRO -10.5",
-    "leadML": -597,
+    "leadML": -600,
     "gap": 0
   },
   {
@@ -98,9 +98,9 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Green Bay Packers (+133) @ Los Angeles Rams (-157)",
+    "matchFormatted": "Green Bay Packers (+134) @ Los Angeles Rams (-159)",
     "spread": "RAM -3.0",
-    "leadML": -157,
+    "leadML": -159,
     "gap": 0
   },
   {
@@ -122,9 +122,9 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Kansas City Chiefs (+135) @ Buffalo Bills (-161)",
+    "matchFormatted": "Kansas City Chiefs (+135) @ Buffalo Bills (-160)",
     "spread": "BIL -3.0",
-    "leadML": -161,
+    "leadML": -160,
     "gap": 34
   },
   {
@@ -154,9 +154,9 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "New Orleans Saints (+409) @ Cincinnati Bengals (-540)",
+    "matchFormatted": "New Orleans Saints (+410) @ Cincinnati Bengals (-542)",
     "spread": "BEN -10.0",
-    "leadML": -540,
+    "leadML": -542,
     "gap": 0
   },
   {
@@ -194,9 +194,9 @@
   {
     "timeframe": "weekly",
     "sport": "football",
-    "matchFormatted": "Washington Commanders (-316) @ Arizona Cardinals (+256)",
+    "matchFormatted": "Washington Commanders (-311) @ Arizona Cardinals (+253)",
     "spread": "COM -6.5",
-    "leadML": -316,
+    "leadML": -311,
     "gap": 0
   },
   {
@@ -226,17 +226,17 @@
   {
     "timeframe": "weekly",
     "sport": "basketball",
-    "matchFormatted": "Portland Trail Blazers (+132) @ New York Knicks (-156)",
-    "spread": "KNI -2.5",
-    "leadML": -156,
+    "matchFormatted": "Portland Trail Blazers (-110) @ New York Knicks (-106)",
+    "spread": "BLA -1.5",
+    "leadML": -110,
     "gap": 0
   },
   {
     "timeframe": "weekly",
     "sport": "basketball",
-    "matchFormatted": "Los Angeles Clippers (+164) @ Dallas Mavericks (-196)",
-    "spread": "MAV -4.5",
-    "leadML": -196,
+    "matchFormatted": "Los Angeles Clippers (+168) @ Dallas Mavericks (-200)",
+    "spread": "MAV -5.5",
+    "leadML": -200,
     "gap": 0
   },
   {
@@ -250,25 +250,33 @@
   {
     "timeframe": "weekly",
     "sport": "basketball",
-    "matchFormatted": "New Orleans Pelicans (+980) @ San Antonio Spurs (-1800)",
+    "matchFormatted": "New Orleans Pelicans (+1040) @ San Antonio Spurs (-2000)",
     "spread": "SPU -18.5",
-    "leadML": -1800,
+    "leadML": -2000,
     "gap": 0
   },
   {
     "timeframe": "weekly",
     "sport": "basketball",
-    "matchFormatted": "Boston Celtics (-600) @ Sacramento Kings (+450)",
+    "matchFormatted": "Boston Celtics (-590) @ Sacramento Kings (+440)",
     "spread": "CEL -11.5",
-    "leadML": -600,
+    "leadML": -590,
     "gap": 28
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "Detroit Pistons (-126) @ Atlanta Hawks (+108)",
+    "spread": "PIS -1.5",
+    "leadML": -126,
+    "gap": 0
   },
   {
     "timeframe": "live",
     "sport": "hockey",
-    "matchFormatted": "\ud83d\udd34 LIVE | Chicago Blackhawks (+280) @ Calgary Flames (-390)",
-    "spread": "FLA -1.5",
-    "leadML": -390,
+    "matchFormatted": "\ud83d\udd34 LIVE | Chicago Blackhawks (-220) @ Calgary Flames (+168)",
+    "spread": "BLA -1.5",
+    "leadML": -220,
     "gap": 20
   },
   {
@@ -282,17 +290,17 @@
   {
     "timeframe": "weekly",
     "sport": "hockey",
-    "matchFormatted": "Pittsburgh Penguins (+115) @ Nashville Predators (-138)",
+    "matchFormatted": "Pittsburgh Penguins (+112) @ Nashville Predators (-134)",
     "spread": "PRE -1.5",
-    "leadML": -138,
+    "leadML": -134,
     "gap": 0
   },
   {
     "timeframe": "weekly",
     "sport": "hockey",
-    "matchFormatted": "Washington Capitals (+114) @ Boston Bruins (-135)",
+    "matchFormatted": "Washington Capitals (+120) @ Boston Bruins (-142)",
     "spread": "BRU -1.5",
-    "leadML": -135,
+    "leadML": -142,
     "gap": 0
   },
   {
@@ -394,9 +402,9 @@
   {
     "timeframe": "weekly",
     "sport": "hockey",
-    "matchFormatted": "Edmonton Oilers (-130) @ St Louis Blues (+110)",
+    "matchFormatted": "Edmonton Oilers (-125) @ St Louis Blues (+105)",
     "spread": "OIL -1.5",
-    "leadML": -130,
+    "leadML": -125,
     "gap": 24
   },
   {
