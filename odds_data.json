@@ -1,0 +1,554 @@
+[
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Arizona Cardinals (+890) @ Kansas City Chiefs (-1560)",
+    "spread": "CHI -15.5",
+    "leadML": -1560,
+    "gap": 34
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Baltimore Ravens (+126) @ Carolina Panthers (-149)",
+    "spread": "PAN -3.0",
+    "leadML": -149,
+    "gap": 22
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Miami Dolphins (+880) @ Buffalo Bills (-1540)",
+    "spread": "BIL -16.5",
+    "leadML": -1540,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New Orleans Saints (+455) @ Chicago Bears (-620)",
+    "spread": "BEA -11.5",
+    "leadML": -620,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Tennessee Titans (+285) @ Dallas Cowboys (-356)",
+    "spread": "COW -7.5",
+    "leadML": -356,
+    "gap": 35
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Tampa Bay Buccaneers (+185) @ Detroit Lions (-222)",
+    "spread": "LIO -4.5",
+    "leadML": -222,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Pittsburgh Steelers (-191) @ Philadelphia Eagles (+160)",
+    "spread": "STE -3.5",
+    "leadML": -191,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New York Jets (+144) @ Los Angeles Chargers (-171)",
+    "spread": "CHA -3.0",
+    "leadML": -171,
+    "gap": 18
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Las Vegas Raiders (+445) @ Denver Broncos (-597)",
+    "spread": "BRO -10.5",
+    "leadML": -597,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Jacksonville Jaguars (-256) @ New York Giants (+211)",
+    "spread": "JAG -6.0",
+    "leadML": -256,
+    "gap": 8
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Minnesota Vikings (+145) @ San Francisco 49ers (-172)",
+    "spread": "49E -3.5",
+    "leadML": -172,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Cincinnati Bengals (-304) @ Washington Commanders (+247)",
+    "spread": "BEN -6.0",
+    "leadML": -304,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Green Bay Packers (+133) @ Los Angeles Rams (-157)",
+    "spread": "RAM -3.0",
+    "leadML": -157,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Chicago Bears (-149) @ Detroit Lions (+126)",
+    "spread": "BEA -2.5",
+    "leadML": -149,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Philadelphia Eagles (+319) @ Dallas Cowboys (-404)",
+    "spread": "COW -8.5",
+    "leadML": -404,
+    "gap": 35
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Kansas City Chiefs (+135) @ Buffalo Bills (-161)",
+    "spread": "BIL -3.0",
+    "leadML": -161,
+    "gap": 34
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Denver Broncos (-132) @ Pittsburgh Steelers (+111)",
+    "spread": "BRO -2.5",
+    "leadML": -132,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Atlanta Falcons (+274) @ Minnesota Vikings (-341)",
+    "spread": "VIK -7.0",
+    "leadML": -341,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Baltimore Ravens (+218) @ Houston Texans (-265)",
+    "spread": "TEX -6.5",
+    "leadML": -265,
+    "gap": 22
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New Orleans Saints (+409) @ Cincinnati Bengals (-540)",
+    "spread": "BEN -10.0",
+    "leadML": -540,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New York Giants (-292) @ Indianapolis Colts (+238)",
+    "spread": "GIA -6.5",
+    "leadML": -292,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Tennessee Titans (+740) @ Jacksonville Jaguars (-1180)",
+    "spread": "JAG -14.5",
+    "leadML": -1180,
+    "gap": 8
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New York Jets (-163) @ Miami Dolphins (+137)",
+    "spread": "JET -3.0",
+    "leadML": -163,
+    "gap": 18
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "New England Patriots (+189) @ Los Angeles Chargers (-227)",
+    "spread": "CHA -4.5",
+    "leadML": -227,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Washington Commanders (-316) @ Arizona Cardinals (+256)",
+    "spread": "COM -6.5",
+    "leadML": -316,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Seattle Seahawks (+121) @ San Francisco 49ers (-143)",
+    "spread": "49E -2.5",
+    "leadML": -143,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Las Vegas Raiders (+165) @ Cleveland Browns (-197)",
+    "spread": "BRO -4.5",
+    "leadML": -197,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "football",
+    "matchFormatted": "Carolina Panthers (+115) @ Tampa Bay Buccaneers (-136)",
+    "spread": "BUC -2.5",
+    "leadML": -136,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "Portland Trail Blazers (+132) @ New York Knicks (-156)",
+    "spread": "KNI -2.5",
+    "leadML": -156,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "Los Angeles Clippers (+164) @ Dallas Mavericks (-196)",
+    "spread": "MAV -4.5",
+    "leadML": -196,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "Memphis Grizzlies (+190) @ Minnesota Timberwolves (-230)",
+    "spread": "TIM -5.5",
+    "leadML": -230,
+    "gap": 5
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "New Orleans Pelicans (+980) @ San Antonio Spurs (-1800)",
+    "spread": "SPU -18.5",
+    "leadML": -1800,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "basketball",
+    "matchFormatted": "Boston Celtics (-600) @ Sacramento Kings (+450)",
+    "spread": "CEL -11.5",
+    "leadML": -600,
+    "gap": 28
+  },
+  {
+    "timeframe": "live",
+    "sport": "hockey",
+    "matchFormatted": "\ud83d\udd34 LIVE | Chicago Blackhawks (+280) @ Calgary Flames (-390)",
+    "spread": "FLA -1.5",
+    "leadML": -390,
+    "gap": 20
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Buffalo Sabres (+122) @ Florida Panthers (-146)",
+    "spread": "PAN -1.5",
+    "leadML": -146,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Pittsburgh Penguins (+115) @ Nashville Predators (-138)",
+    "spread": "PRE -1.5",
+    "leadML": -138,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Washington Capitals (+114) @ Boston Bruins (-135)",
+    "spread": "BRU -1.5",
+    "leadML": -135,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Columbus Blue Jackets (-102) @ Toronto Maple Leafs (-118)",
+    "spread": "LEA -1.5",
+    "leadML": -118,
+    "gap": 38
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "New York Islanders (-130) @ Detroit Red Wings (+110)",
+    "spread": "ISL -1.5",
+    "leadML": -130,
+    "gap": 17
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Los Angeles Kings (+154) @ Ottawa Senators (-185)",
+    "spread": "SEN -1.5",
+    "leadML": -185,
+    "gap": 2
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Philadelphia Flyers (+136) @ Montr\u00e9al Canadiens (-162)",
+    "spread": "CAN -1.5",
+    "leadML": -162,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "New Jersey Devils (-130) @ St Louis Blues (+110)",
+    "spread": "DEV -1.5",
+    "leadML": -130,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Vegas Golden Knights (-135) @ Winnipeg Jets (+114)",
+    "spread": "KNI -1.5",
+    "leadML": -135,
+    "gap": 19
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Anaheim Ducks (+140) @ Utah Mammoth (-166)",
+    "spread": "MAM -1.5",
+    "leadML": -166,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Minnesota Wild (-298) @ Vancouver Canucks (+240)",
+    "spread": "WIL -1.5",
+    "leadML": -298,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Seattle Kraken (-102) @ San Jose Sharks (-118)",
+    "spread": "SHA -1.5",
+    "leadML": -118,
+    "gap": 5
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Carolina Hurricanes (-148) @ New York Rangers (+124)",
+    "spread": "HUR -1.5",
+    "leadML": -148,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Buffalo Sabres (+170) @ Tampa Bay Lightning (-205)",
+    "spread": "LIG -1.5",
+    "leadML": -205,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Pittsburgh Penguins (+185) @ Dallas Stars (-225)",
+    "spread": "STA -1.5",
+    "leadML": -225,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Edmonton Oilers (-130) @ St Louis Blues (+110)",
+    "spread": "OIL -1.5",
+    "leadML": -130,
+    "gap": 24
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "hockey",
+    "matchFormatted": "Chicago Blackhawks (-108) @ Vancouver Canucks (-112)",
+    "spread": "CAN -1.5",
+    "leadML": -112,
+    "gap": 20
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Aston Villa (+140) @ Galatasaray (+165)",
+    "spread": "-",
+    "leadML": 140,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "LASK (+380) @ Bod\u00f8/Glimt (-175)",
+    "spread": "-",
+    "leadML": -175,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "AEK Athens (+750) @ Como (-300)",
+    "spread": "-",
+    "leadML": -300,
+    "gap": 10
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Borussia Dortmund (+700) @ Arsenal (-260)",
+    "spread": "-",
+    "leadML": -260,
+    "gap": 30
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Porto (+145) @ Feyenoord (+175)",
+    "spread": "-",
+    "leadML": 145,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Napoli (+900) @ Manchester City (-400)",
+    "spread": "-",
+    "leadML": -400,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "PSV Eindhoven (+1000) @ Real Madrid (-525)",
+    "spread": "-",
+    "leadML": -525,
+    "gap": 38
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "RC Lens (+475) @ RB Leipzig (-225)",
+    "spread": "-",
+    "leadML": -225,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Real Betis (-425) @ \u0160K Slovan Bratislava (+950)",
+    "spread": "-",
+    "leadML": -425,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Barcelona (-1400) @ Sabah FK (+1900)",
+    "spread": "-",
+    "leadML": -1400,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Villarreal (+120) @ Slavia Praha (+190)",
+    "spread": "-",
+    "leadML": 120,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "AS Roma (+550) @ Paris Saint Germain (-270)",
+    "spread": "-",
+    "leadML": -270,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Viking FK (+1800) @ Atl\u00e9tico Madrid (-1000)",
+    "spread": "-",
+    "leadML": -1000,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Bayern Munich (-165) @ Lille (+390)",
+    "spread": "-",
+    "leadML": -165,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Liverpool (-150) @ Club Brugge (+320)",
+    "spread": "-",
+    "leadML": -150,
+    "gap": 32
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Fenerbahce (+160) @ Shakhtar Donetsk (+160)",
+    "spread": "-",
+    "leadML": 160,
+    "gap": 6
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "VfB Stuttgart (+475) @ Inter Milan (-240)",
+    "spread": "-",
+    "leadML": -240,
+    "gap": 0
+  },
+  {
+    "timeframe": "weekly",
+    "sport": "soccer",
+    "matchFormatted": "Manchester United (+155) @ Sporting Lisbon (+155)",
+    "spread": "-",
+    "leadML": 155,
+    "gap": 0
+  }
+]
