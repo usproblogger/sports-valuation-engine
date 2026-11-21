@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Odds & Buzz Valuation Engine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background-color: #0b0f19;
+    }
+  </style>
+</head>
+<body>
+
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 940px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+  
+  <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2 style="margin: 0; color: #38bdf8; font-size: 20px;">Sports Odds & Buzz Valuation Engine</h2>
+    <p style="margin: 4px 0 0; color: #94a3b8; font-size: 13px;">Correlating point spreads, brand popularity gaps, favorite win probabilities, and expected returns.</p>
+  </div>
+
+  <!-- CONTROLS -->
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; background: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 20px; align-items: center;">
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Timeframe:</label>
+      <select id="app-time-select" style="background: #0f172a; border: 1px solid #334155; color: #38bdf8; font-weight: bold; padding: 6px 10px; border-radius: 6px;">
+        <option value="all">All Boards</option>
+        <option value="live">🔴 Live / In Action Now</option>
+        <option value="weekly">📅 Upcoming This Week</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Sport Category:</label>
+      <select id="app-sport-select" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px;">
+        <option value="all">All Sports</option>
+        <option value="football">Football (NFL / NCAA)</option>
+        <option value="basketball">Basketball (NBA)</option>
+        <option value="tennis">Tennis (ATP Paris)</option>
+        <option value="soccer">Soccer (UEFA CL)</option>
+        <option value="hockey">Hockey (NHL)</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Wager Stake ($):</label>
+      <input type="number" id="app-wager-input" value="100" min="1" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px; width: 85px;">
+    </div>
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Sort By:</label>
+      <select id="app-sort-select" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px;">
+        <option value="value">Highest Value Rating (Hype × Win% Advantage)</option>
+        <option value="gap">Widest Popularity Gap (0–100 scale)</option>
+        <option value="lead_roi">Highest Favorite Payout (ROI%)</option>
+      </select>
+    </div>
+    <div id="app-status-text" style="margin-left: auto; font-size: 12px; color: #38bdf8;">Valuation Active</div>
+  </div>
+
+  <!-- TABLE -->
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+      <thead>
+        <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
+          <th style="padding: 10px;">
+            <div>Game & Moneylines</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Away vs Home)</div>
+          </th>
+          <th style="padding: 10px; text-align: center;">
+            <div>Spread</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Line Margin)</div>
+          </th>
+          <th style="padding: 10px; text-align: center;">
+            <div>Popularity Gap</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(0–100 scale)</div>
+          </th>
+          <th style="padding: 10px; text-align: center;">
+            <div>Value Rating</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Hype × Win Prob)</div>
+          </th>
+          <th style="padding: 10px; text-align: right;">
+            <div>Favorite Payout (ROI%)</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Net profit on stake)</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="app-table-rows">
+        <tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">Loading data...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- METRIC EXPLANATION GUIDE -->
+  <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
+    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
+      <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
+      Lists the matchup and the exact straight-up moneyline for each side (+ for underdogs, - for favorites).
+    </div>
+    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
+      <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
+      The point, goal, puck, or game handicap assigned to level the contest (+ for dog cushion, - to cover).
+    </div>
+    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
+      <div style="color: #38bdf8; font-weight: bold; margin-bottom: 4px;">Popularity Gap</div>
+      The difference in brand media footprint and cultural hype between both teams on a 0–100 scale.
+    </div>
+    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
+      <div style="color: #fbbf24; font-weight: bold; margin-bottom: 4px;">Value Rating</div>
+      Composite edge score multiplying the <strong>Popularity Gap</strong> by the favorite's <strong>Win Probability</strong>.
+    </div>
+    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
+      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Favorite Payout (ROI%)</div>
+      The exact cash profit and return on investment earned when backing the favored lead team.
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var REMOTE_FEED_URL = "./odds_data.json";
+
+  var defaultDataset = [
+    { timeframe: "live", sport: "basketball", matchFormatted: "🔴 3Q 6:42 | Thunder (+118) @ Nuggets (-140)", spread: "DEN -3.5", leadML: -140, gap: 14 },
+    { timeframe: "live", sport: "basketball", matchFormatted: "🔴 4Q 2:15 | Raptors (+310) @ Kings (-410)", spread: "SAC -8.5", leadML: -410, gap: 19 },
+    { timeframe: "live", sport: "hockey", matchFormatted: "🔴 2nd Per | Red Wings (+162) @ Blackhawks (-190)", spread: "CHI -1.5", leadML: -190, gap: 26 },
+    { timeframe: "live", sport: "hockey", matchFormatted: "🔴 3rd Per | Blue Jackets (+145) @ Sharks (-170)", spread: "SJS -1.5", leadML: -170, gap: 11 },
+    { timeframe: "live", sport: "football", matchFormatted: "🔴 Final/OT | Kent State (+110) @ Bowling Green (-130)", spread: "BG -2.5", leadML: -130, gap: 9 },
+    { timeframe: "weekly", sport: "football", matchFormatted: "Colts (+202) @ Cowboys (-243)", spread: "DAL -6.5", leadML: -243, gap: 38 },
+    { timeframe: "weekly", sport: "football", matchFormatted: "Jaguars (+412) @ Ravens (-545)", spread: "BAL -10.5", leadML: -545, gap: 34 },
+    { timeframe: "weekly", sport: "football", matchFormatted: "Jets (+383) @ Chiefs (-500)", spread: "KC -9.5", leadML: -500, gap: 21 },
+    { timeframe: "weekly", sport: "basketball", matchFormatted: "Hornets (+360) @ Celtics (-480)", spread: "BOS -11.5", leadML: -480, gap: 42 },
+    { timeframe: "weekly", sport: "basketball", matchFormatted: "Grizzlies (+140) @ Lakers (-165)", spread: "LAL -3.5", leadML: -165, gap: 35 },
+    { timeframe: "weekly", sport: "tennis", matchFormatted: "Michelsen (+418) vs. Alcaraz (-555)", spread: "ALC -5.5", leadML: -555, gap: 45 },
+    { timeframe: "weekly", sport: "soccer", matchFormatted: "AEK Athens (+1250) vs. Real Madrid (-520)", spread: "RMA -2.5", leadML: -520, gap: 48 },
+    { timeframe: "weekly", sport: "hockey", matchFormatted: "Sharks (+225) @ Golden Knights (-275)", spread: "VGK -1.5", leadML: -275, gap: 36 }
+  ];
+
+  var activeData = defaultDataset.slice();
+
+  function calcProfit(ml, stake) {
+    var num = parseFloat(ml) || 0;
+    if (num > 0) return stake * (num / 100);
+    if (num < 0) return stake * (100 / Math.abs(num));
+    return 0;
+  }
+
+  function getWinProb(ml) {
+    var num = parseFloat(ml) || 0;
+    if (num < 0) return Math.abs(num) / (Math.abs(num) + 100);
+    if (num > 0) return 100 / (num + 100);
+    return 0.50;
+  }
+
+  function getValueRating(leadML, gap) {
+    return gap * getWinProb(leadML);
+  }
+
+  function drawTable() {
+    var tbody = document.getElementById("app-table-rows");
+    if (!tbody) return;
+
+    var stakeEl = document.getElementById("app-wager-input");
+    var sortEl = document.getElementById("app-sort-select");
+    var sportEl = document.getElementById("app-sport-select");
+    var timeEl = document.getElementById("app-time-select");
+
+    var stake = parseFloat(stakeEl ? stakeEl.value : 100) || 100;
+    var sortMode = sortEl ? sortEl.value : "value";
+    var sportMode = sportEl ? sportEl.value : "all";
+    var timeMode = timeEl ? timeEl.value : "all";
+
+    var items = activeData.filter(function(i) {
+      var matchSport = (sportMode === "all" || i.sport === sportMode);
+      var matchTime = (timeMode === "all" || i.timeframe === timeMode);
+      return matchSport && matchTime;
+    });
+
+    if (sortMode === "value") {
+      items.sort(function(a, b) { return getValueRating(b.leadML, b.gap) - getValueRating(a.leadML, a.gap); });
+    } else if (sortMode === "gap") {
+      items.sort(function(a, b) { return b.gap - a.gap; });
+    } else if (sortMode === "lead_roi") {
+      items.sort(function(a, b) { return b.leadML - a.leadML; });
+    }
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">No games found for this selection.</td></tr>';
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < items.length; i++) {
+      var g = items[i];
+      var profit = calcProfit(g.leadML, stake);
+      var roi = (profit / stake) * 100;
+      var ratingVal = getValueRating(g.leadML, g.gap).toFixed(1);
+
+      html += '<tr style="border-bottom: 1px solid #1e293b;">' +
+        '<td style="padding: 12px 10px; font-weight: 500; color: #f8fafc;">' + g.matchFormatted + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #93c5fd; font-family: monospace; font-size: 13px; font-weight: 600;">' + (g.spread || '-') + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + g.gap + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + profit.toFixed(2) +
+        ' <span style="font-size: 11px; color: #86efac;">(' + roi.toFixed(1) + '%)</span></td>' +
+        '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
+  function initApp() {
+    var statusEl = document.getElementById("app-status-text");
+
+    if (REMOTE_FEED_URL) {
+      if (statusEl) statusEl.innerText = "Syncing...";
+      fetch(REMOTE_FEED_URL + "?nocache=" + new Date().getTime())
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (Array.isArray(data) && data.length > 0) {
+            activeData = data;
+            if (statusEl) statusEl.innerText = "Live Synced";
+          } else {
+            if (statusEl) statusEl.innerText = "Default Feed";
+          }
+          drawTable();
+        })
+        .catch(function() {
+          if (statusEl) statusEl.innerText = "Default Feed";
+          drawTable();
+        });
+    } else {
+      if (statusEl) statusEl.innerText = "Active";
+      drawTable();
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", initApp);
+  setTimeout(initApp, 100);
+
+  var stakeInput = document.getElementById("app-wager-input");
+  if (stakeInput) stakeInput.addEventListener("input", drawTable);
+
+  var sortSelect = document.getElementById("app-sort-select");
+  if (sortSelect) sortSelect.addEventListener("change", drawTable);
+
+  var sportSelect = document.getElementById("app-sport-select");
+  if (sportSelect) sportSelect.addEventListener("change", drawTable);
+
+  var timeSelect = document.getElementById("app-time-select");
+  if (timeSelect) timeSelect.addEventListener("change", drawTable);
+})();
+</script>
+
+</body>
+</html>
