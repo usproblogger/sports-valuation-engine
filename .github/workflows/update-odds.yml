@@ -23,14 +23,14 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Fetch latest odds and spreads
+      - name: Fetch latest odds, spreads, and scores
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python fetch_odds.py
 
-      - name: Commit and push updated JSON
+      - name: Commit and push updated JSON files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add odds_data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update odds_data.json" && git push)
+          git add odds_data.json history_log.json backtest_summary.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update odds_data, history_log, and backtest_summary" && git push)
