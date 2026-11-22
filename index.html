@@ -10,6 +10,23 @@
       padding: 16px;
       background-color: #0b0f19;
     }
+    .team-link {
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(148, 163, 184, 0.45);
+      transition: opacity 0.15s ease, border-color 0.15s ease;
+    }
+    .team-link:hover {
+      opacity: 0.85;
+      border-bottom-style: solid;
+    }
+    .fav-team {
+      color: #f87171;
+      font-weight: 700;
+    }
+    .dog-team {
+      color: #f8fafc;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
@@ -64,7 +81,7 @@
         <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
           <th style="padding: 10px;">
             <div>Game & Moneylines</div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Away vs Home)</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.eu • Red = Favorite)</div>
           </th>
           <th style="padding: 10px; text-align: center;">
             <div>Spread</div>
@@ -94,7 +111,7 @@
   <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists the matchup and the exact straight-up moneyline for each side (+ for underdogs, - for favorites).
+      Lists game date, clickable teams to BetOnline.eu, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
@@ -120,23 +137,31 @@
 (function() {
   var REMOTE_FEED_URL = "./odds_data.json";
 
+  var SPORT_URLS = {
+    football: "https://www.betonline.eu/sportsbook/football/nfl",
+    basketball: "https://www.betonline.eu/sportsbook/basketball/nba",
+    hockey: "https://www.betonline.eu/sportsbook/hockey/nhl",
+    soccer: "https://www.betonline.eu/sportsbook/soccer",
+    tennis: "https://www.betonline.eu/sportsbook/tennis",
+    all: "https://www.betonline.eu/sportsbook"
+  };
+
   var defaultDataset = [
-    { timeframe: "live", sport: "basketball", matchFormatted: "🔴 3Q 6:42 | Thunder (+118) @ Nuggets (-140)", spread: "DEN -3.5", leadML: -140, gap: 14 },
-    { timeframe: "live", sport: "basketball", matchFormatted: "🔴 4Q 2:15 | Raptors (+310) @ Kings (-410)", spread: "SAC -8.5", leadML: -410, gap: 19 },
-    { timeframe: "live", sport: "hockey", matchFormatted: "🔴 2nd Per | Red Wings (+162) @ Blackhawks (-190)", spread: "CHI -1.5", leadML: -190, gap: 26 },
-    { timeframe: "live", sport: "hockey", matchFormatted: "🔴 3rd Per | Blue Jackets (+145) @ Sharks (-170)", spread: "SJS -1.5", leadML: -170, gap: 11 },
-    { timeframe: "live", sport: "football", matchFormatted: "🔴 Final/OT | Kent State (+110) @ Bowling Green (-130)", spread: "BG -2.5", leadML: -130, gap: 9 },
-    { timeframe: "weekly", sport: "football", matchFormatted: "Colts (+202) @ Cowboys (-243)", spread: "DAL -6.5", leadML: -243, gap: 38 },
-    { timeframe: "weekly", sport: "football", matchFormatted: "Jaguars (+412) @ Ravens (-545)", spread: "BAL -10.5", leadML: -545, gap: 34 },
-    { timeframe: "weekly", sport: "football", matchFormatted: "Jets (+383) @ Chiefs (-500)", spread: "KC -9.5", leadML: -500, gap: 21 },
-    { timeframe: "weekly", sport: "basketball", matchFormatted: "Hornets (+360) @ Celtics (-480)", spread: "BOS -11.5", leadML: -480, gap: 42 },
-    { timeframe: "weekly", sport: "basketball", matchFormatted: "Grizzlies (+140) @ Lakers (-165)", spread: "LAL -3.5", leadML: -165, gap: 35 },
-    { timeframe: "weekly", sport: "tennis", matchFormatted: "Michelsen (+418) vs. Alcaraz (-555)", spread: "ALC -5.5", leadML: -555, gap: 45 },
-    { timeframe: "weekly", sport: "soccer", matchFormatted: "AEK Athens (+1250) vs. Real Madrid (-520)", spread: "RMA -2.5", leadML: -520, gap: 48 },
-    { timeframe: "weekly", sport: "hockey", matchFormatted: "Sharks (+225) @ Golden Knights (-275)", spread: "VGK -1.5", leadML: -275, gap: 36 }
+    { timeframe: "live", sport: "basketball", commenceTime: "2026-11-21T23:30:00Z", awayTeam: "Oklahoma City Thunder", awayML: 118, homeTeam: "Denver Nuggets", homeML: -140, spread: "DEN -3.5", leadML: -140, gap: 14 },
+    { timeframe: "live", sport: "hockey", commenceTime: "2026-11-22T00:00:00Z", awayTeam: "Detroit Red Wings", awayML: 162, homeTeam: "Chicago Blackhawks", homeML: -190, spread: "CHI -1.5", leadML: -190, gap: 26 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Indianapolis Colts", awayML: 202, homeTeam: "Dallas Cowboys", homeML: -243, spread: "DAL -6.5", leadML: -243, gap: 38 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "New York Jets", awayML: 383, homeTeam: "Kansas City Chiefs", homeML: -500, spread: "KC -9.5", leadML: -500, gap: 21 },
+    { timeframe: "weekly", sport: "basketball", commenceTime: "2026-11-23T00:30:00Z", awayTeam: "Charlotte Hornets", awayML: 360, homeTeam: "Boston Celtics", homeML: -480, spread: "BOS -11.5", leadML: -480, gap: 42 },
+    { timeframe: "weekly", sport: "soccer", commenceTime: "2026-11-25T20:00:00Z", awayTeam: "AEK Athens", awayML: 1250, homeTeam: "Real Madrid", homeML: -520, spread: "RMA -2.5", leadML: -520, gap: 48 },
+    { timeframe: "weekly", sport: "hockey", commenceTime: "2026-11-24T03:00:00Z", awayTeam: "San Jose Sharks", awayML: 225, homeTeam: "Vegas Golden Knights", homeML: -275, spread: "VGK -1.5", leadML: -275, gap: 36 }
   ];
 
   var activeData = defaultDataset.slice();
+
+  function formatML(ml) {
+    var num = parseFloat(ml) || 0;
+    return num > 0 ? "+" + num : String(num);
+  }
 
   function calcProfit(ml, stake) {
     var num = parseFloat(ml) || 0;
@@ -154,6 +179,49 @@
 
   function getValueRating(leadML, gap) {
     return gap * getWinProb(leadML);
+  }
+
+  function formatGameDate(isoStr, isLive) {
+    if (!isoStr) return isLive ? "🔴 Live In-Play" : "Scheduled";
+    var d = new Date(isoStr);
+    if (isNaN(d.getTime())) return isLive ? "🔴 Live In-Play" : "Scheduled";
+    var datePart = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    var timePart = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    return (isLive ? "🔴 LIVE • " : "📅 ") + datePart + " · " + timePart;
+  }
+
+  function getBetOnlineUrl(g) {
+    if (g.timeframe === "live") {
+      return "https://www.betonline.eu/sportsbook/live-betting";
+    }
+    return SPORT_URLS[g.sport] || SPORT_URLS.all;
+  }
+
+  function renderMatchCell(g) {
+    var url = getBetOnlineUrl(g);
+    var isLive = g.timeframe === "live";
+    var dateBadge = '<div style="font-size: 11px; color: ' + (isLive ? '#f87171' : '#94a3b8') + '; margin-top: 3px; font-weight: ' + (isLive ? '600' : '400') + ';">' +
+                    formatGameDate(g.commenceTime, isLive) + '</div>';
+
+    // Structured fields from updated fetch_odds.py
+    if (g.awayTeam && g.homeTeam && g.awayML !== undefined && g.homeML !== undefined) {
+      var awayIsFav = parseFloat(g.awayML) < parseFloat(g.homeML);
+      var homeIsFav = parseFloat(g.homeML) < parseFloat(g.awayML);
+
+      var awayClass = awayIsFav ? "team-link fav-team" : "team-link dog-team";
+      var homeClass = homeIsFav ? "team-link fav-team" : "team-link dog-team";
+
+      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="Open ' + g.awayTeam + ' lines on BetOnline.eu">' +
+                     g.awayTeam + ' (' + formatML(g.awayML) + ')</a>';
+      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="Open ' + g.homeTeam + ' lines on BetOnline.eu">' +
+                     g.homeTeam + ' (' + formatML(g.homeML) + ')</a>';
+
+      return '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' + dateBadge;
+    }
+
+    // Legacy fallback if older JSON format is loaded
+    return '<div><a href="' + url + '" target="_blank" rel="noopener noreferrer" class="team-link dog-team">' +
+           (g.matchFormatted || "Matchup") + '</a></div>' + dateBadge;
   }
 
   function drawTable() {
@@ -197,7 +265,7 @@
       var ratingVal = getValueRating(g.leadML, g.gap).toFixed(1);
 
       html += '<tr style="border-bottom: 1px solid #1e293b;">' +
-        '<td style="padding: 12px 10px; font-weight: 500; color: #f8fafc;">' + g.matchFormatted + '</td>' +
+        '<td style="padding: 12px 10px;">' + renderMatchCell(g) + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #93c5fd; font-family: monospace; font-size: 13px; font-weight: 600;">' + (g.spread || '-') + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + g.gap + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal + '</td>' +
