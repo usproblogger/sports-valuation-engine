@@ -13,7 +13,6 @@ SPORTS = [
     {"key": "soccer_uefa_champs_league", "category": "soccer"},
 ]
 
-# Baseline popularity index (0-100) for major franchises to calculate Popularity Gap
 POPULARITY_INDEX = {
     "Dallas Cowboys": 95, "Kansas City Chiefs": 94, "Baltimore Ravens": 82,
     "New York Jets": 78, "Indianapolis Colts": 60, "Jacksonville Jaguars": 52,
@@ -104,6 +103,11 @@ def fetch_all_odds():
             output.append({
                 "timeframe": timeframe,
                 "sport": sport["category"],
+                "commenceTime": commence_str,
+                "awayTeam": away,
+                "awayML": away_ml,
+                "homeTeam": home,
+                "homeML": home_ml,
                 "matchFormatted": match_formatted,
                 "spread": spread_str,
                 "leadML": lead_ml,
