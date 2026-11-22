@@ -86,7 +86,7 @@
         <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
           <th style="padding: 10px;">
             <div>Game & Moneylines</div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.eu • Red = Favorite)</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.ag • Red = Favorite)</div>
           </th>
           <th class="sortable-th" data-sort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Spread margin">
             <div>Spread <span class="sort-indicator" id="ind-spread"></span></div>
@@ -116,7 +116,7 @@
   <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists game date, clickable teams to BetOnline.eu, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
+      Lists game date, clickable teams to BetOnline.ag, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
@@ -143,12 +143,12 @@
   var REMOTE_FEED_URL = "./odds_data.json";
 
   var SPORT_URLS = {
-    football: "https://www.betonline.eu/sportsbook/football/nfl",
-    basketball: "https://www.betonline.eu/sportsbook/basketball/nba",
-    hockey: "https://www.betonline.eu/sportsbook/hockey/nhl",
-    soccer: "https://www.betonline.eu/sportsbook/soccer",
-    tennis: "https://www.betonline.eu/sportsbook/tennis",
-    all: "https://www.betonline.eu/sportsbook"
+    football: "https://www.betonline.ag/sportsbook/football/nfl",
+    basketball: "https://www.betonline.ag/sportsbook/basketball/nba",
+    hockey: "https://www.betonline.ag/sportsbook/hockey/nhl",
+    soccer: "https://www.betonline.ag/sportsbook/soccer",
+    tennis: "https://www.betonline.ag/sportsbook/tennis",
+    all: "https://www.betonline.ag/sportsbook"
   };
 
   var currentSort = "value";
@@ -206,7 +206,7 @@
 
   function getBetOnlineUrl(g) {
     if (g.timeframe === "live") {
-      return "https://www.betonline.eu/sportsbook/live-betting";
+      return "https://www.betonline.ag/sportsbook/live-betting";
     }
     return SPORT_URLS[g.sport] || SPORT_URLS.all;
   }
@@ -252,9 +252,9 @@
       var awayClass = awayIsFav ? "team-link fav-team" : "team-link dog-team";
       var homeClass = homeIsFav ? "team-link fav-team" : "team-link dog-team";
 
-      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="Open ' + awayTeam + ' lines on BetOnline.eu">' +
+      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="Open ' + awayTeam + ' lines on BetOnline.ag">' +
                      awayTeam + ' (' + formatML(awayML) + ')</a>';
-      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="Open ' + homeTeam + ' lines on BetOnline.eu">' +
+      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="Open ' + homeTeam + ' lines on BetOnline.ag">' +
                      homeTeam + ' (' + formatML(homeML) + ')</a>';
 
       return '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' + dateBadge;
