@@ -1,405 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sports Odds & Buzz Valuation Engine</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Your Project — AI Intake Assistant</title>
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+    }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
     body {
-      margin: 0;
-      padding: 16px;
-      background-color: #0b0f19;
+      margin: 0; background: var(--bg); color: var(--text);
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; padding: 20px;
     }
-    .team-link {
-      text-decoration: none;
-      border-bottom: 1px dotted rgba(148, 163, 184, 0.45);
-      transition: opacity 0.15s ease, border-color 0.15s ease;
+    .container {
+      width: 100%; max-width: 600px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
-    .team-link:hover {
-      opacity: 0.85;
-      border-bottom-style: solid;
+    h1 { margin: 0 0 6px; font-size: 1.5rem; }
+    p.sub { margin: 0 0 18px; color: var(--muted); font-size: 0.94rem; line-height: 1.5; }
+    .voice-toggle {
+      display: inline-flex; align-items: center; gap: 6px; font-size: 0.84rem;
+      color: var(--muted); margin-bottom: 14px; cursor: pointer;
     }
-    .fav-team {
-      color: #f87171 !important;
-      font-weight: 700;
+    .messages {
+      height: 330px; overflow-y: auto; display: flex; flex-direction: column;
+      gap: 12px; padding: 12px; background: #0f172a;
+      border: 1px solid var(--border); border-radius: 12px; margin-bottom: 14px;
     }
-    .dog-team {
-      color: #f8fafc;
-      font-weight: 500;
+    .msg {
+      max-width: 85%; padding: 12px 15px; border-radius: 12px;
+      font-size: 0.94rem; line-height: 1.45;
     }
-    .sortable-th {
-      cursor: pointer;
-      user-select: none;
-      border-radius: 6px;
-      transition: background-color 0.15s ease, color 0.15s ease;
+    .msg.ai { background: #1e293b; border: 1px solid var(--border); align-self: flex-start; }
+    .msg.user { background: var(--accent); color: white; align-self: flex-end; }
+    .quick-options {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
     }
-    .sortable-th:hover {
-      background-color: rgba(56, 189, 248, 0.08);
-      color: #38bdf8;
+    .option-btn {
+      padding: 9px 14px; border-radius: 999px; border: 1px solid var(--accent);
+      background: rgba(59, 130, 246, 0.14); color: #93c5fd;
+      font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: 0.15s;
     }
-    .sortable-th.active-sort {
-      color: #38bdf8;
+    .option-btn:hover {
+      background: var(--accent); color: white;
     }
+    .input-row { display: flex; gap: 8px; }
+    input[type="text"] {
+      flex: 1; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border);
+      background: #0f172a; color: var(--text); font-size: 0.95rem; outline: none;
+    }
+    input[type="text"]:focus { border-color: var(--accent); }
+    button.action {
+      padding: 0 16px; border-radius: 10px; border: none; font-weight: 600;
+      cursor: pointer; background: var(--accent); color: white; transition: 0.15s;
+    }
+    button.action:hover { background: var(--accent-hover); }
+    button.mic { background: #334155; font-size: 1.1rem; }
+    button.mic.listening { background: #ef4444; animation: pulse 1.2s infinite; }
+    @keyframes pulse { 50% { opacity: 0.6; } }
   </style>
 </head>
 <body>
 
-<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 940px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
-  
-  <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px;">
-    <h2 style="margin: 0; color: #38bdf8; font-size: 20px;">Sports Odds & Buzz Valuation Engine</h2>
-    <p style="margin: 4px 0 0; color: #94a3b8; font-size: 13px;">Correlating point spreads, brand popularity gaps, favorite win probabilities, and expected returns.</p>
-  </div>
+<div class="container">
+  <h1>Tell Us About Your Project</h1>
+  <p class="sub">Answer 5 quick questions by tapping, typing, or using your microphone—your project brief goes straight to our developer.</p>
 
-  <!-- CONTROLS -->
-  <div style="display: flex; gap: 12px; flex-wrap: wrap; background: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 20px; align-items: center;">
-    <div>
-      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Timeframe:</label>
-      <select id="app-time-select" style="background: #0f172a; border: 1px solid #334155; color: #38bdf8; font-weight: bold; padding: 6px 10px; border-radius: 6px;">
-        <option value="all">All Boards</option>
-        <option value="live">🔴 Live / In Action Now</option>
-        <option value="weekly">📅 Upcoming This Week</option>
-      </select>
-    </div>
-    <div>
-      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Sport Category:</label>
-      <select id="app-sport-select" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px;">
-        <option value="all">All Sports</option>
-        <option value="football">Football (NFL / NCAA)</option>
-        <option value="basketball">Basketball (NBA)</option>
-        <option value="tennis">Tennis (ATP Paris)</option>
-        <option value="soccer">Soccer (UEFA CL)</option>
-        <option value="hockey">Hockey (NHL)</option>
-      </select>
-    </div>
-    <div>
-      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Wager Stake ($):</label>
-      <input type="number" id="app-wager-input" value="100" min="1" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px; width: 85px;">
-    </div>
-    <div id="app-status-text" style="margin-left: auto; font-size: 12px; color: #38bdf8;">Valuation Active</div>
-  </div>
+  <label class="voice-toggle">
+    <input type="checkbox" id="tts-toggle" /> Read AI questions aloud
+  </label>
 
-  <!-- TABLE -->
-  <div style="overflow-x: auto;">
-    <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
-      <thead>
-        <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
-          <th style="padding: 10px;">
-            <div>Game & Moneylines</div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.ag • Red = Favorite)</div>
-          </th>
-          <th class="sortable-th" data-sort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Spread margin">
-            <div>Spread <span class="sort-indicator" id="ind-spread"></span></div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Line Margin)</div>
-          </th>
-          <th class="sortable-th" data-sort="gap" style="padding: 10px; text-align: center;" title="Click to sort by Popularity Gap">
-            <div>Popularity Gap <span class="sort-indicator" id="ind-gap"></span></div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(0–100 scale)</div>
-          </th>
-          <th class="sortable-th active-sort" data-sort="value" style="padding: 10px; text-align: center;" title="Click to sort by Value Rating">
-            <div>Value Rating <span class="sort-indicator" id="ind-value">▼</span></div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Hype × Win Prob)</div>
-          </th>
-          <th class="sortable-th" data-sort="lead_roi" style="padding: 10px; text-align: right;" title="Click to sort by Favorite Payout (ROI%)">
-            <div>Favorite Payout (ROI%) <span class="sort-indicator" id="ind-lead_roi"></span></div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Net profit on stake)</div>
-          </th>
-        </tr>
-      </thead>
-      <tbody id="app-table-rows">
-        <tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">Loading data...</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <div class="messages" id="messages"></div>
 
-  <!-- METRIC EXPLANATION GUIDE -->
-  <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
-    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists game date, clickable teams to BetOnline.ag, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
-    </div>
-    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
-      The point, goal, puck, or game handicap assigned to level the contest (+ for dog cushion, - to cover). Click header to sort.
-    </div>
-    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #38bdf8; font-weight: bold; margin-bottom: 4px;">Popularity Gap</div>
-      The difference in brand media footprint and cultural hype between both teams on a 0–100 scale. Click header to sort.
-    </div>
-    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #fbbf24; font-weight: bold; margin-bottom: 4px;">Value Rating</div>
-      Composite edge score multiplying the <strong>Popularity Gap</strong> by the favorite's <strong>Win Probability</strong>. Click header to sort.
-    </div>
-    <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Favorite Payout (ROI%)</div>
-      The exact cash profit and return on investment earned when backing the favored lead team. Click header to sort.
-    </div>
-  </div>
+  <div class="quick-options" id="quick-options" style="display: none;"></div>
 
+  <div class="input-row" id="input-controls">
+    <button class="action mic" id="mic-btn" title="Speak answer" onclick="toggleMic()">🎤</button>
+    <input type="text" id="user-input" placeholder="Type or tap mic to speak..." onkeydown="if(event.key==='Enter') sendAnswer()" />
+    <button class="action" onclick="sendAnswer()">Send</button>
+  </div>
 </div>
 
 <script>
-(function() {
-  var REMOTE_FEED_URL = "./odds_data.json";
+  const WEB3FORMS_KEY = "7393fec3-3022-4eea-bdef-224842265d47";
 
-  var SPORT_URLS = {
-    football: "https://www.betonline.ag/sportsbook/football/nfl",
-    basketball: "https://www.betonline.ag/sportsbook/basketball/nba",
-    hockey: "https://www.betonline.ag/sportsbook/hockey/nhl",
-    soccer: "https://www.betonline.ag/sportsbook/soccer",
-    tennis: "https://www.betonline.ag/sportsbook/tennis",
-    all: "https://www.betonline.ag/sportsbook"
-  };
-
-  var currentSort = "value";
-  var sortAsc = false;
-
-  var defaultDataset = [
-    { timeframe: "live", sport: "basketball", commenceTime: "2026-11-21T23:30:00Z", awayTeam: "Oklahoma City Thunder", awayML: 118, homeTeam: "Denver Nuggets", homeML: -140, spread: "DEN -3.5", leadML: -140, gap: 14 },
-    { timeframe: "live", sport: "hockey", commenceTime: "2026-11-22T00:00:00Z", awayTeam: "Detroit Red Wings", awayML: 162, homeTeam: "Chicago Blackhawks", homeML: -190, spread: "CHI -1.5", leadML: -190, gap: 26 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Indianapolis Colts", awayML: 202, homeTeam: "Dallas Cowboys", homeML: -243, spread: "DAL -6.5", leadML: -243, gap: 38 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "New York Jets", awayML: 383, homeTeam: "Kansas City Chiefs", homeML: -500, spread: "KC -9.5", leadML: -500, gap: 21 },
-    { timeframe: "weekly", sport: "basketball", commenceTime: "2026-11-23T00:30:00Z", awayTeam: "Charlotte Hornets", awayML: 360, homeTeam: "Boston Celtics", homeML: -480, spread: "BOS -11.5", leadML: -480, gap: 42 },
-    { timeframe: "weekly", sport: "soccer", commenceTime: "2026-11-25T20:00:00Z", awayTeam: "AEK Athens", awayML: 1250, homeTeam: "Real Madrid", homeML: -520, spread: "RMA -2.5", leadML: -520, gap: 48 },
-    { timeframe: "weekly", sport: "hockey", commenceTime: "2026-11-24T03:00:00Z", awayTeam: "San Jose Sharks", awayML: 225, homeTeam: "Vegas Golden Knights", homeML: -275, spread: "VGK -1.5", leadML: -275, gap: 36 }
+  const STEPS = [
+    {
+      key: "objective",
+      question: "Hi there! In your own words, what are you hoping to build or get done on the web?"
+    },
+    {
+      key: "project_type",
+      question: "Got it. Is this a new project, an existing project, or something you need to troubleshoot?",
+      options: ["New Project", "Existing Project", "Troubleshoot"]
+    },
+    {
+      key: "constraints",
+      question: "Do you have a target launch timeline or rough budget range in mind?"
+    },
+    {
+      key: "materials",
+      question: "Do you already have a domain, branding, or example sites you like, or are we starting from scratch?"
+    },
+    {
+      key: "contact",
+      question: "Last step—what is your name and best email address so our developer can follow up with you?"
+    }
   ];
 
-  var activeData = defaultDataset.slice();
+  let currentStep = 0;
+  let answers = {};
 
-  function formatML(ml) {
-    var num = parseFloat(ml) || 0;
-    return num > 0 ? "+" + num : String(num);
-  }
-
-  function calcProfit(ml, stake) {
-    var num = parseFloat(ml) || 0;
-    if (num > 0) return stake * (num / 100);
-    if (num < 0) return stake * (100 / Math.abs(num));
-    return 0;
-  }
-
-  function getWinProb(ml) {
-    var num = parseFloat(ml) || 0;
-    if (num < 0) return Math.abs(num) / (Math.abs(num) + 100);
-    if (num > 0) return 100 / (num + 100);
-    return 0.50;
-  }
-
-  function getValueRating(leadML, gap) {
-    return gap * getWinProb(leadML);
-  }
-
-  function parseSpreadMagnitude(spreadStr) {
-    if (!spreadStr || spreadStr === "-") return -1;
-    var match = String(spreadStr).match(/([+-]?\d+(\.\d+)?)/);
-    return match ? Math.abs(parseFloat(match[1])) : -1;
-  }
-
-  function formatGameDate(isoStr, isLive) {
-    if (!isoStr) return isLive ? "🔴 Live In-Play" : "Scheduled";
-    var d = new Date(isoStr);
-    if (isNaN(d.getTime())) return isLive ? "🔴 Live In-Play" : "Scheduled";
-    var datePart = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    var timePart = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
-    return (isLive ? "🔴 LIVE • " : "📅 ") + datePart + " · " + timePart;
-  }
-
-  function getBetOnlineUrl(g) {
-    if (g.timeframe === "live") {
-      return "https://www.betonline.ag/sportsbook/live-betting";
+  function renderOptions(step) {
+    const optContainer = document.getElementById("quick-options");
+    optContainer.innerHTML = "";
+    if (step && step.options && step.options.length > 0) {
+      step.options.forEach(label => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option-btn";
+        btn.textContent = label;
+        btn.onclick = () => submitValue(label);
+        optContainer.appendChild(btn);
+      });
+      optContainer.style.display = "flex";
+    } else {
+      optContainer.style.display = "none";
     }
-    return SPORT_URLS[g.sport] || SPORT_URLS.all;
   }
 
-  function extractTeamsFromFormatted(str) {
-    if (!str) return null;
-    var cleaned = str.replace(/^🔴\s*LIVE\s*\|\s*/i, "");
-    var m = cleaned.match(/^(.*?)\s*\(([+-]?\d+)\)\s*(?:@|vs\.?)\s*(.*?)\s*\(([+-]?\d+)\)$/i);
-    if (!m) return null;
-    return {
-      awayTeam: m[1].trim(),
-      awayML: parseFloat(m[2]),
-      homeTeam: m[3].trim(),
-      homeML: parseFloat(m[4])
+  function addMessage(text, sender) {
+    const box = document.getElementById("messages");
+    const div = document.createElement("div");
+    div.className = `msg ${sender}`;
+    div.textContent = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+
+    if (sender === "ai" && document.getElementById("tts-toggle").checked && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+    }
+  }
+
+  async function submitValue(val) {
+    if (!val) return;
+    document.getElementById("quick-options").style.display = "none";
+
+    addMessage(val, "user");
+    answers[STEPS[currentStep].key] = val;
+    document.getElementById("user-input").value = "";
+    currentStep++;
+
+    if (currentStep < STEPS.length) {
+      setTimeout(() => {
+        addMessage(STEPS[currentStep].question, "ai");
+        renderOptions(STEPS[currentStep]);
+      }, 350);
+    } else {
+      document.getElementById("input-controls").style.display = "none";
+      addMessage("Thanks! Packaging your project brief and sending it to our developer now...", "ai");
+      await submitToEmail();
+    }
+  }
+
+  function sendAnswer() {
+    const input = document.getElementById("user-input");
+    submitValue(input.value.trim());
+  }
+
+  async function submitToEmail() {
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: `New Web Dev Inquiry [${answers.project_type || "Project"}] — ${answers.contact || "New Lead"}`,
+      from_name: "AI Project Intake",
+      "1_Core_Objective": answers.objective,
+      "2_Project_Type": answers.project_type,
+      "3_Timeline_and_Budget": answers.constraints,
+      "4_Existing_Materials": answers.materials,
+      "5_Client_Contact": answers.contact
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        addMessage("✅ All sent! Your project details are in our developer's inbox. Expect a reply soon.", "ai");
+      } else {
+        addMessage("⚠️ Something went wrong sending the form. Please verify your Web3Forms key.", "ai");
+      }
+    } catch (err) {
+      addMessage("⚠️ Network error while sending. Please refresh and try again.", "ai");
+    }
+  }
+
+  // Browser Speech-to-Text
+  let recognition = null;
+  let isListening = false;
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (SpeechRecognition) {
+    recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      submitValue(event.results[0][0].transcript);
+    };
+    recognition.onend = () => {
+      isListening = false;
+      document.getElementById("mic-btn").classList.remove("listening");
     };
   }
 
-  function renderMatchCell(g) {
-    var url = getBetOnlineUrl(g);
-    var isLive = g.timeframe === "live";
-    var dateBadge = '<div style="font-size: 11px; color: ' + (isLive ? '#f87171' : '#94a3b8') + '; margin-top: 3px; font-weight: ' + (isLive ? '600' : '400') + ';">' +
-                    formatGameDate(g.commenceTime, isLive) + '</div>';
-
-    var awayTeam = g.awayTeam;
-    var homeTeam = g.homeTeam;
-    var awayML = g.awayML;
-    var homeML = g.homeML;
-
-    if (!awayTeam || !homeTeam || awayML === undefined || homeML === undefined) {
-      var parsed = extractTeamsFromFormatted(g.matchFormatted);
-      if (parsed) {
-        awayTeam = parsed.awayTeam;
-        awayML = parsed.awayML;
-        homeTeam = parsed.homeTeam;
-        homeML = parsed.homeML;
-      }
-    }
-
-    if (awayTeam && homeTeam && awayML !== undefined && homeML !== undefined) {
-      var awayIsFav = parseFloat(awayML) < parseFloat(homeML);
-      var homeIsFav = parseFloat(homeML) < parseFloat(awayML);
-
-      var awayClass = awayIsFav ? "team-link fav-team" : "team-link dog-team";
-      var homeClass = homeIsFav ? "team-link fav-team" : "team-link dog-team";
-
-      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="Open ' + awayTeam + ' lines on BetOnline.ag">' +
-                     awayTeam + ' (' + formatML(awayML) + ')</a>';
-      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="Open ' + homeTeam + ' lines on BetOnline.ag">' +
-                     homeTeam + ' (' + formatML(homeML) + ')</a>';
-
-      return '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' + dateBadge;
-    }
-
-    return '<div><a href="' + url + '" target="_blank" rel="noopener noreferrer" class="team-link dog-team">' +
-           (g.matchFormatted || "Matchup") + '</a></div>' + dateBadge;
-  }
-
-  function updateSortHeaders() {
-    var cols = ["spread", "gap", "value", "lead_roi"];
-    for (var i = 0; i < cols.length; i++) {
-      var col = cols[i];
-      var ind = document.getElementById("ind-" + col);
-      var th = document.querySelector('.sortable-th[data-sort="' + col + '"]');
-      if (col === currentSort) {
-        if (ind) ind.innerText = sortAsc ? "▲" : "▼";
-        if (th) th.classList.add("active-sort");
-      } else {
-        if (ind) ind.innerText = "";
-        if (th) th.classList.remove("active-sort");
-      }
-    }
-  }
-
-  function drawTable() {
-    var tbody = document.getElementById("app-table-rows");
-    if (!tbody) return;
-
-    var stakeEl = document.getElementById("app-wager-input");
-    var sportEl = document.getElementById("app-sport-select");
-    var timeEl = document.getElementById("app-time-select");
-
-    var stake = parseFloat(stakeEl ? stakeEl.value : 100) || 100;
-    var sportMode = sportEl ? sportEl.value : "all";
-    var timeMode = timeEl ? timeEl.value : "all";
-
-    var items = activeData.filter(function(i) {
-      var matchSport = (sportMode === "all" || i.sport === sportMode);
-      var matchTime = (timeMode === "all" || i.timeframe === timeMode);
-      return matchSport && matchTime;
-    });
-
-    var dir = sortAsc ? 1 : -1;
-
-    items.sort(function(a, b) {
-      var valA, valB;
-      if (currentSort === "value") {
-        valA = getValueRating(a.leadML, a.gap);
-        valB = getValueRating(b.leadML, b.gap);
-      } else if (currentSort === "gap") {
-        valA = a.gap;
-        valB = b.gap;
-      } else if (currentSort === "spread") {
-        valA = parseSpreadMagnitude(a.spread);
-        valB = parseSpreadMagnitude(b.spread);
-      } else if (currentSort === "lead_roi") {
-        valA = calcProfit(a.leadML, stake);
-        valB = calcProfit(b.leadML, stake);
-      } else {
-        valA = 0;
-        valB = 0;
-      }
-      return (valA - valB) * dir;
-    });
-
-    updateSortHeaders();
-
-    if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">No games found for this selection.</td></tr>';
+  function toggleMic() {
+    if (!recognition) {
+      alert("Voice input isn't supported in this browser—please type your answer instead.");
       return;
     }
-
-    var html = "";
-    for (var i = 0; i < items.length; i++) {
-      var g = items[i];
-      var profit = calcProfit(g.leadML, stake);
-      var roi = (profit / stake) * 100;
-      var ratingVal = getValueRating(g.leadML, g.gap).toFixed(1);
-
-      html += '<tr style="border-bottom: 1px solid #1e293b;">' +
-        '<td style="padding: 12px 10px;">' + renderMatchCell(g) + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #93c5fd; font-family: monospace; font-size: 13px; font-weight: 600;">' + (g.spread || '-') + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + g.gap + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal + '</td>' +
-        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + profit.toFixed(2) +
-        ' <span style="font-size: 11px; color: #86efac;">(' + roi.toFixed(1) + '%)</span></td>' +
-        '</tr>';
-    }
-    tbody.innerHTML = html;
-  }
-
-  function initApp() {
-    var statusEl = document.getElementById("app-status-text");
-
-    if (REMOTE_FEED_URL) {
-      if (statusEl) statusEl.innerText = "Syncing...";
-      fetch(REMOTE_FEED_URL + "?nocache=" + new Date().getTime())
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          if (Array.isArray(data) && data.length > 0) {
-            activeData = data;
-            if (statusEl) statusEl.innerText = "Live Synced (" + data.length + ")";
-          } else {
-            if (statusEl) statusEl.innerText = "Default Feed";
-          }
-          drawTable();
-        })
-        .catch(function() {
-          if (statusEl) statusEl.innerText = "Default Feed";
-          drawTable();
-        });
+    if (isListening) {
+      recognition.stop();
     } else {
-      if (statusEl) statusEl.innerText = "Active";
-      drawTable();
+      isListening = true;
+      document.getElementById("mic-btn").classList.add("listening");
+      recognition.start();
     }
   }
 
-  var sortableHeaders = document.querySelectorAll(".sortable-th");
-  for (var h = 0; h < sortableHeaders.length; h++) {
-    sortableHeaders[h].addEventListener("click", function() {
-      var clickedSort = this.getAttribute("data-sort");
-      if (currentSort === clickedSort) {
-        sortAsc = !sortAsc;
-      } else {
-        currentSort = clickedSort;
-        sortAsc = false;
-      }
-      drawTable();
-    });
-  }
-
-  window.addEventListener("DOMContentLoaded", initApp);
-  setTimeout(initApp, 100);
-
-  var stakeInput = document.getElementById("app-wager-input");
-  if (stakeInput) stakeInput.addEventListener("input", drawTable);
-
-  var sportSelect = document.getElementById("app-sport-select");
-  if (sportSelect) sportSelect.addEventListener("change", drawTable);
-
-  var timeSelect = document.getElementById("app-time-select");
-  if (timeSelect) timeSelect.addEventListener("change", drawTable);
-})();
+  // Start immediately on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    addMessage(STEPS[0].question, "ai");
+    renderOptions(STEPS[0]);
+    document.getElementById("user-input").focus();
+  });
 </script>
-
 </body>
 </html>
