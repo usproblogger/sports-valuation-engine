@@ -86,7 +86,7 @@
         <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
           <th style="padding: 10px;">
             <div>Game & Moneylines</div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Search BetOnline on Google • Red = Favorite)</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.eu • Red = Favorite)</div>
           </th>
           <th class="sortable-th" data-sort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Spread margin">
             <div>Spread <span class="sort-indicator" id="ind-spread"></span></div>
@@ -116,7 +116,7 @@
   <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists game date, Google search links for the BetOnline game page, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
+      Lists game date, clickable teams to BetOnline.eu, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
@@ -141,6 +141,15 @@
 <script>
 (function() {
   var REMOTE_FEED_URL = "./odds_data.json";
+
+  var SPORT_URLS = {
+    football: "https://www.betonline.eu/sportsbook/football/nfl",
+    basketball: "https://www.betonline.eu/sportsbook/basketball/nba",
+    hockey: "https://www.betonline.eu/sportsbook/hockey/nhl",
+    soccer: "https://www.betonline.eu/sportsbook/soccer",
+    tennis: "https://www.betonline.eu/sportsbook/tennis",
+    all: "https://www.betonline.eu/sportsbook"
+  };
 
   var currentSort = "value";
   var sortAsc = false;
@@ -182,197 +191,4 @@
 
   function parseSpreadMagnitude(spreadStr) {
     if (!spreadStr || spreadStr === "-") return -1;
-    var match = String(spreadStr).match(/([+-]?\d+(\.\d+)?)/);
-    return match ? Math.abs(parseFloat(match[1])) : -1;
-  }
-
-  function formatGameDate(isoStr, isLive) {
-    if (!isoStr) return isLive ? "🔴 Live In-Play" : "Scheduled";
-    var d = new Date(isoStr);
-    if (isNaN(d.getTime())) return isLive ? "🔴 Live In-Play" : "Scheduled";
-    var datePart = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    var timePart = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
-    return (isLive ? "🔴 LIVE • " : "📅 ") + datePart + " · " + timePart;
-  }
-
-  function getBetOnlineGoogleSearchUrl(g) {
-    var query;
-    if (g.awayTeam && g.homeTeam) {
-      query = "site:betonline.eu " + g.awayTeam + " vs " + g.homeTeam + " odds";
-    } else {
-      var cleanMatch = (g.matchFormatted || "sportsbook odds")
-        .replace(/🔴\s*LIVE\s*\|\s*/gi, "")
-        .replace(/\([+-]?\d+\)/g, "")
-        .replace(/@/g, "vs")
-        .trim();
-      query = "site:betonline.eu " + cleanMatch + " odds";
-    }
-    return "https://www.google.com/search?q=" + encodeURIComponent(query);
-  }
-
-  function renderMatchCell(g) {
-    var url = getBetOnlineGoogleSearchUrl(g);
-    var isLive = g.timeframe === "live";
-    var dateBadge = '<div style="font-size: 11px; color: ' + (isLive ? '#f87171' : '#94a3b8') + '; margin-top: 3px; font-weight: ' + (isLive ? '600' : '400') + ';">' +
-                    formatGameDate(g.commenceTime, isLive) + '</div>';
-
-    if (g.awayTeam && g.homeTeam && g.awayML !== undefined && g.homeML !== undefined) {
-      var awayIsFav = parseFloat(g.awayML) < parseFloat(g.homeML);
-      var homeIsFav = parseFloat(g.homeML) < parseFloat(g.awayML);
-
-      var awayClass = awayIsFav ? "team-link fav-team" : "team-link dog-team";
-      var homeClass = homeIsFav ? "team-link fav-team" : "team-link dog-team";
-
-      var tooltip = "Search Google for BetOnline.eu " + g.awayTeam + " vs " + g.homeTeam + " game page";
-
-      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="' + tooltip + '">' +
-                     g.awayTeam + ' (' + formatML(g.awayML) + ')</a>';
-      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="' + tooltip + '">' +
-                     g.homeTeam + ' (' + formatML(g.homeML) + ')</a>';
-
-      return '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' + dateBadge;
-    }
-
-    return '<div><a href="' + url + '" target="_blank" rel="noopener noreferrer" class="team-link dog-team">' +
-           (g.matchFormatted || "Matchup") + '</a></div>' + dateBadge;
-  }
-
-  function updateSortHeaders() {
-    var cols = ["spread", "gap", "value", "lead_roi"];
-    for (var i = 0; i < cols.length; i++) {
-      var col = cols[i];
-      var ind = document.getElementById("ind-" + col);
-      var th = document.querySelector('.sortable-th[data-sort="' + col + '"]');
-      if (col === currentSort) {
-        if (ind) ind.innerText = sortAsc ? "▲" : "▼";
-        if (th) th.classList.add("active-sort");
-      } else {
-        if (ind) ind.innerText = "";
-        if (th) th.classList.remove("active-sort");
-      }
-    }
-  }
-
-  function drawTable() {
-    var tbody = document.getElementById("app-table-rows");
-    if (!tbody) return;
-
-    var stakeEl = document.getElementById("app-wager-input");
-    var sportEl = document.getElementById("app-sport-select");
-    var timeEl = document.getElementById("app-time-select");
-
-    var stake = parseFloat(stakeEl ? stakeEl.value : 100) || 100;
-    var sportMode = sportEl ? sportEl.value : "all";
-    var timeMode = timeEl ? timeEl.value : "all";
-
-    var items = activeData.filter(function(i) {
-      var matchSport = (sportMode === "all" || i.sport === sportMode);
-      var matchTime = (timeMode === "all" || i.timeframe === timeMode);
-      return matchSport && matchTime;
-    });
-
-    var dir = sortAsc ? 1 : -1;
-
-    items.sort(function(a, b) {
-      var valA, valB;
-      if (currentSort === "value") {
-        valA = getValueRating(a.leadML, a.gap);
-        valB = getValueRating(b.leadML, b.gap);
-      } else if (currentSort === "gap") {
-        valA = a.gap;
-        valB = b.gap;
-      } else if (currentSort === "spread") {
-        valA = parseSpreadMagnitude(a.spread);
-        valB = parseSpreadMagnitude(b.spread);
-      } else if (currentSort === "lead_roi") {
-        valA = calcProfit(a.leadML, stake);
-        valB = calcProfit(b.leadML, stake);
-      } else {
-        valA = 0;
-        valB = 0;
-      }
-      return (valA - valB) * dir;
-    });
-
-    updateSortHeaders();
-
-    if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">No games found for this selection.</td></tr>';
-      return;
-    }
-
-    var html = "";
-    for (var i = 0; i < items.length; i++) {
-      var g = items[i];
-      var profit = calcProfit(g.leadML, stake);
-      var roi = (profit / stake) * 100;
-      var ratingVal = getValueRating(g.leadML, g.gap).toFixed(1);
-
-      html += '<tr style="border-bottom: 1px solid #1e293b;">' +
-        '<td style="padding: 12px 10px;">' + renderMatchCell(g) + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #93c5fd; font-family: monospace; font-size: 13px; font-weight: 600;">' + (g.spread || '-') + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + g.gap + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal + '</td>' +
-        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + profit.toFixed(2) +
-        ' <span style="font-size: 11px; color: #86efac;">(' + roi.toFixed(1) + '%)</span></td>' +
-        '</tr>';
-    }
-    tbody.innerHTML = html;
-  }
-
-  function initApp() {
-    var statusEl = document.getElementById("app-status-text");
-
-    if (REMOTE_FEED_URL) {
-      if (statusEl) statusEl.innerText = "Syncing...";
-      fetch(REMOTE_FEED_URL + "?nocache=" + new Date().getTime())
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          if (Array.isArray(data) && data.length > 0) {
-            activeData = data;
-            if (statusEl) statusEl.innerText = "Live Synced";
-          } else {
-            if (statusEl) statusEl.innerText = "Default Feed";
-          }
-          drawTable();
-        })
-        .catch(function() {
-          if (statusEl) statusEl.innerText = "Default Feed";
-          drawTable();
-        });
-    } else {
-      if (statusEl) statusEl.innerText = "Active";
-      drawTable();
-    }
-  }
-
-  var sortableHeaders = document.querySelectorAll(".sortable-th");
-  for (var h = 0; h < sortableHeaders.length; h++) {
-    sortableHeaders[h].addEventListener("click", function() {
-      var clickedSort = this.getAttribute("data-sort");
-      if (currentSort === clickedSort) {
-        sortAsc = !sortAsc;
-      } else {
-        currentSort = clickedSort;
-        sortAsc = false;
-      }
-      drawTable();
-    });
-  }
-
-  window.addEventListener("DOMContentLoaded", initApp);
-  setTimeout(initApp, 100);
-
-  var stakeInput = document.getElementById("app-wager-input");
-  if (stakeInput) stakeInput.addEventListener("input", drawTable);
-
-  var sportSelect = document.getElementById("app-sport-select");
-  if (sportSelect) sportSelect.addEventListener("change", drawTable);
-
-  var timeSelect = document.getElementById("app-time-select");
-  if (timeSelect) timeSelect.addEventListener("change", drawTable);
-})();
-</script>
-
-</body>
-</html>
+    var match = String
