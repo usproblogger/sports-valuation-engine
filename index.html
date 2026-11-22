@@ -86,7 +86,7 @@
         <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
           <th style="padding: 10px;">
             <div>Game & Moneylines</div>
-            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Click team for BetOnline.ag • Red = Favorite)</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Search BetOnline.ag on Google • Red = Favorite)</div>
           </th>
           <th class="sortable-th" data-sort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Spread margin">
             <div>Spread <span class="sort-indicator" id="ind-spread"></span></div>
@@ -116,7 +116,7 @@
   <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists game date, clickable teams to BetOnline.ag, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
+      Lists game date, Google search links for the BetOnline.ag matchup, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
@@ -142,23 +142,14 @@
 (function() {
   var REMOTE_FEED_URL = "./odds_data.json";
 
-  var SPORT_URLS = {
-    football: "https://www.betonline.ag/sportsbook/football/nfl",
-    basketball: "https://www.betonline.ag/sportsbook/basketball/nba",
-    hockey: "https://www.betonline.ag/sportsbook/hockey/nhl",
-    soccer: "https://www.betonline.ag/sportsbook/soccer",
-    tennis: "https://www.betonline.ag/sportsbook/tennis",
-    all: "https://www.betonline.ag/sportsbook"
-  };
-
   var currentSort = "value";
   var sortAsc = false;
 
   var defaultDataset = [
     { timeframe: "live", sport: "basketball", commenceTime: "2026-11-21T23:30:00Z", awayTeam: "Oklahoma City Thunder", awayML: 118, homeTeam: "Denver Nuggets", homeML: -140, spread: "DEN -3.5", leadML: -140, gap: 14 },
     { timeframe: "live", sport: "hockey", commenceTime: "2026-11-22T00:00:00Z", awayTeam: "Detroit Red Wings", awayML: 162, homeTeam: "Chicago Blackhawks", homeML: -190, spread: "CHI -1.5", leadML: -190, gap: 26 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Indianapolis Colts", awayML: 202, homeTeam: "Dallas Cowboys", homeML: -243, spread: "DAL -6.5", leadML: -243, gap: 38 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "New York Jets", awayML: 383, homeTeam: "Kansas City Chiefs", homeML: -500, spread: "KC -9.5", leadML: -500, gap: 21 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Minnesota Vikings", awayML: 145, homeTeam: "San Francisco 49ers", homeML: -172, spread: "49E -3.5", leadML: -172, gap: 22 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "Seattle Seahawks", awayML: 165, homeTeam: "San Francisco 49ers", homeML: -195, spread: "49E -4.5", leadML: -195, gap: 19 },
     { timeframe: "weekly", sport: "basketball", commenceTime: "2026-11-23T00:30:00Z", awayTeam: "Charlotte Hornets", awayML: 360, homeTeam: "Boston Celtics", homeML: -480, spread: "BOS -11.5", leadML: -480, gap: 42 },
     { timeframe: "weekly", sport: "soccer", commenceTime: "2026-11-25T20:00:00Z", awayTeam: "AEK Athens", awayML: 1250, homeTeam: "Real Madrid", homeML: -520, spread: "RMA -2.5", leadML: -520, gap: 48 },
     { timeframe: "weekly", sport: "hockey", commenceTime: "2026-11-24T03:00:00Z", awayTeam: "San Jose Sharks", awayML: 225, homeTeam: "Vegas Golden Knights", homeML: -275, spread: "VGK -1.5", leadML: -275, gap: 36 }
@@ -204,13 +195,6 @@
     return (isLive ? "🔴 LIVE • " : "📅 ") + datePart + " · " + timePart;
   }
 
-  function getBetOnlineUrl(g) {
-    if (g.timeframe === "live") {
-      return "https://www.betonline.ag/sportsbook/live-betting";
-    }
-    return SPORT_URLS[g.sport] || SPORT_URLS.all;
-  }
-
   function extractTeamsFromFormatted(str) {
     if (!str) return null;
     var cleaned = str.replace(/^🔴\s*LIVE\s*\|\s*/i, "");
@@ -224,8 +208,23 @@
     };
   }
 
+  function getGoogleBetOnlineUrl(awayTeam, homeTeam, fallbackStr) {
+    var query;
+    if (awayTeam && homeTeam) {
+      query = "betonline.ag " + awayTeam + " " + homeTeam;
+    } else {
+      var cleanMatch = (fallbackStr || "")
+        .replace(/^🔴\s*LIVE\s*\|\s*/i, "")
+        .replace(/\([+-]?\d+\)/g, "")
+        .replace(/\s+(?:@|vs\.?)\s+/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      query = "betonline.ag " + cleanMatch;
+    }
+    return "https://www.google.com/search?q=" + encodeURIComponent(query);
+  }
+
   function renderMatchCell(g) {
-    var url = getBetOnlineUrl(g);
     var isLive = g.timeframe === "live";
     var dateBadge = '<div style="font-size: 11px; color: ' + (isLive ? '#f87171' : '#94a3b8') + '; margin-top: 3px; font-weight: ' + (isLive ? '600' : '400') + ';">' +
                     formatGameDate(g.commenceTime, isLive) + '</div>';
@@ -245,6 +244,8 @@
       }
     }
 
+    var url = getGoogleBetOnlineUrl(awayTeam, homeTeam, g.matchFormatted);
+
     if (awayTeam && homeTeam && awayML !== undefined && homeML !== undefined) {
       var awayIsFav = parseFloat(awayML) < parseFloat(homeML);
       var homeIsFav = parseFloat(homeML) < parseFloat(awayML);
@@ -252,9 +253,11 @@
       var awayClass = awayIsFav ? "team-link fav-team" : "team-link dog-team";
       var homeClass = homeIsFav ? "team-link fav-team" : "team-link dog-team";
 
-      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="Open ' + awayTeam + ' lines on BetOnline.ag">' +
+      var tooltip = 'Search Google: "betonline.ag ' + awayTeam + ' ' + homeTeam + '"';
+
+      var awayHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + awayClass + '" title="' + tooltip + '">' +
                      awayTeam + ' (' + formatML(awayML) + ')</a>';
-      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="Open ' + homeTeam + ' lines on BetOnline.ag">' +
+      var homeHtml = '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="' + homeClass + '" title="' + tooltip + '">' +
                      homeTeam + ' (' + formatML(homeML) + ')</a>';
 
       return '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' + dateBadge;
