@@ -1,10 +1,10 @@
 {
-  "lastSyncUTC": "2026-11-22T22:40:00.041524+00:00",
-  "totalMemorizedGames": 47,
-  "totalGradedGames": 0,
-  "record": "0W - 0L",
-  "winRatePct": 0.0,
-  "flat100NetProfit": 0,
-  "highValue25PlusCount": 0,
-  "highValue25PlusProfit": 0
+  "lastSyncUTC": "2026-11-23T11:02:08.125183+00:00",
+  "totalMemorizedGames": 57,
+  "totalGradedGames": 23,
+  "record": "14W - 9L",
+  "winRatePct": 60.9,
+  "flat100NetProfit": -325.36,
+  "highValue25PlusCount": 2,
+  "highValue25PlusProfit": 36.73
 }
