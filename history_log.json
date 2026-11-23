@@ -268,11 +268,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Cincinnati Bengals",
-    "latestLeadML": -303,
+    "latestLeadML": -291,
     "latestSpread": "BEN -6.0",
-    "snapshots": 4
+    "snapshots": 5
   },
   "5b612899d6dcdf998107f2c6c6e49a58": {
     "id": "5b612899d6dcdf998107f2c6c6e49a58",
@@ -290,11 +290,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Los Angeles Rams",
-    "latestLeadML": -145,
-    "latestSpread": "RAM -3.0",
-    "snapshots": 4
+    "latestLeadML": -140,
+    "latestSpread": "RAM -2.5",
+    "snapshots": 5
   },
   "9b825e6518156008da499be041975fdd": {
     "id": "9b825e6518156008da499be041975fdd",
@@ -312,11 +312,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Chicago Bears",
     "latestLeadML": -147,
     "latestSpread": "BEA -2.5",
-    "snapshots": 4
+    "snapshots": 5
   },
   "ffaa06af56a7137d4b078c5c46c0b730": {
     "id": "ffaa06af56a7137d4b078c5c46c0b730",
@@ -334,11 +334,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Dallas Cowboys",
-    "latestLeadML": -449,
+    "latestLeadML": -482,
     "latestSpread": "COW -8.5",
-    "snapshots": 4
+    "snapshots": 5
   },
   "f36f518585aec40e8cb40e071c0844aa": {
     "id": "f36f518585aec40e8cb40e071c0844aa",
@@ -356,11 +356,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Buffalo Bills",
     "latestLeadML": -153,
     "latestSpread": "BIL -3.0",
-    "snapshots": 4
+    "snapshots": 5
   },
   "44a3bcf5bd002583ddef2207a92dd977": {
     "id": "44a3bcf5bd002583ddef2207a92dd977",
@@ -378,11 +378,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Denver Broncos",
-    "latestLeadML": -150,
+    "latestLeadML": -158,
     "latestSpread": "BRO -3.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "6a05021bdb6bab24b9bb381ffff10f0c": {
     "id": "6a05021bdb6bab24b9bb381ffff10f0c",
@@ -400,11 +400,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Minnesota Vikings",
-    "latestLeadML": -305,
+    "latestLeadML": -350,
     "latestSpread": "VIK -7.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "60d0c074801985c1062795362a24200e": {
     "id": "60d0c074801985c1062795362a24200e",
@@ -422,11 +422,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Houston Texans",
-    "latestLeadML": -279,
+    "latestLeadML": -308,
     "latestSpread": "TEX -6.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "f7d3ae7a8fe2438cef7d7d7bc67e31db": {
     "id": "f7d3ae7a8fe2438cef7d7d7bc67e31db",
@@ -444,11 +444,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Cincinnati Bengals",
-    "latestLeadML": -610,
+    "latestLeadML": -521,
     "latestSpread": "BEN -10.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "e9da808e36e1b7475698a57465ad4519": {
     "id": "e9da808e36e1b7475698a57465ad4519",
@@ -466,11 +466,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "New York Giants",
-    "latestLeadML": -318,
+    "latestLeadML": -322,
     "latestSpread": "GIA -6.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "81a8fee5b649a3ad5ad59e9528f2f376": {
     "id": "81a8fee5b649a3ad5ad59e9528f2f376",
@@ -488,11 +488,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Jacksonville Jaguars",
-    "latestLeadML": -1160,
+    "latestLeadML": -1220,
     "latestSpread": "JAG -14.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "5ea0e3ea5944b0ad5169f21c0787b331": {
     "id": "5ea0e3ea5944b0ad5169f21c0787b331",
@@ -510,11 +510,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "New York Jets",
-    "latestLeadML": -216,
+    "latestLeadML": -214,
     "latestSpread": "JET -3.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "c64ceba13ede564e8658693e3171e7f9": {
     "id": "c64ceba13ede564e8658693e3171e7f9",
@@ -532,11 +532,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Los Angeles Chargers",
-    "latestLeadML": -120,
+    "latestLeadML": -115,
     "latestSpread": "CHA -1.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "69a1dbe9de3d3212c3a7a55be5d204ab": {
     "id": "69a1dbe9de3d3212c3a7a55be5d204ab",
@@ -554,11 +554,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Washington Commanders",
     "latestLeadML": -352,
     "latestSpread": "COM -7.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "d68dced0b26726890b9c79bd19a5ffe5": {
     "id": "d68dced0b26726890b9c79bd19a5ffe5",
@@ -576,11 +576,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "San Francisco 49ers",
-    "latestLeadML": -169,
+    "latestLeadML": -183,
     "latestSpread": "49E -3.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "eaa993c3d62d6b5aeb6142cdd7862fd5": {
     "id": "eaa993c3d62d6b5aeb6142cdd7862fd5",
@@ -598,11 +598,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Cleveland Browns",
-    "latestLeadML": -222,
+    "latestLeadML": -221,
     "latestSpread": "BRO -4.5",
-    "snapshots": 3
+    "snapshots": 4
   },
   "2cdaecba7c0bff9b58a48a82e6ee17a7": {
     "id": "2cdaecba7c0bff9b58a48a82e6ee17a7",
@@ -620,11 +620,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Tampa Bay Buccaneers",
-    "latestLeadML": -157,
+    "latestLeadML": -155,
     "latestSpread": "BUC -3.0",
-    "snapshots": 3
+    "snapshots": 4
   },
   "222a2887819bb18d9b9572aef63d9b9e": {
     "id": "222a2887819bb18d9b9572aef63d9b9e",
@@ -918,11 +918,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "New Jersey Devils",
     "latestLeadML": -205,
     "latestSpread": "DEV -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "d127e1e72a1b9087aca692f3b5812532": {
     "id": "d127e1e72a1b9087aca692f3b5812532",
@@ -940,11 +940,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Ottawa Senators",
-    "latestLeadML": -230,
+    "latestLeadML": -258,
     "latestSpread": "SEN -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "806787e1b3ac73d09e3ae05f6d595865": {
     "id": "806787e1b3ac73d09e3ae05f6d595865",
@@ -962,11 +962,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Montr\u00e9al Canadiens",
-    "latestLeadML": -148,
+    "latestLeadML": -155,
     "latestSpread": "CAN -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "2d095386ab1321c89df24896d98495ee": {
     "id": "2d095386ab1321c89df24896d98495ee",
@@ -984,11 +984,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "New York Islanders",
     "latestLeadML": -162,
     "latestSpread": "ISL -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "e2efcb24b2d9689232946057b7e43d23": {
     "id": "e2efcb24b2d9689232946057b7e43d23",
@@ -1006,11 +1006,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Utah Mammoth",
-    "latestLeadML": -118,
+    "latestLeadML": -112,
     "latestSpread": "MAM -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "5074be0d13d60cc7fd82b06c4d8ddd31": {
     "id": "5074be0d13d60cc7fd82b06c4d8ddd31",
@@ -1028,11 +1028,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
-    "latestFavTeam": "Anaheim Ducks",
-    "latestLeadML": -112,
-    "latestSpread": "DUC +1.5",
-    "snapshots": 2
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
+    "latestFavTeam": "Seattle Kraken",
+    "latestLeadML": -118,
+    "latestSpread": "KRA -1.5",
+    "snapshots": 3
   },
   "43376208ec2111794696249fe50f5e84": {
     "id": "43376208ec2111794696249fe50f5e84",
@@ -1050,11 +1050,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Minnesota Wild",
-    "latestLeadML": -205,
+    "latestLeadML": -180,
     "latestSpread": "WIL -1.5",
-    "snapshots": 2
+    "snapshots": 3
   },
   "35ca45d3e548dc7207fd7f1696ab16f5": {
     "id": "35ca45d3e548dc7207fd7f1696ab16f5",
@@ -1072,11 +1072,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Memphis Grizzlies",
-    "latestLeadML": -164,
-    "latestSpread": "GRI -3.5",
-    "snapshots": 1
+    "latestLeadML": -152,
+    "latestSpread": "GRI -2.5",
+    "snapshots": 2
   },
   "ac6fb079d66ef35a2a77e22b5e94ef8d": {
     "id": "ac6fb079d66ef35a2a77e22b5e94ef8d",
@@ -1094,11 +1094,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Philadelphia 76ers",
-    "latestLeadML": -174,
-    "latestSpread": "76E -4.5",
-    "snapshots": 1
+    "latestLeadML": -118,
+    "latestSpread": "76E -1.5",
+    "snapshots": 2
   },
   "a72a1703f7a92b80768255d1d977a761": {
     "id": "a72a1703f7a92b80768255d1d977a761",
@@ -1116,11 +1116,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Minnesota Timberwolves",
-    "latestLeadML": -550,
-    "latestSpread": "TIM -12.5",
-    "snapshots": 1
+    "latestLeadML": -510,
+    "latestSpread": "TIM -11.5",
+    "snapshots": 2
   },
   "c9b6c9f77fd3628308dd34f50854a9c0": {
     "id": "c9b6c9f77fd3628308dd34f50854a9c0",
@@ -1138,11 +1138,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Oklahoma City Thunder",
-    "latestLeadML": -198,
+    "latestLeadML": -230,
     "latestSpread": "THU -5.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "a5184238c27b9c3bfca29220f9d5d14a": {
     "id": "a5184238c27b9c3bfca29220f9d5d14a",
@@ -1160,11 +1160,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Toronto Raptors",
-    "latestLeadML": -450,
+    "latestLeadML": -400,
     "latestSpread": "RAP -10.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "b8dfee1fca57ec870528a14c792ad73a": {
     "id": "b8dfee1fca57ec870528a14c792ad73a",
@@ -1182,11 +1182,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Cleveland Cavaliers",
-    "latestLeadML": -330,
+    "latestLeadML": -350,
     "latestSpread": "CAV -8.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "6caeb7cce7c8340fed588f3badd83fe0": {
     "id": "6caeb7cce7c8340fed588f3badd83fe0",
@@ -1204,11 +1204,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Phoenix Suns",
-    "latestLeadML": -158,
+    "latestLeadML": -154,
     "latestSpread": "SUN -2.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "db2311c331296d3328d71b842167dea4": {
     "id": "db2311c331296d3328d71b842167dea4",
@@ -1226,11 +1226,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Houston Rockets",
-    "latestLeadML": -590,
+    "latestLeadML": -600,
     "latestSpread": "ROC -12.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "3e9dc52cb055c0154839c4aec417955b": {
     "id": "3e9dc52cb055c0154839c4aec417955b",
@@ -1248,11 +1248,11 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "Los Angeles Lakers",
-    "latestLeadML": -820,
+    "latestLeadML": -720,
     "latestSpread": "LAK -13.5",
-    "snapshots": 1
+    "snapshots": 2
   },
   "17f31499f145cd9d3232819395d29448": {
     "id": "17f31499f145cd9d3232819395d29448",
@@ -1270,10 +1270,32 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
     "latestFavTeam": "San Antonio Spurs",
-    "latestLeadML": -480,
-    "latestSpread": "SPU -10.5",
+    "latestLeadML": -620,
+    "latestSpread": "SPU -12.5",
+    "snapshots": 2
+  },
+  "155fbdda10b6474a41649023baadfdf3": {
+    "id": "155fbdda10b6474a41649023baadfdf3",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-25T01:00:00Z",
+    "awayTeam": "Vegas Golden Knights",
+    "homeTeam": "Edmonton Oilers",
+    "firstSeenUTC": "2026-11-23T22:49:38.618148+00:00",
+    "openingFavTeam": "Vegas Golden Knights",
+    "openingLeadML": -115,
+    "openingSpread": "KNI -1.5",
+    "gap": 5,
+    "valueRating": 2.7,
+    "status": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "lastUpdatedUTC": "2026-11-23T22:49:38.618148+00:00",
+    "latestFavTeam": "Vegas Golden Knights",
+    "latestLeadML": -115,
+    "latestSpread": "KNI -1.5",
     "snapshots": 1
   }
 }
