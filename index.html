@@ -100,7 +100,7 @@
 </head>
 <body>
 
-<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1080px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
   
   <!-- HEADER & VIEW SWITCHER -->
   <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
@@ -237,19 +237,19 @@
             </th>
             <th class="hist-sortable-th" data-hsort="value" style="padding: 10px; text-align: center;" title="Click to sort by Value Rating">
               <div>Value Rating <span id="hind-value"></span></div>
-              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Gap × Win%)</div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Hype × Win Prob)</div>
+            </th>
+            <th class="hist-sortable-th" data-hsort="lead_roi" style="padding: 10px; text-align: right;" title="Click to sort by Favorite Payout (ROI%)">
+              <div>Favorite Payout (ROI%) <span id="hind-lead_roi"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Net profit on stake)</div>
             </th>
             <th style="padding: 10px; text-align: center;">
               <div>Final Score</div>
               <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Verified Result)</div>
             </th>
-            <th class="hist-sortable-th" data-hsort="roi" style="padding: 10px; text-align: right;" title="Click to sort by Return on Investment (ROI %)">
-              <div>ROI % <span id="hind-roi"></span></div>
-              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Return on Stake)</div>
-            </th>
-            <th class="hist-sortable-th" data-hsort="profit" style="padding: 10px; text-align: right;" title="Click to sort by Outcome & Net Profit">
+            <th class="hist-sortable-th" data-hsort="profit" style="padding: 10px; text-align: right;" title="Click to sort by Realized Outcome & Net">
               <div>Outcome & Net <span id="hind-profit"></span></div>
-              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Scaled to Stake)</div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Realized P&L)</div>
             </th>
           </tr>
         </thead>
@@ -279,8 +279,8 @@
       Composite edge score multiplying the <strong>Popularity Gap</strong> by the favorite's <strong>Win Probability</strong>. Click header to sort.
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Historical ROI & Grading</div>
-      Memorizes opening odds in <code>history_log.json</code>, tracks closing line movement, and grades final scores with realized ROI%.
+      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Favorite Payout (ROI%)</div>
+      Uses the identical odds payout formula across both boards (<code>+$profit (ROI%)</code>), paired with realized <strong>Outcome & Net</strong> grading in history.
     </div>
   </div>
 
@@ -336,6 +336,16 @@
 
   function getValueRating(leadML, gap) {
     return gap * getWinProb(leadML);
+  }
+
+  function getHistoryFavML(rec) {
+    if (rec.openingLeadML !== undefined && rec.openingLeadML !== null && !isNaN(parseFloat(rec.openingLeadML))) {
+      return parseFloat(rec.openingLeadML);
+    }
+    if (rec.latestLeadML !== undefined && rec.latestLeadML !== null && !isNaN(parseFloat(rec.latestLeadML))) {
+      return parseFloat(rec.latestLeadML);
+    }
+    return 0;
   }
 
   function parseSpreadMagnitude(spreadStr) {
@@ -509,8 +519,9 @@
   }
 
   function getScaledHistoryProfit(rec, stake) {
+    var favML = getHistoryFavML(rec);
     if (rec.status === "WIN") {
-      return calcProfit(rec.openingLeadML, stake);
+      return calcProfit(favML, stake);
     }
     if (rec.status === "LOSS") {
       return -stake;
@@ -518,21 +529,8 @@
     return 0;
   }
 
-  function getHistoryRoiSortVal(rec) {
-    if (rec.status === "WIN") {
-      return calcProfit(rec.openingLeadML, 100);
-    }
-    if (rec.status === "LOSS") {
-      return -100;
-    }
-    if (rec.status === "PUSH") {
-      return 0;
-    }
-    return calcProfit(rec.openingLeadML, 100) - 10000;
-  }
-
   function updateHistorySortHeaders() {
-    var cols = ["date", "gap", "value", "roi", "profit"];
+    var cols = ["date", "gap", "value", "lead_roi", "profit"];
     for (var i = 0; i < cols.length; i++) {
       var col = cols[i];
       var ind = document.getElementById("hind-" + col);
@@ -585,7 +583,13 @@
     var totalRisked = graded.length * stake;
     var roiPct = totalRisked > 0 ? ((totalNet / totalRisked) * 100).toFixed(1) : "0.0";
 
-    var highValGraded = graded.filter(function(r) { return (parseFloat(r.valueRating) || 0) >= 25; });
+    var highValGraded = graded.filter(function(r) {
+      var gapVal = parseFloat(r.gap) || 0;
+      var ratingVal = (r.valueRating !== undefined && r.valueRating !== null)
+        ? parseFloat(r.valueRating)
+        : getValueRating(getHistoryFavML(r), gapVal);
+      return ratingVal >= 25;
+    });
     var highValNet = 0;
     for (var k = 0; k < highValGraded.length; k++) {
       highValNet += getScaledHistoryProfit(highValGraded[k], stake);
@@ -617,14 +621,21 @@
 
     var dir = histSortAsc ? 1 : -1;
     items.sort(function(a, b) {
+      var favMLA = getHistoryFavML(a);
+      var favMLB = getHistoryFavML(b);
+      var gapA = parseFloat(a.gap) || 0;
+      var gapB = parseFloat(b.gap) || 0;
+
       if (histSort === "gap") {
-        return ((parseFloat(a.gap) || 0) - (parseFloat(b.gap) || 0)) * dir;
+        return (gapA - gapB) * dir;
       }
       if (histSort === "value") {
-        return ((parseFloat(a.valueRating) || 0) - (parseFloat(b.valueRating) || 0)) * dir;
+        var valA = (a.valueRating !== undefined && a.valueRating !== null) ? parseFloat(a.valueRating) : getValueRating(favMLA, gapA);
+        var valB = (b.valueRating !== undefined && b.valueRating !== null) ? parseFloat(b.valueRating) : getValueRating(favMLB, gapB);
+        return (valA - valB) * dir;
       }
-      if (histSort === "roi") {
-        return (getHistoryRoiSortVal(a) - getHistoryRoiSortVal(b)) * dir;
+      if (histSort === "lead_roi") {
+        return (calcProfit(favMLA, stake) - calcProfit(favMLB, stake)) * dir;
       }
       if (histSort === "profit") {
         return (getScaledHistoryProfit(a, stake) - getScaledHistoryProfit(b, stake)) * dir;
@@ -650,8 +661,9 @@
       var awayHtml = (away === fav) ? '<span class="fav-team">' + away + '</span>' : '<span class="dog-team">' + away + '</span>';
       var homeHtml = (home === fav) ? '<span class="fav-team">' + home + '</span>' : '<span class="dog-team">' + home + '</span>';
 
-      var openML = formatML(r.openingLeadML);
-      var closeML = formatML(r.latestLeadML !== undefined ? r.latestLeadML : r.openingLeadML);
+      var favML = getHistoryFavML(r);
+      var openML = formatML(r.openingLeadML !== undefined ? r.openingLeadML : favML);
+      var closeML = formatML(r.latestLeadML !== undefined ? r.latestLeadML : favML);
       var openSp = r.openingSpread || "-";
       var closeSp = r.latestSpread || openSp;
 
@@ -667,6 +679,13 @@
         '</div>';
 
       var gapVal = r.gap !== undefined && r.gap !== null ? Number(r.gap) : 0;
+      var ratingVal = (r.valueRating !== undefined && r.valueRating !== null)
+        ? Number(r.valueRating)
+        : getValueRating(favML, gapVal);
+
+      // Identical Favorite Payout (ROI%) formula as Live Valuation Board
+      var favProfit = calcProfit(favML, stake);
+      var favRoi = (favProfit / stake) * 100;
 
       var status = r.status || "PENDING";
       var badgeClass = "badge-pending";
@@ -675,25 +694,16 @@
       else if (status === "PUSH") badgeClass = "badge-push";
 
       var scaledNet = getScaledHistoryProfit(r, stake);
-      var estWin = calcProfit(r.openingLeadML, stake);
-      var estRoi = (estWin / stake) * 100;
-
-      var roiCellHtml = "";
       var netHtml = "";
 
       if (status === "WIN") {
-        var winRoi = (scaledNet / stake) * 100;
-        roiCellHtml = '<span style="color:#4ade80; font-weight:700;">+' + winRoi.toFixed(1) + '%</span>';
         netHtml = '<div style="color:#4ade80; font-weight:700; margin-top:4px;">+$' + scaledNet.toFixed(2) + '</div>';
       } else if (status === "LOSS") {
-        roiCellHtml = '<span style="color:#f87171; font-weight:700;">-100.0%</span>';
         netHtml = '<div style="color:#f87171; font-weight:700; margin-top:4px;">-$' + Math.abs(scaledNet).toFixed(2) + '</div>';
       } else if (status === "PUSH") {
-        roiCellHtml = '<span style="color:#fbbf24; font-weight:600;">0.0%</span>';
         netHtml = '<div style="color:#fbbf24; font-weight:600; margin-top:4px;">$0.00</div>';
       } else {
-        roiCellHtml = '<span style="color:#86efac; font-size:12px;">Est: +' + estRoi.toFixed(1) + '%</span>';
-        netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Est: +$' + estWin.toFixed(2) + '</div>';
+        netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Open</div>';
       }
 
       var snapsBadge = r.snapshots ? ' • ' + r.snapshots + ' checks' : '';
@@ -705,9 +715,11 @@
         '</td>' +
         '<td style="padding: 12px 10px; text-align: center;">' + lineMoveHtml + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + gapVal + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + (r.valueRating !== undefined ? Number(r.valueRating).toFixed(1) : '-') + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal.toFixed(1) + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + favProfit.toFixed(2) +
+          ' <span style="font-size: 11px; color: #86efac;">(' + favRoi.toFixed(1) + '%)</span>' +
+        '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #cbd5e1; font-size: 12px;">' + (r.finalScore || '<span style="color:#64748b;">Awaiting Final</span>') + '</td>' +
-        '<td style="padding: 12px 10px; text-align: right;">' + roiCellHtml + '</td>' +
         '<td style="padding: 12px 10px; text-align: right;">' +
           '<span class="' + badgeClass + '">' + status + '</span>' +
           netHtml +
