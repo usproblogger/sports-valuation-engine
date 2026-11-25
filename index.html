@@ -100,7 +100,7 @@
 </head>
 <body>
 
-<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 980px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1020px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
   
   <!-- HEADER & VIEW SWITCHER -->
   <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
@@ -218,7 +218,7 @@
       </div>
     </div>
 
-    <!-- HISTORY LEDGER TABLE -->
+    <!-- HISTORY LEDGER TABLE (6 COLUMNS INCLUDING POPULARITY GAP & VALUE RATING) -->
     <div style="overflow-x: auto;">
       <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
         <thead>
@@ -231,7 +231,11 @@
               <div>Opening → Closing Line</div>
               <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Moneyline & Spread Movement)</div>
             </th>
-            <th class="hist-sortable-th" data-hsort="value" style="padding: 10px; text-align: center;">
+            <th class="hist-sortable-th" data-hsort="gap" style="padding: 10px; text-align: center;" title="Click to sort by Popularity Gap">
+              <div>Popularity Gap <span id="hind-gap"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(0–100 scale)</div>
+            </th>
+            <th class="hist-sortable-th" data-hsort="value" style="padding: 10px; text-align: center;" title="Click to sort by Value Rating">
               <div>Value Rating <span id="hind-value"></span></div>
               <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Gap × Win%)</div>
             </th>
@@ -246,7 +250,7 @@
           </tr>
         </thead>
         <tbody id="history-table-rows">
-          <tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">Loading historical ledger...</td></tr>
+          <tr><td colspan="6" style="text-align: center; padding: 20px; color: #94a3b8;">Loading historical ledger...</td></tr>
         </tbody>
       </table>
     </div>
@@ -511,7 +515,7 @@
   }
 
   function updateHistorySortHeaders() {
-    var cols = ["date", "value", "profit"];
+    var cols = ["date", "gap", "value", "profit"];
     for (var i = 0; i < cols.length; i++) {
       var col = cols[i];
       var ind = document.getElementById("hind-" + col);
@@ -599,6 +603,9 @@
     // Sort history rows
     var dir = histSortAsc ? 1 : -1;
     items.sort(function(a, b) {
+      if (histSort === "gap") {
+        return ((parseFloat(a.gap) || 0) - (parseFloat(b.gap) || 0)) * dir;
+      }
       if (histSort === "value") {
         return ((parseFloat(a.valueRating) || 0) - (parseFloat(b.valueRating) || 0)) * dir;
       }
@@ -613,7 +620,7 @@
     updateHistorySortHeaders();
 
     if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet. Once <code>history_log.json</code> is populated by GitHub Actions, tracked games and graded scores appear here.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet. Once <code>history_log.json</code> is populated by GitHub Actions, tracked games and graded scores appear here.</td></tr>';
       return;
     }
 
@@ -662,6 +669,7 @@
       }
 
       var snapsBadge = r.snapshots ? ' • ' + r.snapshots + ' checks' : '';
+      var gapVal = parseFloat(r.gap) || 0;
 
       html += '<tr style="border-bottom: 1px solid #1e293b;">' +
         '<td style="padding: 12px 10px;">' +
@@ -669,8 +677,9 @@
           '<div style="font-size: 11px; color: #94a3b8; margin-top: 3px;">' + formatGameDate(r.commenceTime, false) + snapsBadge + '</div>' +
         '</td>' +
         '<td style="padding: 12px 10px; text-align: center;">' + lineMoveHtml + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold;">' + (r.valueRating !== undefined ? Number(r.valueRating).toFixed(1) : '-') +
-          '<div style="font-size:10px; color:#38bdf8; font-weight:normal;">Gap +' + (r.gap || 0) + '</div>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + gapVal + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' +
+          (r.valueRating !== undefined ? Number(r.valueRating).toFixed(1) : '-') +
         '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #cbd5e1; font-size: 12px;">' + (r.finalScore || '<span style="color:#64748b;">Awaiting Final</span>') + '</td>' +
         '<td style="padding: 12px 10px; text-align: right;">' +
