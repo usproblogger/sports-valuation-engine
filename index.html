@@ -100,7 +100,7 @@
 </head>
 <body>
 
-<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1020px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1080px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
   
   <!-- HEADER & VIEW SWITCHER -->
   <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
@@ -218,7 +218,7 @@
       </div>
     </div>
 
-    <!-- HISTORY LEDGER TABLE (6 COLUMNS INCLUDING POPULARITY GAP & VALUE RATING) -->
+    <!-- HISTORY LEDGER TABLE -->
     <div style="overflow-x: auto;">
       <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
         <thead>
@@ -243,14 +243,18 @@
               <div>Final Score</div>
               <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Verified Result)</div>
             </th>
-            <th class="hist-sortable-th" data-hsort="profit" style="padding: 10px; text-align: right;">
+            <th class="hist-sortable-th" data-hsort="roi" style="padding: 10px; text-align: right;" title="Click to sort by Return on Investment (ROI %)">
+              <div>ROI % <span id="hind-roi"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Return on Stake)</div>
+            </th>
+            <th class="hist-sortable-th" data-hsort="profit" style="padding: 10px; text-align: right;" title="Click to sort by Outcome & Net Profit">
               <div>Outcome & Net <span id="hind-profit"></span></div>
               <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Scaled to Stake)</div>
             </th>
           </tr>
         </thead>
         <tbody id="history-table-rows">
-          <tr><td colspan="6" style="text-align: center; padding: 20px; color: #94a3b8;">Loading historical ledger...</td></tr>
+          <tr><td colspan="7" style="text-align: center; padding: 20px; color: #94a3b8;">Loading historical ledger...</td></tr>
         </tbody>
       </table>
     </div>
@@ -275,8 +279,8 @@
       Composite edge score multiplying the <strong>Popularity Gap</strong> by the favorite's <strong>Win Probability</strong>. Click header to sort.
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Historical Grading</div>
-      Memorizes opening odds in <code>history_log.json</code>, tracks closing line movement, and grades final scores automatically.
+      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Historical ROI & Grading</div>
+      Memorizes opening odds in <code>history_log.json</code>, tracks closing line movement, and grades final scores with realized ROI%.
     </div>
   </div>
 
@@ -514,8 +518,21 @@
     return 0;
   }
 
+  function getHistoryRoiSortVal(rec) {
+    if (rec.status === "WIN") {
+      return calcProfit(rec.openingLeadML, 100);
+    }
+    if (rec.status === "LOSS") {
+      return -100;
+    }
+    if (rec.status === "PUSH") {
+      return 0;
+    }
+    return calcProfit(rec.openingLeadML, 100) - 10000;
+  }
+
   function updateHistorySortHeaders() {
-    var cols = ["date", "gap", "value", "profit"];
+    var cols = ["date", "gap", "value", "roi", "profit"];
     for (var i = 0; i < cols.length; i++) {
       var col = cols[i];
       var ind = document.getElementById("hind-" + col);
@@ -542,7 +559,6 @@
     var sportMode = sportEl ? sportEl.value : "all";
     var outcomeMode = outcomeEl ? outcomeEl.value : "all";
 
-    // Filter records
     var items = historyRecords.filter(function(r) {
       var matchSport = (sportMode === "all" || r.sport === sportMode);
       var matchOutcome = true;
@@ -554,7 +570,6 @@
       return matchSport && matchOutcome;
     });
 
-    // Compute dynamic KPIs across filtered sport (all outcomes for overall record)
     var sportScoped = historyRecords.filter(function(r) {
       return sportMode === "all" || r.sport === sportMode;
     });
@@ -600,7 +615,6 @@
     }
     if (kpiHighValSubEl) kpiHighValSubEl.innerText = highValGraded.length + " graded picks rated ≥ 25";
 
-    // Sort history rows
     var dir = histSortAsc ? 1 : -1;
     items.sort(function(a, b) {
       if (histSort === "gap") {
@@ -608,6 +622,9 @@
       }
       if (histSort === "value") {
         return ((parseFloat(a.valueRating) || 0) - (parseFloat(b.valueRating) || 0)) * dir;
+      }
+      if (histSort === "roi") {
+        return (getHistoryRoiSortVal(a) - getHistoryRoiSortVal(b)) * dir;
       }
       if (histSort === "profit") {
         return (getScaledHistoryProfit(a, stake) - getScaledHistoryProfit(b, stake)) * dir;
@@ -620,7 +637,7 @@
     updateHistorySortHeaders();
 
     if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet. Once <code>history_log.json</code> is populated by GitHub Actions, tracked games and graded scores appear here.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet. Once <code>history_log.json</code> is populated by GitHub Actions, tracked games and graded scores appear here.</td></tr>';
       return;
     }
 
@@ -649,6 +666,8 @@
           'Spd: ' + openSp + ' → <span style="color:' + (spMoved ? '#93c5fd' : '#94a3b8') + ';">' + closeSp + '</span>' +
         '</div>';
 
+      var gapVal = r.gap !== undefined && r.gap !== null ? Number(r.gap) : 0;
+
       var status = r.status || "PENDING";
       var badgeClass = "badge-pending";
       if (status === "WIN") badgeClass = "badge-win";
@@ -656,20 +675,28 @@
       else if (status === "PUSH") badgeClass = "badge-push";
 
       var scaledNet = getScaledHistoryProfit(r, stake);
+      var estWin = calcProfit(r.openingLeadML, stake);
+      var estRoi = (estWin / stake) * 100;
+
+      var roiCellHtml = "";
       var netHtml = "";
+
       if (status === "WIN") {
+        var winRoi = (scaledNet / stake) * 100;
+        roiCellHtml = '<span style="color:#4ade80; font-weight:700;">+' + winRoi.toFixed(1) + '%</span>';
         netHtml = '<div style="color:#4ade80; font-weight:700; margin-top:4px;">+$' + scaledNet.toFixed(2) + '</div>';
       } else if (status === "LOSS") {
+        roiCellHtml = '<span style="color:#f87171; font-weight:700;">-100.0%</span>';
         netHtml = '<div style="color:#f87171; font-weight:700; margin-top:4px;">-$' + Math.abs(scaledNet).toFixed(2) + '</div>';
       } else if (status === "PUSH") {
+        roiCellHtml = '<span style="color:#fbbf24; font-weight:600;">0.0%</span>';
         netHtml = '<div style="color:#fbbf24; font-weight:600; margin-top:4px;">$0.00</div>';
       } else {
-        var estWin = calcProfit(r.openingLeadML, stake);
+        roiCellHtml = '<span style="color:#86efac; font-size:12px;">Est: +' + estRoi.toFixed(1) + '%</span>';
         netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Est: +$' + estWin.toFixed(2) + '</div>';
       }
 
       var snapsBadge = r.snapshots ? ' • ' + r.snapshots + ' checks' : '';
-      var gapVal = parseFloat(r.gap) || 0;
 
       html += '<tr style="border-bottom: 1px solid #1e293b;">' +
         '<td style="padding: 12px 10px;">' +
@@ -678,10 +705,9 @@
         '</td>' +
         '<td style="padding: 12px 10px; text-align: center;">' + lineMoveHtml + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + gapVal + '</td>' +
-        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' +
-          (r.valueRating !== undefined ? Number(r.valueRating).toFixed(1) : '-') +
-        '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + (r.valueRating !== undefined ? Number(r.valueRating).toFixed(1) : '-') + '</td>' +
         '<td style="padding: 12px 10px; text-align: center; color: #cbd5e1; font-size: 12px;">' + (r.finalScore || '<span style="color:#64748b;">Awaiting Final</span>') + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right;">' + roiCellHtml + '</td>' +
         '<td style="padding: 12px 10px; text-align: right;">' +
           '<span class="' + badgeClass + '">' + status + '</span>' +
           netHtml +
@@ -749,7 +775,6 @@
         });
     }
 
-    // Load memorized history ledger
     fetch(HISTORY_FEED_URL + nocache)
       .then(function(res) {
         if (!res.ok) throw new Error("No history file yet");
@@ -768,7 +793,6 @@
         if (syncStatusEl) syncStatusEl.innerText = "Waiting for 1st Run";
       });
 
-    // Load summary metadata
     fetch(SUMMARY_FEED_URL + nocache)
       .then(function(res) {
         if (!res.ok) throw new Error("No summary file yet");
@@ -785,7 +809,6 @@
       .catch(function() {});
   }
 
-  // Live table header sorting
   var sortableHeaders = document.querySelectorAll(".sortable-th");
   for (var h = 0; h < sortableHeaders.length; h++) {
     sortableHeaders[h].addEventListener("click", function() {
@@ -800,7 +823,6 @@
     });
   }
 
-  // History table header sorting
   var histHeaders = document.querySelectorAll(".hist-sortable-th");
   for (var hh = 0; hh < histHeaders.length; hh++) {
     histHeaders[hh].addEventListener("click", function() {
