@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historical Spreads (ATS) — Sports Odds & Buzz Valuation Engine</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background-color: #0b0f19;
+    }
+    .fav-team {
+      color: #f87171 !important;
+      font-weight: 700;
+    }
+    .dog-team {
+      color: #f8fafc;
+      font-weight: 500;
+    }
+    .ats-sortable-th {
+      cursor: pointer;
+      user-select: none;
+      border-radius: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .ats-sortable-th:hover {
+      background-color: rgba(56, 189, 248, 0.08);
+      color: #38bdf8;
+    }
+    .ats-sortable-th.active-sort {
+      color: #38bdf8;
+    }
+    .nav-tab-link {
+      display: inline-block;
+      text-decoration: none;
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #94a3b8;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .nav-tab-link:hover {
+      border-color: #38bdf8;
+      color: #f1f5f9;
+    }
+    .nav-tab-link.active-tab {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .badge-win {
+      background: rgba(74, 222, 128, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-loss {
+      background: rgba(248, 113, 113, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-pending {
+      background: rgba(148, 163, 184, 0.15);
+      color: #cbd5e1;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-push {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1120px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+  
+  <!-- HEADER & BROWSER TAB LINKS -->
+  <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div>
+      <h2 style="margin: 0; color: #38bdf8; font-size: 20px;">Historical Spreads (ATS) & Accuracy</h2>
+      <p style="margin: 4px 0 0; color: #94a3b8; font-size: 13px;">Against-The-Spread cover grading, handicap line movement, popularity gaps, and spread ROI.</p>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <a href="./index.html" target="_blank" rel="noopener noreferrer" class="nav-tab-link">📊 Live & ML Board ↗</a>
+      <a href="./spreads.html" class="nav-tab-link active-tab">📐 Historical Spreads (ATS)</a>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; background: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 20px; align-items: center;">
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">ATS Outcome Filter:</label>
+      <select id="app-outcome-select" style="background: #0f172a; border: 1px solid #334155; color: #38bdf8; font-weight: bold; padding: 6px 10px; border-radius: 6px;">
+        <option value="all">All Spread Games</option>
+        <option value="graded">Graded Only (Cover/Loss)</option>
+        <option value="WIN">✅ Covers Only (ATS Win)</option>
+        <option value="LOSS">❌ Misses Only (ATS Loss)</option>
+        <option value="PENDING">⏳ Pending / Open</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Sport Category:</label>
+      <select id="app-sport-select" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px;">
+        <option value="all">All Sports</option>
+        <option value="football">Football (NFL / NCAA)</option>
+        <option value="basketball">Basketball (NBA)</option>
+        <option value="hockey">Hockey (NHL)</option>
+      </select>
+    </div>
+    <div>
+      <label style="font-size: 12px; color: #94a3b8; display: block; margin-bottom: 4px;">Wager Stake ($):</label>
+      <input type="number" id="app-wager-input" value="100" min="1" style="background: #0f172a; border: 1px solid #334155; color: #fff; padding: 6px 10px; border-radius: 6px; width: 85px;">
+    </div>
+    <div id="ats-sync-badge" style="margin-left: auto; font-size: 12px; color: #38bdf8;">Syncing archive...</div>
+  </div>
+
+  <!-- 4-CARD ATS SUMMARY KPI BAR -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+    <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #93c5fd;">
+      <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">ATS Record & Cover%</div>
+      <div id="ats-kpi-record" style="font-size: 20px; font-weight: 700; color: #f8fafc; margin-top: 4px;">0W - 0L (0.0%)</div>
+      <div id="ats-kpi-memorized" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">0 games tracked with spreads</div>
+    </div>
+    <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #4ade80;">
+      <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">ATS Net Profit & ROI</div>
+      <div id="ats-kpi-profit" style="font-size: 20px; font-weight: 700; color: #4ade80; margin-top: 4px;">+$0.00 (0.0%)</div>
+      <div id="ats-kpi-stake-note" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Based on $100 flat stake</div>
+    </div>
+    <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+      <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">High Value (25+) ATS</div>
+      <div id="ats-kpi-highval" style="font-size: 20px; font-weight: 700; color: #fbbf24; margin-top: 4px;">+$0.00</div>
+      <div id="ats-kpi-highval-sub" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">0 graded ATS picks rated ≥ 25</div>
+    </div>
+    <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+      <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Breakeven Benchmark</div>
+      <div style="font-size: 16px; font-weight: 700; color: #38bdf8; margin-top: 5px;">52.38% Cover Rate</div>
+      <div id="ats-kpi-pushes" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Standard -110 spread vig target</div>
+    </div>
+  </div>
+
+  <!-- ATS SPREADS LEDGER TABLE -->
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+      <thead>
+        <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
+          <th class="ats-sortable-th active-sort" data-asort="date" style="padding: 10px;">
+            <div>Matchup & Favored Side <span id="aind-date">▼</span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Game Date & Red = Favored Side)</div>
+          </th>
+          <th class="ats-sortable-th" data-asort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Opening Spread Margin">
+            <div>Opening → Closing Spread <span id="aind-spread"></span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Handicap Line Movement)</div>
+          </th>
+          <th class="ats-sortable-th" data-asort="gap" style="padding: 10px; text-align: center;" title="Click to sort by Popularity Gap">
+            <div>Popularity Gap <span id="aind-gap"></span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(0–100 scale)</div>
+          </th>
+          <th class="ats-sortable-th" data-asort="value" style="padding: 10px; text-align: center;" title="Click to sort by Value Rating">
+            <div>Value Rating <span id="aind-value"></span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Hype × Win Prob)</div>
+          </th>
+          <th class="ats-sortable-th" data-asort="sp_roi" style="padding: 10px; text-align: right;" title="Click to sort by Spread Payout (ROI%)">
+            <div>Spread Payout (ROI%) <span id="aind-sp_roi"></span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Payout at spread odds)</div>
+          </th>
+          <th style="padding: 10px; text-align: center;">
+            <div>Final Score & Margin</div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Actual vs. Spread Cover)</div>
+          </th>
+          <th class="ats-sortable-th" data-asort="profit" style="padding: 10px; text-align: right;" title="Click to sort by ATS Outcome & Net">
+            <div>ATS Outcome & Net <span id="aind-profit"></span></div>
+            <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Against The Spread P&L)</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="ats-table-rows">
+        <tr><td colspan="7" style="text-align: center; padding: 20px; color: #94a3b8;">Loading historical spreads...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var HISTORY_FEED_URL = "./history_log.json";
+  var atsSort = "date";
+  var atsSortAsc = false;
+  var historyRecords = [];
+
+  function formatML(ml) {
+    if (ml === null || ml === undefined || ml === "") return "-";
+    var num = parseFloat(ml);
+    if (isNaN(num)) return String(ml);
+    return num > 0 ? "+" + num : String(num);
+  }
+
+  function calcProfit(ml, stake) {
+    var num = parseFloat(ml) || 0;
+    if (num > 0) return stake * (num / 100);
+    if (num < 0) return stake * (100 / Math.abs(num));
+    return 0;
+  }
+
+  function getWinProb(ml) {
+    var num = parseFloat(ml) || 0;
+    if (num < 0) return Math.abs(num) / (Math.abs(num) + 100);
+    if (num > 0) return 100 / (num + 100);
+    return 0.50;
+  }
+
+  function getValueRating(leadML, gap) {
+    return gap * getWinProb(leadML);
+  }
+
+  function getHistoryFavML(rec) {
+    if (rec.openingLeadML !== undefined && rec.openingLeadML !== null && !isNaN(parseFloat(rec.openingLeadML))) {
+      return parseFloat(rec.openingLeadML);
+    }
+    if (rec.latestLeadML !== undefined && rec.latestLeadML !== null && !isNaN(parseFloat(rec.latestLeadML))) {
+      return parseFloat(rec.latestLeadML);
+    }
+    return 0;
+  }
+
+  function parseSpreadMagnitude(spreadStr) {
+    if (!spreadStr || spreadStr === "-") return -1;
+    var match = String(spreadStr).match(/([+-]?\d+(\.\d+)?)/);
+    return match ? Math.abs(parseFloat(match[1])) : -1;
+  }
+
+  function parseSpreadSignedPoint(rec) {
+    if (rec.openingSpreadPoint !== undefined && rec.openingSpreadPoint !== null && !isNaN(parseFloat(rec.openingSpreadPoint))) {
+      return parseFloat(rec.openingSpreadPoint);
+    }
+    var str = rec.openingSpread || rec.latestSpread || "";
+    var match = String(str).match(/([+-]?\d+(\.\d+)?)/);
+    return match ? parseFloat(match[1]) : null;
+  }
+
+  function getSpreadOdds(rec) {
+    if (rec.openingSpreadPrice !== undefined && rec.openingSpreadPrice !== null && !isNaN(parseFloat(rec.openingSpreadPrice))) {
+      return parseFloat(rec.openingSpreadPrice);
+    }
+    if (rec.latestSpreadPrice !== undefined && rec.latestSpreadPrice !== null && !isNaN(parseFloat(rec.latestSpreadPrice))) {
+      return parseFloat(rec.latestSpreadPrice);
+    }
+    return -110;
+  }
+
+  function evaluateAtsRecord(rec) {
+    var spPoint = parseSpreadSignedPoint(rec);
+    var spOdds = getSpreadOdds(rec);
+    var status = rec.atsStatus || "PENDING";
+    var coverMarginText = "";
+
+    if (rec.finalScore && spPoint !== null && rec.openingFavTeam) {
+      var m = String(rec.finalScore).match(/^(.*?)\s+(\d+)\s+-\s+(.*?)\s+(\d+)$/);
+      if (m) {
+        var awayPts = parseInt(m[2], 10);
+        var homePts = parseInt(m[4], 10);
+        var fav = rec.openingFavTeam;
+        var favPts = (fav === rec.homeTeam) ? homePts : awayPts;
+        var dogPts = (fav === rec.homeTeam) ? awayPts : homePts;
+        var adjDiff = (favPts + spPoint) - dogPts;
+
+        if (Math.abs(adjDiff) < 1e-9) {
+          status = "PUSH";
+          coverMarginText = "Exact push (0.0)";
+        } else if (adjDiff > 0) {
+          status = "WIN";
+          coverMarginText = "Covered by +" + adjDiff.toFixed(1).replace(/\.0$/, "");
+        } else {
+          status = "LOSS";
+          coverMarginText = "Missed by " + adjDiff.toFixed(1).replace(/\.0$/, "");
+        }
+      }
+    }
+
+    return {
+      status: status,
+      spPoint: spPoint,
+      spOdds: spOdds,
+      coverMarginText: coverMarginText
+    };
+  }
+
+  function getScaledAtsProfit(rec, stake) {
+    var evalObj = evaluateAtsRecord(rec);
+    if (evalObj.status === "WIN") return calcProfit(evalObj.spOdds, stake);
+    if (evalObj.status === "LOSS") return -stake;
+    return 0;
+  }
+
+  function formatGameDate(isoStr) {
+    if (!isoStr) return "Scheduled";
+    var d = new Date(isoStr);
+    if (isNaN(d.getTime())) return "Scheduled";
+    var datePart = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    var timePart = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+    return "📅 " + datePart + " · " + timePart;
+  }
+
+  function updateAtsSortHeaders() {
+    var cols = ["date", "spread", "gap", "value", "sp_roi", "profit"];
+    for (var i = 0; i < cols.length; i++) {
+      var col = cols[i];
+      var ind = document.getElementById("aind-" + col);
+      var th = document.querySelector('.ats-sortable-th[data-asort="' + col + '"]');
+      if (col === atsSort) {
+        if (ind) ind.innerText = atsSortAsc ? "▲" : "▼";
+        if (th) th.classList.add("active-sort");
+      } else {
+        if (ind) ind.innerText = "";
+        if (th) th.classList.remove("active-sort");
+      }
+    }
+  }
+
+  function drawAtsView() {
+    var tbody = document.getElementById("ats-table-rows");
+    if (!tbody) return;
+
+    var stake = parseFloat(document.getElementById("app-wager-input").value) || 100;
+    var sportMode = document.getElementById("app-sport-select").value;
+    var outcomeMode = document.getElementById("app-outcome-select").value;
+
+    var spreadTracked = historyRecords.filter(function(r) {
+      var hasSport = (sportMode === "all" || r.sport === sportMode);
+      return hasSport && parseSpreadSignedPoint(r) !== null;
+    });
+
+    var items = spreadTracked.filter(function(r) {
+      var evalObj = evaluateAtsRecord(r);
+      if (outcomeMode === "graded") {
+        return evalObj.status === "WIN" || evalObj.status === "LOSS" || evalObj.status === "PUSH";
+      }
+      if (outcomeMode !== "all") {
+        return evalObj.status === outcomeMode;
+      }
+      return true;
+    });
+
+    var atsGraded = [];
+    var atsPushes = 0;
+    for (var j = 0; j < spreadTracked.length; j++) {
+      var ev = evaluateAtsRecord(spreadTracked[j]);
+      if (ev.status === "WIN" || ev.status === "LOSS") atsGraded.push(spreadTracked[j]);
+      else if (ev.status === "PUSH") atsPushes++;
+    }
+
+    var atsWins = 0;
+    var atsLosses = 0;
+    var atsTotalNet = 0;
+    for (var m = 0; m < atsGraded.length; m++) {
+      var evG = evaluateAtsRecord(atsGraded[m]);
+      if (evG.status === "WIN") atsWins++;
+      else if (evG.status === "LOSS") atsLosses++;
+      atsTotalNet += getScaledAtsProfit(atsGraded[m], stake);
+    }
+
+    var atsWinPct = atsGraded.length ? ((atsWins / atsGraded.length) * 100).toFixed(1) : "0.0";
+    var atsRisked = atsGraded.length * stake;
+    var atsRoiPct = atsRisked > 0 ? ((atsTotalNet / atsRisked) * 100).toFixed(1) : "0.0";
+
+    var highValAts = atsGraded.filter(function(r) {
+      var gapVal = parseFloat(r.gap) || 0;
+      var ratingVal = (r.valueRating !== undefined && r.valueRating !== null)
+        ? parseFloat(r.valueRating)
+        : getValueRating(getHistoryFavML(r), gapVal);
+      return ratingVal >= 25;
+    });
+    var highValAtsNet = 0;
+    for (var k = 0; k < highValAts.length; k++) {
+      highValAtsNet += getScaledAtsProfit(highValAts[k], stake);
+    }
+
+    document.getElementById("ats-kpi-record").innerText = atsWins + "W - " + atsLosses + "L (" + atsWinPct + "%)";
+    document.getElementById("ats-kpi-memorized").innerText = spreadTracked.length + " spread lines tracked (" + atsPushes + " pushes)";
+
+    var kpiProf = document.getElementById("ats-kpi-profit");
+    var sign = atsTotalNet >= 0 ? "+" : "-";
+    kpiProf.innerText = sign + "$" + Math.abs(atsTotalNet).toFixed(2) + " (" + (atsTotalNet >= 0 ? "+" : "") + atsRoiPct + "%)";
+    kpiProf.style.color = atsTotalNet >= 0 ? "#4ade80" : "#f87171";
+    document.getElementById("ats-kpi-stake-note").innerText = "Scaled to $" + stake.toFixed(0) + " flat stake";
+
+    var kpiHv = document.getElementById("ats-kpi-highval");
+    var hvSign = highValAtsNet >= 0 ? "+" : "-";
+    kpiHv.innerText = hvSign + "$" + Math.abs(highValAtsNet).toFixed(2);
+    kpiHv.style.color = highValAtsNet >= 0 ? "#fbbf24" : "#f87171";
+    document.getElementById("ats-kpi-highval-sub").innerText = highValAts.length + " graded ATS picks rated ≥ 25";
+    document.getElementById("ats-kpi-pushes").innerText = atsGraded.length + " graded • " + atsPushes + " pushes";
+
+    var dir = atsSortAsc ? 1 : -1;
+    items.sort(function(a, b) {
+      var favMLA = getHistoryFavML(a);
+      var favMLB = getHistoryFavML(b);
+      var gapA = parseFloat(a.gap) || 0;
+      var gapB = parseFloat(b.gap) || 0;
+
+      if (atsSort === "spread") return (parseSpreadMagnitude(a.openingSpread) - parseSpreadMagnitude(b.openingSpread)) * dir;
+      if (atsSort === "gap") return (gapA - gapB) * dir;
+      if (atsSort === "value") {
+        var valA = (a.valueRating !== undefined && a.valueRating !== null) ? parseFloat(a.valueRating) : getValueRating(favMLA, gapA);
+        var valB = (b.valueRating !== undefined && b.valueRating !== null) ? parseFloat(b.valueRating) : getValueRating(favMLB, gapB);
+        return (valA - valB) * dir;
+      }
+      if (atsSort === "sp_roi") return (calcProfit(getSpreadOdds(a), stake) - calcProfit(getSpreadOdds(b), stake)) * dir;
+      if (atsSort === "profit") return (getScaledAtsProfit(a, stake) - getScaledAtsProfit(b, stake)) * dir;
+      var tA = new Date(a.commenceTime || a.firstSeenUTC || 0).getTime();
+      var tB = new Date(b.commenceTime || b.firstSeenUTC || 0).getTime();
+      return (tA - tB) * dir;
+    });
+
+    updateAtsSortHeaders();
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: #94a3b8;">No historical spread records match this filter yet.</td></tr>';
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < items.length; i++) {
+      var r = items[i];
+      var away = r.awayTeam || "Away";
+      var home = r.homeTeam || "Home";
+      var fav = r.openingFavTeam || "";
+      var awayHtml = (away === fav) ? '<span class="fav-team">' + away + '</span>' : '<span class="dog-team">' + away + '</span>';
+      var homeHtml = (home === fav) ? '<span class="fav-team">' + home + '</span>' : '<span class="dog-team">' + home + '</span>';
+
+      var openSp = r.openingSpread || "-";
+      var closeSp = r.latestSpread || openSp;
+      var spMoved = (openSp !== closeSp);
+      var spOdds = getSpreadOdds(r);
+
+      var spreadMoveHtml =
+        '<div style="font-family: monospace; font-size: 12px; color: #f1f5f9;">' +
+          '<span style="color:#94a3b8;">' + openSp + '</span> → <span style="color:' + (spMoved ? '#38bdf8' : '#93c5fd') + '; font-weight:600;">' + closeSp + '</span>' +
+        '</div>' +
+        '<div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">Odds: ' + formatML(spOdds) + '</div>';
+
+      var gapVal = r.gap !== undefined && r.gap !== null ? Number(r.gap) : 0;
+      var favML = getHistoryFavML(r);
+      var ratingVal = (r.valueRating !== undefined && r.valueRating !== null)
+        ? Number(r.valueRating)
+        : getValueRating(favML, gapVal);
+
+      var spProfit = calcProfit(spOdds, stake);
+      var spRoi = (spProfit / stake) * 100;
+
+      var evalObj = evaluateAtsRecord(r);
+      var status = evalObj.status;
+      var badgeClass = "badge-pending";
+      if (status === "WIN") badgeClass = "badge-win";
+      else if (status === "LOSS") badgeClass = "badge-loss";
+      else if (status === "PUSH") badgeClass = "badge-push";
+
+      var scaledNet = getScaledAtsProfit(r, stake);
+      var netHtml = "";
+      if (status === "WIN") netHtml = '<div style="color:#4ade80; font-weight:700; margin-top:4px;">+$' + scaledNet.toFixed(2) + '</div>';
+      else if (status === "LOSS") netHtml = '<div style="color:#f87171; font-weight:700; margin-top:4px;">-$' + Math.abs(scaledNet).toFixed(2) + '</div>';
+      else if (status === "PUSH") netHtml = '<div style="color:#fbbf24; font-weight:600; margin-top:4px;">$0.00</div>';
+      else netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Open</div>';
+
+      var scoreCellHtml = r.finalScore
+        ? '<div>' + r.finalScore + '</div>' +
+          (evalObj.coverMarginText ? '<div style="font-size:11px; color:' + (status === "WIN" ? "#86efac" : (status === "LOSS" ? "#fca5a5" : "#fde047")) + '; margin-top:2px;">' + evalObj.coverMarginText + '</div>' : '')
+        : '<span style="color:#64748b;">Awaiting Final</span>';
+
+      var snapsBadge = r.snapshots ? ' • ' + r.snapshots + ' checks' : '';
+
+      html += '<tr style="border-bottom: 1px solid #1e293b;">' +
+        '<td style="padding: 12px 10px;">' +
+          '<div>' + awayHtml + ' <span style="color:#64748b;">@</span> ' + homeHtml + '</div>' +
+          '<div style="font-size: 11px; color: #94a3b8; margin-top: 3px;">' + formatGameDate(r.commenceTime) + snapsBadge + '</div>' +
+        '</td>' +
+        '<td style="padding: 12px 10px; text-align: center;">' + spreadMoveHtml + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + gapVal + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + ratingVal.toFixed(1) + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + spProfit.toFixed(2) +
+          ' <span style="font-size: 11px; color: #86efac;">(' + spRoi.toFixed(1) + '%)</span>' +
+        '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #cbd5e1; font-size: 12px;">' + scoreCellHtml + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right;">' +
+          '<span class="' + badgeClass + '">' + status + '</span>' +
+          netHtml +
+        '</td>' +
+      '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
+  function initAtsPage() {
+    var nocache = "?nocache=" + new Date().getTime();
+    fetch(HISTORY_FEED_URL + nocache)
+      .then(function(res) { return res.json(); })
+      .then(function(histObj) {
+        if (histObj && typeof histObj === "object") {
+          historyRecords = Object.keys(histObj).map(function(k) { return histObj[k]; });
+          document.getElementById("ats-sync-badge").innerText = "Archive Active (" + historyRecords.length + ")";
+        }
+        drawAtsView();
+      })
+      .catch(function() {
+        document.getElementById("ats-sync-badge").innerText = "Waiting for history_log.json";
+      });
+  }
+
+  var atsHeaders = document.querySelectorAll(".ats-sortable-th");
+  for (var ah = 0; ah < atsHeaders.length; ah++) {
+    atsHeaders[ah].addEventListener("click", function() {
+      var clickedASort = this.getAttribute("data-asort");
+      if (atsSort === clickedASort) atsSortAsc = !atsSortAsc;
+      else { atsSort = clickedASort; atsSortAsc = false; }
+      drawAtsView();
+    });
+  }
+
+  document.getElementById("app-wager-input").addEventListener("input", drawAtsView);
+  document.getElementById("app-sport-select").addEventListener("change", drawAtsView);
+  document.getElementById("app-outcome-select").addEventListener("change", drawAtsView);
+
+  window.addEventListener("DOMContentLoaded", initAtsPage);
+  setTimeout(initAtsPage, 100);
+})();
+</script>
+
+</body>
+</html>
