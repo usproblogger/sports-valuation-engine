@@ -27,26 +27,36 @@
       color: #f8fafc;
       font-weight: 500;
     }
-    .sortable-th, .hist-sortable-th {
+    .sortable-th, .hist-sortable-th, .lsp-sortable-th {
       cursor: pointer;
       user-select: none;
       border-radius: 6px;
       transition: background-color 0.15s ease, color 0.15s ease;
     }
-    .sortable-th:hover, .hist-sortable-th:hover {
+    .sortable-th:hover, .hist-sortable-th:hover, .lsp-sortable-th:hover {
       background-color: rgba(56, 189, 248, 0.08);
       color: #38bdf8;
     }
-    .sortable-th.active-sort, .hist-sortable-th.active-sort {
+    .sortable-th.active-sort, .hist-sortable-th.active-sort, .lsp-sortable-th.active-sort {
       color: #38bdf8;
     }
+    .tab-group-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #64748b;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
     .view-tab-btn {
+      display: inline-block;
+      text-decoration: none;
       background: #0f172a;
       border: 1px solid #334155;
       color: #94a3b8;
-      padding: 8px 14px;
+      padding: 8px 13px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -100,17 +110,29 @@
 </head>
 <body>
 
-<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
+<div id="betting-app-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1140px; margin: 20px auto; padding: 20px; background: #121824; color: #f1f5f9; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); min-height: 250px;">
   
-  <!-- HEADER & VIEW SWITCHER -->
-  <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+  <!-- HEADER & 2x2 TAB SWITCHER (2 BETS TABS + 2 HISTORICAL RESULTS TABS) -->
+  <div style="border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px;">
     <div>
       <h2 style="margin: 0; color: #38bdf8; font-size: 20px;">Sports Odds & Buzz Valuation Engine</h2>
       <p style="margin: 4px 0 0; color: #94a3b8; font-size: 13px;">Correlating point spreads, brand popularity gaps, favorite win probabilities, and historical grading.</p>
     </div>
-    <div style="display: flex; gap: 8px;">
-      <button type="button" id="tab-btn-live" class="view-tab-btn active-tab">📊 Live Valuation Board</button>
-      <button type="button" id="tab-btn-history" class="view-tab-btn">📜 Historical Results & Accuracy</button>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end;">
+      <div>
+        <div class="tab-group-label">Live Bets</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button type="button" id="tab-btn-live" class="view-tab-btn active-tab">📊 Live Moneylines</button>
+          <button type="button" id="tab-btn-live-spreads" class="view-tab-btn">🎯 Live Spreads</button>
+        </div>
+      </div>
+      <div>
+        <div class="tab-group-label">Historical Results</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button type="button" id="tab-btn-history" class="view-tab-btn">📜 Historical Moneylines</button>
+          <a href="./spreads.html" target="_blank" rel="noopener noreferrer" class="view-tab-btn">📐 Historical Spreads (ATS) ↗</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -153,7 +175,7 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- VIEW 1: LIVE VALUATION BOARD                              -->
+  <!-- TAB 1: LIVE MONEYLINES (BETS)                             -->
   <!-- ========================================================= -->
   <div id="view-live-board">
     <div style="overflow-x: auto;">
@@ -190,19 +212,56 @@
   </div>
 
   <!-- ========================================================= -->
-  <!-- VIEW 2: HISTORICAL RESULTS & ACCURACY                     -->
+  <!-- TAB 2: LIVE SPREADS (BETS)                                -->
+  <!-- ========================================================= -->
+  <div id="view-live-spreads-board" style="display: none;">
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid #334155; color: #cbd5e1;">
+            <th style="padding: 10px;">
+              <div>Matchup & Favored Side</div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Search BetOnline.ag on Google • Red = Favored Side)</div>
+            </th>
+            <th class="lsp-sortable-th active-sort" data-lsort="spread" style="padding: 10px; text-align: center;" title="Click to sort by Handicap Margin">
+              <div>Point / Puck Spread <span id="lind-spread">▼</span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Favorite Handicap & Line Odds)</div>
+            </th>
+            <th class="lsp-sortable-th" data-lsort="gap" style="padding: 10px; text-align: center;" title="Click to sort by Popularity Gap">
+              <div>Popularity Gap <span id="lind-gap"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(0–100 scale)</div>
+            </th>
+            <th class="lsp-sortable-th" data-lsort="value" style="padding: 10px; text-align: center;" title="Click to sort by Spread Value Rating">
+              <div>Spread Value Rating <span id="lind-value"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Gap × Cover Implied Prob)</div>
+            </th>
+            <th class="lsp-sortable-th" data-lsort="sp_roi" style="padding: 10px; text-align: right;" title="Click to sort by Spread Cover Payout (ROI%)">
+              <div>Spread Cover Payout (ROI%) <span id="lind-sp_roi"></span></div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Net profit if favorite covers)</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="live-spreads-rows">
+          <tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">Loading live spreads...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- TAB 3: HISTORICAL MONEYLINES (RESULTS)                    -->
   <!-- ========================================================= -->
   <div id="view-history-board" style="display: none;">
     
     <!-- 4-CARD SUMMARY KPI BAR -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
       <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #38bdf8;">
-        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Graded Record & Win%</div>
+        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">ML Record & Win%</div>
         <div id="kpi-record" style="font-size: 20px; font-weight: 700; color: #f8fafc; margin-top: 4px;">0W - 0L (0.0%)</div>
         <div id="kpi-memorized" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">0 total games memorized</div>
       </div>
       <div style="background: #1e293b; padding: 14px; border-radius: 8px; border-left: 3px solid #4ade80;">
-        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Net Profit & ROI</div>
+        <div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">ML Net Profit & ROI</div>
         <div id="kpi-profit" style="font-size: 20px; font-weight: 700; color: #4ade80; margin-top: 4px;">+$0.00 (0.0%)</div>
         <div id="kpi-stake-note" style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Based on $100 flat stake</div>
       </div>
@@ -249,7 +308,7 @@
             </th>
             <th class="hist-sortable-th" data-hsort="profit" style="padding: 10px; text-align: right;" title="Click to sort by Realized Outcome & Net">
               <div>Outcome & Net <span id="hind-profit"></span></div>
-              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Realized P&L)</div>
+              <div style="font-size: 11px; color: #94a3b8; font-weight: normal;">(Realized ML P&L)</div>
             </th>
           </tr>
         </thead>
@@ -263,12 +322,12 @@
   <!-- METRIC EXPLANATION GUIDE -->
   <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #334155; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; font-size: 12px; color: #94a3b8; line-height: 1.5;">
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Game & Moneylines</div>
-      Lists game date, Google search links for the BetOnline.ag matchup, and straight-up odds (<span style="color:#f87171; font-weight:bold;">red</span> highlights the leading favorite).
+      <div style="color: #f1f5f9; font-weight: bold; margin-bottom: 4px;">Live Bets (ML & Spreads)</div>
+      Use <strong>Live Moneylines</strong> and <strong>Live Spreads</strong> to evaluate active matchups, handicap lines, and cover ROI before placing wagers.
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Spread</div>
-      The point, goal, puck, or game handicap assigned to level the contest (+ for dog cushion, - to cover). Click header to sort.
+      <div style="color: #cbd5e1; font-weight: bold; margin-bottom: 4px;">Historical Results (ML & ATS)</div>
+      Use <strong>Historical Moneylines</strong> and <strong>Historical Spreads (ATS)</strong> to track verified scores, line movement, and realized P&L.
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
       <div style="color: #38bdf8; font-weight: bold; margin-bottom: 4px;">Popularity Gap</div>
@@ -279,8 +338,8 @@
       Composite edge score multiplying the <strong>Popularity Gap</strong> by the favorite's <strong>Win Probability</strong>. Click header to sort.
     </div>
     <div style="background: #1e293b; padding: 12px; border-radius: 8px;">
-      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Favorite Payout (ROI%)</div>
-      Uses the identical odds payout formula across both boards (<code>+$profit (ROI%)</code>), paired with realized <strong>Outcome & Net</strong> grading in history.
+      <div style="color: #4ade80; font-weight: bold; margin-bottom: 4px;">Unified Payout (ROI%)</div>
+      Uses the identical odds-payout calculation across all Moneyline and Spread tabs (<code>+$profit (ROI%)</code>).
     </div>
   </div>
 
@@ -292,21 +351,24 @@
   var HISTORY_FEED_URL = "./history_log.json";
   var SUMMARY_FEED_URL = "./backtest_summary.json";
 
-  var currentView = "live";
+  var currentView = "live"; // "live" | "live_spreads" | "history"
   var currentSort = "value";
   var sortAsc = false;
+
+  var lspSort = "spread";
+  var lspSortAsc = false;
 
   var histSort = "date";
   var histSortAsc = false;
 
   var defaultDataset = [
-    { timeframe: "live", sport: "basketball", commenceTime: "2026-11-21T23:30:00Z", awayTeam: "Oklahoma City Thunder", awayML: 118, homeTeam: "Denver Nuggets", homeML: -140, spread: "DEN -3.5", leadML: -140, gap: 14 },
-    { timeframe: "live", sport: "hockey", commenceTime: "2026-11-22T00:00:00Z", awayTeam: "Detroit Red Wings", awayML: 162, homeTeam: "Chicago Blackhawks", homeML: -190, spread: "CHI -1.5", leadML: -190, gap: 26 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Minnesota Vikings", awayML: 145, homeTeam: "San Francisco 49ers", homeML: -172, spread: "49E -3.5", leadML: -172, gap: 22 },
-    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "Seattle Seahawks", awayML: 165, homeTeam: "San Francisco 49ers", homeML: -195, spread: "49E -4.5", leadML: -195, gap: 19 },
-    { timeframe: "weekly", sport: "basketball", commenceTime: "2026-11-23T00:30:00Z", awayTeam: "Charlotte Hornets", awayML: 360, homeTeam: "Boston Celtics", homeML: -480, spread: "BOS -11.5", leadML: -480, gap: 42 },
-    { timeframe: "weekly", sport: "soccer", commenceTime: "2026-11-25T20:00:00Z", awayTeam: "AEK Athens", awayML: 1250, homeTeam: "Real Madrid", homeML: -520, spread: "RMA -2.5", leadML: -520, gap: 48 },
-    { timeframe: "weekly", sport: "hockey", commenceTime: "2026-11-24T03:00:00Z", awayTeam: "San Jose Sharks", awayML: 225, homeTeam: "Vegas Golden Knights", homeML: -275, spread: "VGK -1.5", leadML: -275, gap: 36 }
+    { timeframe: "live", sport: "basketball", commenceTime: "2026-11-21T23:30:00Z", awayTeam: "Oklahoma City Thunder", awayML: 118, homeTeam: "Denver Nuggets", homeML: -140, spread: "DEN -3.5", spreadPrice: -110, leadML: -140, gap: 14 },
+    { timeframe: "live", sport: "hockey", commenceTime: "2026-11-22T00:00:00Z", awayTeam: "Detroit Red Wings", awayML: 162, homeTeam: "Chicago Blackhawks", homeML: -190, spread: "CHI -1.5", spreadPrice: -115, leadML: -190, gap: 26 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T18:00:00Z", awayTeam: "Minnesota Vikings", awayML: 145, homeTeam: "San Francisco 49ers", homeML: -172, spread: "49E -3.5", spreadPrice: -110, leadML: -172, gap: 22 },
+    { timeframe: "weekly", sport: "football", commenceTime: "2026-11-22T21:25:00Z", awayTeam: "Seattle Seahawks", awayML: 165, homeTeam: "San Francisco 49ers", homeML: -195, spread: "49E -4.5", spreadPrice: -108, leadML: -195, gap: 19 },
+    { timeframe: "weekly", sport: "basketball", commenceTime: "2026-11-23T00:30:00Z", awayTeam: "Charlotte Hornets", awayML: 360, homeTeam: "Boston Celtics", homeML: -480, spread: "BOS -11.5", spreadPrice: -110, leadML: -480, gap: 42 },
+    { timeframe: "weekly", sport: "soccer", commenceTime: "2026-11-25T20:00:00Z", awayTeam: "AEK Athens", awayML: 1250, homeTeam: "Real Madrid", homeML: -520, spread: "RMA -2.5", spreadPrice: -112, leadML: -520, gap: 48 },
+    { timeframe: "weekly", sport: "hockey", commenceTime: "2026-11-24T03:00:00Z", awayTeam: "San Jose Sharks", awayML: 225, homeTeam: "Vegas Golden Knights", homeML: -275, spread: "VGK -1.5", spreadPrice: -105, leadML: -275, gap: 36 }
   ];
 
   var activeData = defaultDataset.slice();
@@ -352,6 +414,13 @@
     if (!spreadStr || spreadStr === "-") return -1;
     var match = String(spreadStr).match(/([+-]?\d+(\.\d+)?)/);
     return match ? Math.abs(parseFloat(match[1])) : -1;
+  }
+
+  function getLiveSpreadOdds(g) {
+    if (g.spreadPrice !== undefined && g.spreadPrice !== null && !isNaN(parseFloat(g.spreadPrice))) {
+      return parseFloat(g.spreadPrice);
+    }
+    return -110;
   }
 
   function formatGameDate(isoStr, isLive) {
@@ -455,13 +524,9 @@
     var tbody = document.getElementById("app-table-rows");
     if (!tbody) return;
 
-    var stakeEl = document.getElementById("app-wager-input");
-    var sportEl = document.getElementById("app-sport-select");
-    var timeEl = document.getElementById("app-time-select");
-
-    var stake = parseFloat(stakeEl ? stakeEl.value : 100) || 100;
-    var sportMode = sportEl ? sportEl.value : "all";
-    var timeMode = timeEl ? timeEl.value : "all";
+    var stake = parseFloat(document.getElementById("app-wager-input").value) || 100;
+    var sportMode = document.getElementById("app-sport-select").value;
+    var timeMode = document.getElementById("app-time-select").value;
 
     var items = activeData.filter(function(i) {
       var matchSport = (sportMode === "all" || i.sport === sportMode);
@@ -518,14 +583,91 @@
     tbody.innerHTML = html;
   }
 
+  function updateLiveSpreadsHeaders() {
+    var cols = ["spread", "gap", "value", "sp_roi"];
+    for (var i = 0; i < cols.length; i++) {
+      var col = cols[i];
+      var ind = document.getElementById("lind-" + col);
+      var th = document.querySelector('.lsp-sortable-th[data-lsort="' + col + '"]');
+      if (col === lspSort) {
+        if (ind) ind.innerText = lspSortAsc ? "▲" : "▼";
+        if (th) th.classList.add("active-sort");
+      } else {
+        if (ind) ind.innerText = "";
+        if (th) th.classList.remove("active-sort");
+      }
+    }
+  }
+
+  function drawLiveSpreadsTable() {
+    var tbody = document.getElementById("live-spreads-rows");
+    if (!tbody) return;
+
+    var stake = parseFloat(document.getElementById("app-wager-input").value) || 100;
+    var sportMode = document.getElementById("app-sport-select").value;
+    var timeMode = document.getElementById("app-time-select").value;
+
+    var items = activeData.filter(function(g) {
+      var hasSpread = g.spread && g.spread !== "-";
+      var matchSport = (sportMode === "all" || g.sport === sportMode);
+      var matchTime = (timeMode === "all" || g.timeframe === timeMode);
+      return hasSpread && matchSport && matchTime;
+    });
+
+    var dir = lspSortAsc ? 1 : -1;
+    items.sort(function(a, b) {
+      if (lspSort === "spread") {
+        return (parseSpreadMagnitude(a.spread) - parseSpreadMagnitude(b.spread)) * dir;
+      }
+      if (lspSort === "gap") {
+        return ((parseFloat(a.gap) || 0) - (parseFloat(b.gap) || 0)) * dir;
+      }
+      if (lspSort === "value") {
+        var valA = getValueRating(getLiveSpreadOdds(a), parseFloat(a.gap) || 0);
+        var valB = getValueRating(getLiveSpreadOdds(b), parseFloat(b.gap) || 0);
+        return (valA - valB) * dir;
+      }
+      if (lspSort === "sp_roi") {
+        return (calcProfit(getLiveSpreadOdds(a), stake) - calcProfit(getLiveSpreadOdds(b), stake)) * dir;
+      }
+      return 0;
+    });
+
+    updateLiveSpreadsHeaders();
+
+    if (!items.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px; color: #94a3b8;">No live spreads found for this selection.</td></tr>';
+      return;
+    }
+
+    var html = "";
+    for (var i = 0; i < items.length; i++) {
+      var g = items[i];
+      var spOdds = getLiveSpreadOdds(g);
+      var spProfit = calcProfit(spOdds, stake);
+      var spRoi = (spProfit / stake) * 100;
+      var spValRating = getValueRating(spOdds, parseFloat(g.gap) || 0).toFixed(1);
+
+      html += '<tr style="border-bottom: 1px solid #1e293b;">' +
+        '<td style="padding: 12px 10px;">' + renderMatchCell(g) + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center;">' +
+          '<div style="color: #93c5fd; font-family: monospace; font-size: 13px; font-weight: 700;">' + (g.spread || '-') + '</div>' +
+          '<div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">Line Odds: ' + formatML(spOdds) + '</div>' +
+        '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #38bdf8; font-weight: bold;">+' + (g.gap || 0) + '</td>' +
+        '<td style="padding: 12px 10px; text-align: center; color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.07); border-radius: 6px;">' + spValRating + '</td>' +
+        '<td style="padding: 12px 10px; text-align: right; color: #4ade80; font-weight: bold;">+$' + spProfit.toFixed(2) +
+          ' <span style="font-size: 11px; color: #86efac;">(' + spRoi.toFixed(1) + '%)</span>' +
+        '</td>' +
+      '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
   function getScaledHistoryProfit(rec, stake) {
     var favML = getHistoryFavML(rec);
-    if (rec.status === "WIN") {
-      return calcProfit(favML, stake);
-    }
-    if (rec.status === "LOSS") {
-      return -stake;
-    }
+    if (rec.status === "WIN") return calcProfit(favML, stake);
+    if (rec.status === "LOSS") return -stake;
     return 0;
   }
 
@@ -549,13 +691,9 @@
     var tbody = document.getElementById("history-table-rows");
     if (!tbody) return;
 
-    var stakeEl = document.getElementById("app-wager-input");
-    var sportEl = document.getElementById("app-sport-select");
-    var outcomeEl = document.getElementById("app-outcome-select");
-
-    var stake = parseFloat(stakeEl ? stakeEl.value : 100) || 100;
-    var sportMode = sportEl ? sportEl.value : "all";
-    var outcomeMode = outcomeEl ? outcomeEl.value : "all";
+    var stake = parseFloat(document.getElementById("app-wager-input").value) || 100;
+    var sportMode = document.getElementById("app-sport-select").value;
+    var outcomeMode = document.getElementById("app-outcome-select").value;
 
     var items = historyRecords.filter(function(r) {
       var matchSport = (sportMode === "all" || r.sport === sportMode);
@@ -595,29 +733,20 @@
       highValNet += getScaledHistoryProfit(highValGraded[k], stake);
     }
 
-    var kpiRecordEl = document.getElementById("kpi-record");
-    var kpiMemEl = document.getElementById("kpi-memorized");
+    document.getElementById("kpi-record").innerText = wins + "W - " + losses + "L (" + winPct + "%)";
+    document.getElementById("kpi-memorized").innerText = sportScoped.length + " games memorized in ledger";
+
     var kpiProfitEl = document.getElementById("kpi-profit");
-    var kpiStakeNoteEl = document.getElementById("kpi-stake-note");
+    var sign = totalNet >= 0 ? "+" : "-";
+    kpiProfitEl.innerText = sign + "$" + Math.abs(totalNet).toFixed(2) + " (" + (totalNet >= 0 ? "+" : "") + roiPct + "%)";
+    kpiProfitEl.style.color = totalNet >= 0 ? "#4ade80" : "#f87171";
+    document.getElementById("kpi-stake-note").innerText = "Scaled to $" + stake.toFixed(0) + " flat stake";
+
     var kpiHighValEl = document.getElementById("kpi-highval");
-    var kpiHighValSubEl = document.getElementById("kpi-highval-sub");
-
-    if (kpiRecordEl) kpiRecordEl.innerText = wins + "W - " + losses + "L (" + winPct + "%)";
-    if (kpiMemEl) kpiMemEl.innerText = sportScoped.length + " games memorized in ledger";
-
-    if (kpiProfitEl) {
-      var sign = totalNet >= 0 ? "+" : "-";
-      kpiProfitEl.innerText = sign + "$" + Math.abs(totalNet).toFixed(2) + " (" + (totalNet >= 0 ? "+" : "") + roiPct + "%)";
-      kpiProfitEl.style.color = totalNet >= 0 ? "#4ade80" : "#f87171";
-    }
-    if (kpiStakeNoteEl) kpiStakeNoteEl.innerText = "Scaled to $" + stake.toFixed(0) + " flat stake";
-
-    if (kpiHighValEl) {
-      var hvSign = highValNet >= 0 ? "+" : "-";
-      kpiHighValEl.innerText = hvSign + "$" + Math.abs(highValNet).toFixed(2);
-      kpiHighValEl.style.color = highValNet >= 0 ? "#fbbf24" : "#f87171";
-    }
-    if (kpiHighValSubEl) kpiHighValSubEl.innerText = highValGraded.length + " graded picks rated ≥ 25";
+    var hvSign = highValNet >= 0 ? "+" : "-";
+    kpiHighValEl.innerText = hvSign + "$" + Math.abs(highValNet).toFixed(2);
+    kpiHighValEl.style.color = highValNet >= 0 ? "#fbbf24" : "#f87171";
+    document.getElementById("kpi-highval-sub").innerText = highValGraded.length + " graded picks rated ≥ 25";
 
     var dir = histSortAsc ? 1 : -1;
     items.sort(function(a, b) {
@@ -626,20 +755,14 @@
       var gapA = parseFloat(a.gap) || 0;
       var gapB = parseFloat(b.gap) || 0;
 
-      if (histSort === "gap") {
-        return (gapA - gapB) * dir;
-      }
+      if (histSort === "gap") return (gapA - gapB) * dir;
       if (histSort === "value") {
         var valA = (a.valueRating !== undefined && a.valueRating !== null) ? parseFloat(a.valueRating) : getValueRating(favMLA, gapA);
         var valB = (b.valueRating !== undefined && b.valueRating !== null) ? parseFloat(b.valueRating) : getValueRating(favMLB, gapB);
         return (valA - valB) * dir;
       }
-      if (histSort === "lead_roi") {
-        return (calcProfit(favMLA, stake) - calcProfit(favMLB, stake)) * dir;
-      }
-      if (histSort === "profit") {
-        return (getScaledHistoryProfit(a, stake) - getScaledHistoryProfit(b, stake)) * dir;
-      }
+      if (histSort === "lead_roi") return (calcProfit(favMLA, stake) - calcProfit(favMLB, stake)) * dir;
+      if (histSort === "profit") return (getScaledHistoryProfit(a, stake) - getScaledHistoryProfit(b, stake)) * dir;
       var tA = new Date(a.commenceTime || a.firstSeenUTC || 0).getTime();
       var tB = new Date(b.commenceTime || b.firstSeenUTC || 0).getTime();
       return (tA - tB) * dir;
@@ -648,7 +771,7 @@
     updateHistorySortHeaders();
 
     if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet. Once <code>history_log.json</code> is populated by GitHub Actions, tracked games and graded scores appear here.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: #94a3b8;">No memorized history records match this filter yet.</td></tr>';
       return;
     }
 
@@ -683,7 +806,6 @@
         ? Number(r.valueRating)
         : getValueRating(favML, gapVal);
 
-      // Identical Favorite Payout (ROI%) formula as Live Valuation Board
       var favProfit = calcProfit(favML, stake);
       var favRoi = (favProfit / stake) * 100;
 
@@ -696,15 +818,10 @@
       var scaledNet = getScaledHistoryProfit(r, stake);
       var netHtml = "";
 
-      if (status === "WIN") {
-        netHtml = '<div style="color:#4ade80; font-weight:700; margin-top:4px;">+$' + scaledNet.toFixed(2) + '</div>';
-      } else if (status === "LOSS") {
-        netHtml = '<div style="color:#f87171; font-weight:700; margin-top:4px;">-$' + Math.abs(scaledNet).toFixed(2) + '</div>';
-      } else if (status === "PUSH") {
-        netHtml = '<div style="color:#fbbf24; font-weight:600; margin-top:4px;">$0.00</div>';
-      } else {
-        netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Open</div>';
-      }
+      if (status === "WIN") netHtml = '<div style="color:#4ade80; font-weight:700; margin-top:4px;">+$' + scaledNet.toFixed(2) + '</div>';
+      else if (status === "LOSS") netHtml = '<div style="color:#f87171; font-weight:700; margin-top:4px;">-$' + Math.abs(scaledNet).toFixed(2) + '</div>';
+      else if (status === "PUSH") netHtml = '<div style="color:#fbbf24; font-weight:600; margin-top:4px;">$0.00</div>';
+      else netHtml = '<div style="color:#64748b; font-size:11px; margin-top:4px;">Open</div>';
 
       var snapsBadge = r.snapshots ? ' • ' + r.snapshots + ' checks' : '';
 
@@ -732,6 +849,8 @@
   function redrawActiveView() {
     if (currentView === "live") {
       drawLiveTable();
+    } else if (currentView === "live_spreads") {
+      drawLiveSpreadsTable();
     } else {
       drawHistoryView();
     }
@@ -740,27 +859,27 @@
   function switchView(viewName) {
     currentView = viewName;
     var liveDiv = document.getElementById("view-live-board");
+    var lspDiv = document.getElementById("view-live-spreads-board");
     var histDiv = document.getElementById("view-history-board");
+
     var btnLive = document.getElementById("tab-btn-live");
+    var btnLsp = document.getElementById("tab-btn-live-spreads");
     var btnHist = document.getElementById("tab-btn-history");
+
     var timeWrap = document.getElementById("control-timeframe-wrap");
     var outWrap = document.getElementById("control-outcome-wrap");
 
-    if (viewName === "live") {
-      if (liveDiv) liveDiv.style.display = "block";
-      if (histDiv) histDiv.style.display = "none";
-      if (btnLive) btnLive.classList.add("active-tab");
-      if (btnHist) btnHist.classList.remove("active-tab");
-      if (timeWrap) timeWrap.style.display = "block";
-      if (outWrap) outWrap.style.display = "none";
-    } else {
-      if (liveDiv) liveDiv.style.display = "none";
-      if (histDiv) histDiv.style.display = "block";
-      if (btnLive) btnLive.classList.remove("active-tab");
-      if (btnHist) btnHist.classList.add("active-tab");
-      if (timeWrap) timeWrap.style.display = "none";
-      if (outWrap) outWrap.style.display = "block";
-    }
+    if (liveDiv) liveDiv.style.display = (viewName === "live") ? "block" : "none";
+    if (lspDiv) lspDiv.style.display = (viewName === "live_spreads") ? "block" : "none";
+    if (histDiv) histDiv.style.display = (viewName === "history") ? "block" : "none";
+
+    if (btnLive) btnLive.classList.toggle("active-tab", viewName === "live");
+    if (btnLsp) btnLsp.classList.toggle("active-tab", viewName === "live_spreads");
+    if (btnHist) btnHist.classList.toggle("active-tab", viewName === "history");
+
+    if (timeWrap) timeWrap.style.display = (viewName !== "history") ? "block" : "none";
+    if (outWrap) outWrap.style.display = (viewName === "history") ? "block" : "none";
+
     redrawActiveView();
   }
 
@@ -825,13 +944,19 @@
   for (var h = 0; h < sortableHeaders.length; h++) {
     sortableHeaders[h].addEventListener("click", function() {
       var clickedSort = this.getAttribute("data-sort");
-      if (currentSort === clickedSort) {
-        sortAsc = !sortAsc;
-      } else {
-        currentSort = clickedSort;
-        sortAsc = false;
-      }
+      if (currentSort === clickedSort) sortAsc = !sortAsc;
+      else { currentSort = clickedSort; sortAsc = false; }
       drawLiveTable();
+    });
+  }
+
+  var lspHeaders = document.querySelectorAll(".lsp-sortable-th");
+  for (var lh = 0; lh < lspHeaders.length; lh++) {
+    lspHeaders[lh].addEventListener("click", function() {
+      var clickedLSort = this.getAttribute("data-lsort");
+      if (lspSort === clickedLSort) lspSortAsc = !lspSortAsc;
+      else { lspSort = clickedLSort; lspSortAsc = false; }
+      drawLiveSpreadsTable();
     });
   }
 
@@ -839,36 +964,23 @@
   for (var hh = 0; hh < histHeaders.length; hh++) {
     histHeaders[hh].addEventListener("click", function() {
       var clickedHSort = this.getAttribute("data-hsort");
-      if (histSort === clickedHSort) {
-        histSortAsc = !histSortAsc;
-      } else {
-        histSort = clickedHSort;
-        histSortAsc = false;
-      }
+      if (histSort === clickedHSort) histSortAsc = !histSortAsc;
+      else { histSort = clickedHSort; histSortAsc = false; }
       drawHistoryView();
     });
   }
 
-  var btnLive = document.getElementById("tab-btn-live");
-  if (btnLive) btnLive.addEventListener("click", function() { switchView("live"); });
-
-  var btnHist = document.getElementById("tab-btn-history");
-  if (btnHist) btnHist.addEventListener("click", function() { switchView("history"); });
+  document.getElementById("tab-btn-live").addEventListener("click", function() { switchView("live"); });
+  document.getElementById("tab-btn-live-spreads").addEventListener("click", function() { switchView("live_spreads"); });
+  document.getElementById("tab-btn-history").addEventListener("click", function() { switchView("history"); });
 
   window.addEventListener("DOMContentLoaded", initApp);
   setTimeout(initApp, 100);
 
-  var stakeInput = document.getElementById("app-wager-input");
-  if (stakeInput) stakeInput.addEventListener("input", redrawActiveView);
-
-  var sportSelect = document.getElementById("app-sport-select");
-  if (sportSelect) sportSelect.addEventListener("change", redrawActiveView);
-
-  var timeSelect = document.getElementById("app-time-select");
-  if (timeSelect) timeSelect.addEventListener("change", drawLiveTable);
-
-  var outcomeSelect = document.getElementById("app-outcome-select");
-  if (outcomeSelect) outcomeSelect.addEventListener("change", drawHistoryView);
+  document.getElementById("app-wager-input").addEventListener("input", redrawActiveView);
+  document.getElementById("app-sport-select").addEventListener("change", redrawActiveView);
+  document.getElementById("app-time-select").addEventListener("change", redrawActiveView);
+  document.getElementById("app-outcome-select").addEventListener("change", drawHistoryView);
 })();
 </script>
 
