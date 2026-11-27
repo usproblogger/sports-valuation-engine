@@ -1,10 +1,14 @@
 {
-  "lastSyncUTC": "2026-11-27T10:53:28.417004+00:00",
-  "totalMemorizedGames": 124,
+  "lastSyncUTC": "2026-11-27T20:45:51.521114+00:00",
+  "totalMemorizedGames": 137,
   "totalGradedGames": 72,
   "record": "44W - 28L",
   "winRatePct": 61.1,
   "flat100NetProfit": -585.13,
+  "atsGradedGames": 71,
+  "atsRecord": "33W - 38L",
+  "atsWinRatePct": 46.5,
+  "atsFlat100NetProfit": -799.97,
   "highValue25PlusCount": 5,
   "highValue25PlusProfit": -28.99
 }

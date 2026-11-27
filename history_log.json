@@ -20,7 +20,9 @@
     "latestLeadML": -1320,
     "latestSpread": "CHI -15.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "4527f57f5bc32742d8194af1ccf7da7e": {
     "id": "4527f57f5bc32742d8194af1ccf7da7e",
@@ -43,7 +45,9 @@
     "latestLeadML": -145,
     "latestSpread": "PAN -3.0",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "4c5b1c0843a260278e95eb93e7787576": {
     "id": "4c5b1c0843a260278e95eb93e7787576",
@@ -66,7 +70,9 @@
     "latestLeadML": -1460,
     "latestSpread": "BIL -16.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "3ea90704fb576633bd1e2fa5aafd9ea3": {
     "id": "3ea90704fb576633bd1e2fa5aafd9ea3",
@@ -89,7 +95,9 @@
     "latestLeadML": -610,
     "latestSpread": "BEA -11.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "5e63079b678f8c13419adc169fff02d3": {
     "id": "5e63079b678f8c13419adc169fff02d3",
@@ -112,7 +120,9 @@
     "latestLeadML": -343,
     "latestSpread": "COW -7.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "41e2dd69bddd65d7e823d9ed61cc2afc": {
     "id": "41e2dd69bddd65d7e823d9ed61cc2afc",
@@ -135,7 +145,9 @@
     "latestLeadML": -200,
     "latestSpread": "LIO -3.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "cbe45bafcc2615fc1d96cbc12840377a": {
     "id": "cbe45bafcc2615fc1d96cbc12840377a",
@@ -158,7 +170,9 @@
     "latestLeadML": -190,
     "latestSpread": "STE -3.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "4b20b742b6168aaca4f25d87f11b1526": {
     "id": "4b20b742b6168aaca4f25d87f11b1526",
@@ -181,7 +195,9 @@
     "latestLeadML": -300,
     "latestSpread": "JET -4.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "1940706a79cbcbafacdcbf231069716b": {
     "id": "1940706a79cbcbafacdcbf231069716b",
@@ -204,7 +220,9 @@
     "latestLeadML": -660,
     "latestSpread": "BRO -10.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "8ba112fabf4e87639338a5f437c5abfe": {
     "id": "8ba112fabf4e87639338a5f437c5abfe",
@@ -227,7 +245,9 @@
     "latestLeadML": -153,
     "latestSpread": "GIA -2.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "60e1d27b083a335b722c2c852ea85612": {
     "id": "60e1d27b083a335b722c2c852ea85612",
@@ -250,7 +270,9 @@
     "latestLeadML": -190,
     "latestSpread": "49E -3.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "3a60ed1d20004aa4d4772b2c1a2272e7": {
     "id": "3a60ed1d20004aa4d4772b2c1a2272e7",
@@ -273,7 +295,9 @@
     "latestLeadML": -291,
     "latestSpread": "BEN -6.0",
     "snapshots": 5,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "5b612899d6dcdf998107f2c6c6e49a58": {
     "id": "5b612899d6dcdf998107f2c6c6e49a58",
@@ -296,7 +320,9 @@
     "latestLeadML": -138,
     "latestSpread": "RAM -2.5",
     "snapshots": 9,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "9b825e6518156008da499be041975fdd": {
     "id": "9b825e6518156008da499be041975fdd",
@@ -319,7 +345,9 @@
     "latestLeadML": -116,
     "latestSpread": "BEA -1.5",
     "snapshots": 10,
-    "gradedUTC": "2026-11-27T10:53:28.417004+00:00"
+    "gradedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "ffaa06af56a7137d4b078c5c46c0b730": {
     "id": "ffaa06af56a7137d4b078c5c46c0b730",
@@ -342,7 +370,9 @@
     "latestLeadML": -3900,
     "latestSpread": "COW -17.5",
     "snapshots": 11,
-    "gradedUTC": "2026-11-27T10:53:28.417004+00:00"
+    "gradedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "f36f518585aec40e8cb40e071c0844aa": {
     "id": "f36f518585aec40e8cb40e071c0844aa",
@@ -365,7 +395,9 @@
     "latestLeadML": -153,
     "latestSpread": "BIL -3.0",
     "snapshots": 11,
-    "gradedUTC": "2026-11-27T10:53:28.417004+00:00"
+    "gradedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "atsStatus": "PUSH",
+    "atsProfit100": 0.0
   },
   "44a3bcf5bd002583ddef2207a92dd977": {
     "id": "44a3bcf5bd002583ddef2207a92dd977",
@@ -383,11 +415,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
-    "latestFavTeam": "Denver Broncos",
-    "latestLeadML": -248,
-    "latestSpread": "BRO -4.5",
-    "snapshots": 11
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Pittsburgh Steelers",
+    "latestLeadML": -199,
+    "latestSpread": "STE -3.5",
+    "snapshots": 12,
+    "latestSpreadPoint": -3.5,
+    "latestSpreadPrice": -120
   },
   "6a05021bdb6bab24b9bb381ffff10f0c": {
     "id": "6a05021bdb6bab24b9bb381ffff10f0c",
@@ -405,11 +439,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Minnesota Vikings",
-    "latestLeadML": -311,
+    "latestLeadML": -320,
     "latestSpread": "VIK -7.0",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -7.0,
+    "latestSpreadPrice": -101
   },
   "60d0c074801985c1062795362a24200e": {
     "id": "60d0c074801985c1062795362a24200e",
@@ -427,11 +463,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Houston Texans",
     "latestLeadML": -332,
     "latestSpread": "TEX -6.5",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -6.5,
+    "latestSpreadPrice": -112
   },
   "f7d3ae7a8fe2438cef7d7d7bc67e31db": {
     "id": "f7d3ae7a8fe2438cef7d7d7bc67e31db",
@@ -449,11 +487,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Cincinnati Bengals",
-    "latestLeadML": -561,
-    "latestSpread": "BEN -10.0",
-    "snapshots": 11
+    "latestLeadML": -581,
+    "latestSpread": "BEN -9.5",
+    "snapshots": 12,
+    "latestSpreadPoint": -9.5,
+    "latestSpreadPrice": -115
   },
   "e9da808e36e1b7475698a57465ad4519": {
     "id": "e9da808e36e1b7475698a57465ad4519",
@@ -471,11 +511,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New York Giants",
-    "latestLeadML": -287,
-    "latestSpread": "GIA -6.0",
-    "snapshots": 11
+    "latestLeadML": -272,
+    "latestSpread": "GIA -5.5",
+    "snapshots": 12,
+    "latestSpreadPoint": -5.5,
+    "latestSpreadPrice": -112
   },
   "81a8fee5b649a3ad5ad59e9528f2f376": {
     "id": "81a8fee5b649a3ad5ad59e9528f2f376",
@@ -493,11 +535,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Jacksonville Jaguars",
-    "latestLeadML": -1260,
-    "latestSpread": "JAG -14.5",
-    "snapshots": 11
+    "latestLeadML": -950,
+    "latestSpread": "JAG -14.0",
+    "snapshots": 12,
+    "latestSpreadPoint": -14.0,
+    "latestSpreadPrice": -107
   },
   "5ea0e3ea5944b0ad5169f21c0787b331": {
     "id": "5ea0e3ea5944b0ad5169f21c0787b331",
@@ -515,11 +559,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New York Jets",
-    "latestLeadML": -246,
+    "latestLeadML": -257,
     "latestSpread": "JET -5.5",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -5.5,
+    "latestSpreadPrice": -106
   },
   "c64ceba13ede564e8658693e3171e7f9": {
     "id": "c64ceba13ede564e8658693e3171e7f9",
@@ -537,11 +583,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New England Patriots",
-    "latestLeadML": -137,
+    "latestLeadML": -139,
     "latestSpread": "PAT -2.5",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -108
   },
   "69a1dbe9de3d3212c3a7a55be5d204ab": {
     "id": "69a1dbe9de3d3212c3a7a55be5d204ab",
@@ -559,11 +607,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Washington Commanders",
-    "latestLeadML": -350,
+    "latestLeadML": -349,
     "latestSpread": "COM -6.5",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -6.5,
+    "latestSpreadPrice": -118
   },
   "d68dced0b26726890b9c79bd19a5ffe5": {
     "id": "d68dced0b26726890b9c79bd19a5ffe5",
@@ -581,11 +631,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "San Francisco 49ers",
     "latestLeadML": -152,
     "latestSpread": "49E -3.0",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -3.0,
+    "latestSpreadPrice": -102
   },
   "eaa993c3d62d6b5aeb6142cdd7862fd5": {
     "id": "eaa993c3d62d6b5aeb6142cdd7862fd5",
@@ -603,11 +655,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Cleveland Browns",
-    "latestLeadML": -244,
+    "latestLeadML": -238,
     "latestSpread": "BRO -4.5",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -4.5,
+    "latestSpreadPrice": -105
   },
   "2cdaecba7c0bff9b58a48a82e6ee17a7": {
     "id": "2cdaecba7c0bff9b58a48a82e6ee17a7",
@@ -625,11 +679,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Tampa Bay Buccaneers",
-    "latestLeadML": -157,
+    "latestLeadML": -159,
     "latestSpread": "BUC -3.0",
-    "snapshots": 11
+    "snapshots": 12,
+    "latestSpreadPoint": -3.0,
+    "latestSpreadPrice": -107
   },
   "222a2887819bb18d9b9572aef63d9b9e": {
     "id": "222a2887819bb18d9b9572aef63d9b9e",
@@ -652,7 +708,9 @@
     "latestLeadML": -1100,
     "latestSpread": "HAW -7.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "90da1cde4144fac00d41f2c0db2cc921": {
     "id": "90da1cde4144fac00d41f2c0db2cc921",
@@ -675,7 +733,9 @@
     "latestLeadML": -198,
     "latestSpread": "HEA -4.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "15a079f55e23d26237844224f258c972": {
     "id": "15a079f55e23d26237844224f258c972",
@@ -698,7 +758,9 @@
     "latestLeadML": -405,
     "latestSpread": "NUG -9.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "1e7b9477c6c55aea5efd9c1a47039f5c": {
     "id": "1e7b9477c6c55aea5efd9c1a47039f5c",
@@ -721,7 +783,9 @@
     "latestLeadML": -142,
     "latestSpread": "MAV -2.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "335ad5604b51b7742fd1dee92d78da35": {
     "id": "335ad5604b51b7742fd1dee92d78da35",
@@ -744,7 +808,9 @@
     "latestLeadML": -196,
     "latestSpread": "MAG -4.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "031fa761cc38e1b5afd9309b731b38b2": {
     "id": "031fa761cc38e1b5afd9309b731b38b2",
@@ -767,7 +833,9 @@
     "latestLeadML": -310,
     "latestSpread": "KNI -7.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "b8c5bdb50209c7d050400c7d28c32e30": {
     "id": "b8c5bdb50209c7d050400c7d28c32e30",
@@ -790,7 +858,9 @@
     "latestLeadML": -335,
     "latestSpread": "CEL -8.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "95e13bf4ee868af6f8fe243270b31835": {
     "id": "95e13bf4ee868af6f8fe243270b31835",
@@ -813,7 +883,9 @@
     "latestLeadML": -155,
     "latestSpread": "HUR -1.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "5a749c9d02c984e711e097f31a446542": {
     "id": "5a749c9d02c984e711e097f31a446542",
@@ -836,7 +908,9 @@
     "latestLeadML": -210,
     "latestSpread": "LIG -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "d58a81d96dc96c937a865548f3a1a7c5": {
     "id": "d58a81d96dc96c937a865548f3a1a7c5",
@@ -859,7 +933,9 @@
     "latestLeadML": -230,
     "latestSpread": "STA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "7472170e7ddebcf27cc4e03a8b32edcc": {
     "id": "7472170e7ddebcf27cc4e03a8b32edcc",
@@ -882,7 +958,9 @@
     "latestLeadML": -125,
     "latestSpread": "BLU -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "3a8553e25e16a66e676afc349395fec6": {
     "id": "3a8553e25e16a66e676afc349395fec6",
@@ -905,7 +983,9 @@
     "latestLeadML": -115,
     "latestSpread": "BLA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-23T11:02:08.125183+00:00"
+    "gradedUTC": "2026-11-23T11:02:08.125183+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "e9429c68a48753de9779d88e6cf393ad": {
     "id": "e9429c68a48753de9779d88e6cf393ad",
@@ -928,7 +1008,9 @@
     "latestLeadML": -205,
     "latestSpread": "DEV -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "d127e1e72a1b9087aca692f3b5812532": {
     "id": "d127e1e72a1b9087aca692f3b5812532",
@@ -951,7 +1033,9 @@
     "latestLeadML": -258,
     "latestSpread": "SEN -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "806787e1b3ac73d09e3ae05f6d595865": {
     "id": "806787e1b3ac73d09e3ae05f6d595865",
@@ -974,7 +1058,9 @@
     "latestLeadML": -155,
     "latestSpread": "CAN -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "2d095386ab1321c89df24896d98495ee": {
     "id": "2d095386ab1321c89df24896d98495ee",
@@ -997,7 +1083,9 @@
     "latestLeadML": -162,
     "latestSpread": "ISL -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "e2efcb24b2d9689232946057b7e43d23": {
     "id": "e2efcb24b2d9689232946057b7e43d23",
@@ -1020,7 +1108,9 @@
     "latestLeadML": -112,
     "latestSpread": "MAM -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "5074be0d13d60cc7fd82b06c4d8ddd31": {
     "id": "5074be0d13d60cc7fd82b06c4d8ddd31",
@@ -1043,7 +1133,9 @@
     "latestLeadML": -118,
     "latestSpread": "KRA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "43376208ec2111794696249fe50f5e84": {
     "id": "43376208ec2111794696249fe50f5e84",
@@ -1066,7 +1158,9 @@
     "latestLeadML": -180,
     "latestSpread": "WIL -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "35ca45d3e548dc7207fd7f1696ab16f5": {
     "id": "35ca45d3e548dc7207fd7f1696ab16f5",
@@ -1089,7 +1183,9 @@
     "latestLeadML": -152,
     "latestSpread": "GRI -2.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "ac6fb079d66ef35a2a77e22b5e94ef8d": {
     "id": "ac6fb079d66ef35a2a77e22b5e94ef8d",
@@ -1112,7 +1208,9 @@
     "latestLeadML": -118,
     "latestSpread": "76E -1.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "a72a1703f7a92b80768255d1d977a761": {
     "id": "a72a1703f7a92b80768255d1d977a761",
@@ -1135,7 +1233,9 @@
     "latestLeadML": -510,
     "latestSpread": "TIM -11.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "c9b6c9f77fd3628308dd34f50854a9c0": {
     "id": "c9b6c9f77fd3628308dd34f50854a9c0",
@@ -1158,7 +1258,9 @@
     "latestLeadML": -230,
     "latestSpread": "THU -5.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "a5184238c27b9c3bfca29220f9d5d14a": {
     "id": "a5184238c27b9c3bfca29220f9d5d14a",
@@ -1181,7 +1283,9 @@
     "latestLeadML": -400,
     "latestSpread": "RAP -10.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "b8dfee1fca57ec870528a14c792ad73a": {
     "id": "b8dfee1fca57ec870528a14c792ad73a",
@@ -1204,7 +1308,9 @@
     "latestLeadML": -350,
     "latestSpread": "CAV -8.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "6caeb7cce7c8340fed588f3badd83fe0": {
     "id": "6caeb7cce7c8340fed588f3badd83fe0",
@@ -1227,7 +1333,9 @@
     "latestLeadML": -154,
     "latestSpread": "SUN -2.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "db2311c331296d3328d71b842167dea4": {
     "id": "db2311c331296d3328d71b842167dea4",
@@ -1250,7 +1358,9 @@
     "latestLeadML": -600,
     "latestSpread": "ROC -12.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "3e9dc52cb055c0154839c4aec417955b": {
     "id": "3e9dc52cb055c0154839c4aec417955b",
@@ -1273,7 +1383,9 @@
     "latestLeadML": -720,
     "latestSpread": "LAK -13.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "17f31499f145cd9d3232819395d29448": {
     "id": "17f31499f145cd9d3232819395d29448",
@@ -1296,7 +1408,9 @@
     "latestLeadML": -620,
     "latestSpread": "SPU -12.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-24T10:53:36.682318+00:00"
+    "gradedUTC": "2026-11-24T10:53:36.682318+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "155fbdda10b6474a41649023baadfdf3": {
     "id": "155fbdda10b6474a41649023baadfdf3",
@@ -1319,7 +1433,9 @@
     "latestLeadML": -120,
     "latestSpread": "KNI -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-25T10:55:35.875537+00:00"
+    "gradedUTC": "2026-11-25T10:55:35.875537+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "42f48a4769eab3d1472d76aac0fd0fa7": {
     "id": "42f48a4769eab3d1472d76aac0fd0fa7",
@@ -1342,7 +1458,9 @@
     "latestLeadML": -132,
     "latestSpread": "PIS -2.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-25T10:55:35.875537+00:00"
+    "gradedUTC": "2026-11-25T10:55:35.875537+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "3167a4072c65c9314c71d0fe49be8e28": {
     "id": "3167a4072c65c9314c71d0fe49be8e28",
@@ -1365,7 +1483,9 @@
     "latestLeadML": -424,
     "latestSpread": "CEL -10.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-25T10:55:35.875537+00:00"
+    "gradedUTC": "2026-11-25T10:55:35.875537+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "6bfadbd22ed8a054cf82ec1b12b78243": {
     "id": "6bfadbd22ed8a054cf82ec1b12b78243",
@@ -1388,7 +1508,9 @@
     "latestLeadML": -310,
     "latestSpread": "NUG -8.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-25T10:55:35.875537+00:00"
+    "gradedUTC": "2026-11-25T10:55:35.875537+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "4f6d199bb67cf3a517a3880fd2f00b26": {
     "id": "4f6d199bb67cf3a517a3880fd2f00b26",
@@ -1411,7 +1533,9 @@
     "latestLeadML": -195,
     "latestSpread": "76E -4.5",
     "snapshots": 4,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "f08629281f1510f47d91cc408f86a2a8": {
     "id": "f08629281f1510f47d91cc408f86a2a8",
@@ -1434,7 +1558,9 @@
     "latestLeadML": -180,
     "latestSpread": "KNI -4.5",
     "snapshots": 4,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "07421d1675d6bc51bb5fa91f84a09eb3": {
     "id": "07421d1675d6bc51bb5fa91f84a09eb3",
@@ -1457,7 +1583,9 @@
     "latestLeadML": -135,
     "latestSpread": "THU -2.5",
     "snapshots": 4,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "60fd73164f7b0d1848f998d922155d87": {
     "id": "60fd73164f7b0d1848f998d922155d87",
@@ -1480,7 +1608,9 @@
     "latestLeadML": -375,
     "latestSpread": "ROC -9.5",
     "snapshots": 4,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "06e52a676b516186989e3b181a37c8a7": {
     "id": "06e52a676b516186989e3b181a37c8a7",
@@ -1498,11 +1628,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Los Angeles Rams",
     "latestLeadML": -109,
     "latestSpread": "RAM -1.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 101
   },
   "c94419ba8fb818fc36a5b21b526aab75": {
     "id": "c94419ba8fb818fc36a5b21b526aab75",
@@ -1520,11 +1652,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Detroit Lions",
-    "latestLeadML": -191,
+    "latestLeadML": -188,
     "latestSpread": "LIO -3.5",
-    "snapshots": 5
+    "snapshots": 6,
+    "latestSpreadPoint": -3.5,
+    "latestSpreadPrice": -104
   },
   "0236f9aa68d65ea03bd1ca025b749c20": {
     "id": "0236f9aa68d65ea03bd1ca025b749c20",
@@ -1542,11 +1676,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Chicago Bears",
     "latestLeadML": -154,
     "latestSpread": "BEA -3.0",
-    "snapshots": 5
+    "snapshots": 6,
+    "latestSpreadPoint": -3.0,
+    "latestSpreadPrice": -104
   },
   "b447fab53534af892f98a74eae26c1c6": {
     "id": "b447fab53534af892f98a74eae26c1c6",
@@ -1564,11 +1700,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Cincinnati Bengals",
-    "latestLeadML": -258,
+    "latestLeadML": -259,
     "latestSpread": "BEN -6.0",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -6.0,
+    "latestSpreadPrice": -110
   },
   "9a55467e1cd6310ae2af20d8154612e1": {
     "id": "9a55467e1cd6310ae2af20d8154612e1",
@@ -1586,11 +1724,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Denver Broncos",
-    "latestLeadML": -1120,
+    "latestLeadML": -1100,
     "latestSpread": "BRO -14.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -14.5,
+    "latestSpreadPrice": -106
   },
   "1ccb61b811b7aae4270df22a67e6459f": {
     "id": "1ccb61b811b7aae4270df22a67e6459f",
@@ -1608,11 +1748,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Green Bay Packers",
-    "latestLeadML": -227,
+    "latestLeadML": -228,
     "latestSpread": "PAC -4.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -4.5,
+    "latestSpreadPrice": -117
   },
   "f8a92363386bd337975650879086cca6": {
     "id": "f8a92363386bd337975650879086cca6",
@@ -1630,11 +1772,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Tampa Bay Buccaneers",
-    "latestLeadML": -253,
+    "latestLeadML": -257,
     "latestSpread": "BUC -5.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -5.5,
+    "latestSpreadPrice": -110
   },
   "a5495c3360b3bb13da76ba23a675c9ef": {
     "id": "a5495c3360b3bb13da76ba23a675c9ef",
@@ -1652,11 +1796,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "San Francisco 49ers",
     "latestLeadML": -295,
     "latestSpread": "49E -6.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -6.5,
+    "latestSpreadPrice": -110
   },
   "ae3429e95ee704c7fd001cade20072d0": {
     "id": "ae3429e95ee704c7fd001cade20072d0",
@@ -1674,11 +1820,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Washington Commanders",
     "latestLeadML": -230,
     "latestSpread": "COM -4.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -4.5,
+    "latestSpreadPrice": -109
   },
   "f4897f48a5351881280f7598bd826408": {
     "id": "f4897f48a5351881280f7598bd826408",
@@ -1696,11 +1844,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Philadelphia Eagles",
     "latestLeadML": -167,
     "latestSpread": "EAG -3.0",
-    "snapshots": 5
+    "snapshots": 6,
+    "latestSpreadPoint": -3.0,
+    "latestSpreadPrice": -115
   },
   "4116dbff75ab7957b69c2152f204b74d": {
     "id": "4116dbff75ab7957b69c2152f204b74d",
@@ -1718,11 +1868,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Buffalo Bills",
     "latestLeadML": -790,
     "latestSpread": "BIL -12.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -12.5,
+    "latestSpreadPrice": -110
   },
   "c186c605febd6370b292469c9151cfb3": {
     "id": "c186c605febd6370b292469c9151cfb3",
@@ -1740,11 +1892,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Minnesota Vikings",
-    "latestLeadML": -243,
+    "latestLeadML": -247,
     "latestSpread": "VIK -5.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -5.5,
+    "latestSpreadPrice": -110
   },
   "26bf8e165d2d273ed0772a355f07ab16": {
     "id": "26bf8e165d2d273ed0772a355f07ab16",
@@ -1762,11 +1916,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Houston Texans",
-    "latestLeadML": -224,
+    "latestLeadML": -221,
     "latestSpread": "TEX -4.5",
-    "snapshots": 6
+    "snapshots": 7,
+    "latestSpreadPoint": -4.5,
+    "latestSpreadPrice": -108
   },
   "0db4646c964ecdff19957373fe707546": {
     "id": "0db4646c964ecdff19957373fe707546",
@@ -1784,11 +1940,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Seattle Seahawks",
     "latestLeadML": -272,
     "latestSpread": "SEA -6.0",
-    "snapshots": 5
+    "snapshots": 6,
+    "latestSpreadPoint": -6.0,
+    "latestSpreadPrice": -109
   },
   "71f3e5885a8f467260baa9aa31c62332": {
     "id": "71f3e5885a8f467260baa9aa31c62332",
@@ -1811,7 +1969,9 @@
     "latestLeadML": -170,
     "latestSpread": "BRU -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "a96a74be66899182f7eea8d72ec0e0fb": {
     "id": "a96a74be66899182f7eea8d72ec0e0fb",
@@ -1834,7 +1994,9 @@
     "latestLeadML": -134,
     "latestSpread": "SAB -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "52d88f1e2ea2e8165d992430998b84f1": {
     "id": "52d88f1e2ea2e8165d992430998b84f1",
@@ -1857,7 +2019,9 @@
     "latestLeadML": -175,
     "latestSpread": "PEN -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "b8dd63eeebfa6db1cdb18fb101d4a323": {
     "id": "b8dd63eeebfa6db1cdb18fb101d4a323",
@@ -1880,7 +2044,9 @@
     "latestLeadML": -115,
     "latestSpread": "HUR -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "b06dda80256fb0e1b5efc78c0fca6d97": {
     "id": "b06dda80256fb0e1b5efc78c0fca6d97",
@@ -1903,7 +2069,9 @@
     "latestLeadML": -148,
     "latestSpread": "DEV -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "03b050660209b2ef14e1e40ef22a585e": {
     "id": "03b050660209b2ef14e1e40ef22a585e",
@@ -1926,7 +2094,9 @@
     "latestLeadML": -125,
     "latestSpread": "PAN -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "70e9e98dccc07e86adad8349ad0c07fa": {
     "id": "70e9e98dccc07e86adad8349ad0c07fa",
@@ -1949,7 +2119,9 @@
     "latestLeadML": -130,
     "latestSpread": "ISL -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "c29af8a41ac40846cff6811e8a345682": {
     "id": "c29af8a41ac40846cff6811e8a345682",
@@ -1972,7 +2144,9 @@
     "latestLeadML": -162,
     "latestSpread": "CAP -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "54f5b5907980a875945c22ecce9a7537": {
     "id": "54f5b5907980a875945c22ecce9a7537",
@@ -1995,7 +2169,9 @@
     "latestLeadML": -230,
     "latestSpread": "WIN -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "73d5e978fab618f46090f2dc47721bda": {
     "id": "73d5e978fab618f46090f2dc47721bda",
@@ -2018,7 +2194,9 @@
     "latestLeadML": -170,
     "latestSpread": "STA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "696cf3d8787917f769a8d9a18560e2f0": {
     "id": "696cf3d8787917f769a8d9a18560e2f0",
@@ -2041,7 +2219,9 @@
     "latestLeadML": -148,
     "latestSpread": "WIL -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "b99129d0236ae270cae2b42a0befc503": {
     "id": "b99129d0236ae270cae2b42a0befc503",
@@ -2064,7 +2244,9 @@
     "latestLeadML": -120,
     "latestSpread": "AVA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "d2f0dc1f1216c62c2b7206c15f84bc02": {
     "id": "d2f0dc1f1216c62c2b7206c15f84bc02",
@@ -2087,7 +2269,9 @@
     "latestLeadML": -155,
     "latestSpread": "KRA -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "c68f7a448ea05f866093dfb4221e076e": {
     "id": "c68f7a448ea05f866093dfb4221e076e",
@@ -2110,7 +2294,9 @@
     "latestLeadML": -135,
     "latestSpread": "DUC -1.5",
     "snapshots": 3,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "87ce247fb83685389ca8ffb21be6cd3e": {
     "id": "87ce247fb83685389ca8ffb21be6cd3e",
@@ -2133,7 +2319,9 @@
     "latestLeadML": -180,
     "latestSpread": "HOR -3.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "9e203cbbc6d37b7b0d9c08cb89fe0b28": {
     "id": "9e203cbbc6d37b7b0d9c08cb89fe0b28",
@@ -2156,7 +2344,9 @@
     "latestLeadML": -117,
     "latestSpread": "BUC -1.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "698d6d78acf30f4ff4e4aaf6670249ee": {
     "id": "698d6d78acf30f4ff4e4aaf6670249ee",
@@ -2179,7 +2369,9 @@
     "latestLeadML": -269,
     "latestSpread": "GRI -7.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "e6df92326adb480e427bb7c10f445c60": {
     "id": "e6df92326adb480e427bb7c10f445c60",
@@ -2202,7 +2394,9 @@
     "latestLeadML": -324,
     "latestSpread": "WAR -7.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "WIN",
+    "atsProfit100": 90.91
   },
   "9aa9f220709533d70d11f85fae886771": {
     "id": "9aa9f220709533d70d11f85fae886771",
@@ -2225,7 +2419,9 @@
     "latestLeadML": -162,
     "latestSpread": "SPU -3.5",
     "snapshots": 2,
-    "gradedUTC": "2026-11-26T10:56:01.730568+00:00"
+    "gradedUTC": "2026-11-26T10:56:01.730568+00:00",
+    "atsStatus": "LOSS",
+    "atsProfit100": -100.0
   },
   "3c522e32c3035d7dc3e1734903b84654": {
     "id": "3c522e32c3035d7dc3e1734903b84654",
@@ -2243,11 +2439,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New York Knicks",
-    "latestLeadML": -174,
-    "latestSpread": "KNI -3.5",
-    "snapshots": 3
+    "latestLeadML": -148,
+    "latestSpread": "KNI -2.5",
+    "snapshots": 4,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -108
   },
   "5b64071f3e3bf67b0fdea8d1ac81d0ec": {
     "id": "5b64071f3e3bf67b0fdea8d1ac81d0ec",
@@ -2265,11 +2463,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Philadelphia 76ers",
-    "latestLeadML": -158,
+    "latestLeadML": -156,
     "latestSpread": "76E -2.5",
-    "snapshots": 3
+    "snapshots": 4,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -120
   },
   "c5dc35b4116988de2c1425df17456478": {
     "id": "c5dc35b4116988de2c1425df17456478",
@@ -2287,11 +2487,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Boston Celtics",
-    "latestLeadML": -360,
+    "latestLeadML": -355,
     "latestSpread": "CEL -9.5",
-    "snapshots": 3
+    "snapshots": 4,
+    "latestSpreadPoint": -9.5,
+    "latestSpreadPrice": -105
   },
   "428050645d1dc8b16d84287e21de55fa": {
     "id": "428050645d1dc8b16d84287e21de55fa",
@@ -2309,11 +2511,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Denver Nuggets",
     "latestLeadML": -450,
     "latestSpread": "NUG -10.5",
-    "snapshots": 3
+    "snapshots": 4,
+    "latestSpreadPoint": -10.5,
+    "latestSpreadPrice": -105
   },
   "13d9ca3bcb664829c603755d31401002": {
     "id": "13d9ca3bcb664829c603755d31401002",
@@ -2331,11 +2535,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "San Antonio Spurs",
     "latestLeadML": -217,
-    "latestSpread": "SPU -5.5",
-    "snapshots": 3
+    "latestSpread": "SPU -6.5",
+    "snapshots": 4,
+    "latestSpreadPoint": -6.5,
+    "latestSpreadPrice": -102
   },
   "709de4f76f95aebf383d180ac3c6f679": {
     "id": "709de4f76f95aebf383d180ac3c6f679",
@@ -2353,11 +2559,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Toronto Raptors",
-    "latestLeadML": -310,
-    "latestSpread": "RAP -8.5",
-    "snapshots": 2
+    "latestLeadML": -370,
+    "latestSpread": "RAP -9.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -9.5,
+    "latestSpreadPrice": -110
   },
   "326e8215b0369df0d4d65e5c0afe9ff5": {
     "id": "326e8215b0369df0d4d65e5c0afe9ff5",
@@ -2375,11 +2583,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Detroit Pistons",
-    "latestLeadML": -375,
-    "latestSpread": "PIS -8.5",
-    "snapshots": 2
+    "latestLeadML": -450,
+    "latestSpread": "PIS -10.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -10.5,
+    "latestSpreadPrice": -102
   },
   "f0bc60d1516d217dba58c1f4fa653a59": {
     "id": "f0bc60d1516d217dba58c1f4fa653a59",
@@ -2397,11 +2607,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Minnesota Timberwolves",
-    "latestLeadML": -164,
-    "latestSpread": "TIM -4.5",
-    "snapshots": 2
+    "latestLeadML": -152,
+    "latestSpread": "TIM -2.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -110
   },
   "46b1c571cf786a86e800d61fd1d79004": {
     "id": "46b1c571cf786a86e800d61fd1d79004",
@@ -2419,11 +2631,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Phoenix Suns",
-    "latestLeadML": -132,
-    "latestSpread": "SUN -2.5",
-    "snapshots": 2
+    "latestLeadML": -154,
+    "latestSpread": "SUN -3.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -3.5,
+    "latestSpreadPrice": -110
   },
   "592a440c590415d43f5ffbfd922cd41e": {
     "id": "592a440c590415d43f5ffbfd922cd41e",
@@ -2441,11 +2655,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Portland Trail Blazers",
-    "latestLeadML": -370,
-    "latestSpread": "BLA -9.5",
-    "snapshots": 2
+    "latestLeadML": -290,
+    "latestSpread": "BLA -7.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -7.5,
+    "latestSpreadPrice": -108
   },
   "fecbaa4e1973217826262c63d8f52dea": {
     "id": "fecbaa4e1973217826262c63d8f52dea",
@@ -2463,11 +2679,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Los Angeles Clippers",
-    "latestLeadML": -154,
-    "latestSpread": "CLI -3.5",
-    "snapshots": 2
+    "latestLeadML": -142,
+    "latestSpread": "CLI -2.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -110
   },
   "27cb678af08c1929cf19d9350d9f511e": {
     "id": "27cb678af08c1929cf19d9350d9f511e",
@@ -2529,11 +2747,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Utah Mammoth",
-    "latestLeadML": -118,
-    "latestSpread": "MAM -1.5",
-    "snapshots": 2
+    "latestLeadML": -250,
+    "latestSpread": "-",
+    "snapshots": 3,
+    "latestSpreadPoint": null,
+    "latestSpreadPrice": -110
   },
   "f23fc3f7fb3bfb06c2bee42fcfe8f050": {
     "id": "f23fc3f7fb3bfb06c2bee42fcfe8f050",
@@ -2551,11 +2771,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Dallas Stars",
-    "latestLeadML": -145,
+    "latestLeadML": -120,
     "latestSpread": "STA -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 350
   },
   "f4f067c12199285d9589564210a2a7d5": {
     "id": "f4f067c12199285d9589564210a2a7d5",
@@ -2573,11 +2795,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
-    "latestFavTeam": "Columbus Blue Jackets",
-    "latestLeadML": -135,
-    "latestSpread": "JAC -1.5",
-    "snapshots": 2
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Detroit Red Wings",
+    "latestLeadML": -190,
+    "latestSpread": "WIN -1.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 140
   },
   "f59fbb4eb34e72efeecfce2b7adc2198": {
     "id": "f59fbb4eb34e72efeecfce2b7adc2198",
@@ -2595,11 +2819,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
-    "latestFavTeam": "Florida Panthers",
-    "latestLeadML": -118,
-    "latestSpread": "PAN -1.5",
-    "snapshots": 2
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Washington Capitals",
+    "latestLeadML": -235,
+    "latestSpread": "CAP -1.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 115
   },
   "e455a88aa787a29717a862a536046895": {
     "id": "e455a88aa787a29717a862a536046895",
@@ -2617,11 +2843,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
-    "latestFavTeam": "Tampa Bay Lightning",
-    "latestLeadML": -145,
-    "latestSpread": "LIG -1.5",
-    "snapshots": 2
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Ottawa Senators",
+    "latestLeadML": -550,
+    "latestSpread": "SEN -2.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": -110
   },
   "a76ba8f9808ac21b09342afdd5df0b32": {
     "id": "a76ba8f9808ac21b09342afdd5df0b32",
@@ -2639,11 +2867,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Philadelphia Flyers",
-    "latestLeadML": -235,
-    "latestSpread": "FLY -1.5",
-    "snapshots": 2
+    "latestLeadML": -525,
+    "latestSpread": "FLY -2.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -2.5,
+    "latestSpreadPrice": 105
   },
   "634c54722c6860c9773604c369f6e062": {
     "id": "634c54722c6860c9773604c369f6e062",
@@ -2661,11 +2891,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Los Angeles Kings",
-    "latestLeadML": -115,
-    "latestSpread": "KIN +1.5",
-    "snapshots": 2
+    "latestLeadML": -120,
+    "latestSpread": "KIN -1.5",
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 190
   },
   "d86dc755fe06568141403800fce290fb": {
     "id": "d86dc755fe06568141403800fce290fb",
@@ -2683,11 +2915,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Minnesota Wild",
-    "latestLeadML": -130,
+    "latestLeadML": -118,
     "latestSpread": "WIL -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 195
   },
   "80ad2e83d5b53a2f48a70cfdecd3dc5c": {
     "id": "80ad2e83d5b53a2f48a70cfdecd3dc5c",
@@ -2705,11 +2939,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Vegas Golden Knights",
-    "latestLeadML": -210,
+    "latestLeadML": -220,
     "latestSpread": "KNI -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 110
   },
   "05bd16c51ce4454e77900af56cd8997c": {
     "id": "05bd16c51ce4454e77900af56cd8997c",
@@ -2727,11 +2963,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New York Rangers",
-    "latestLeadML": -175,
+    "latestLeadML": -185,
     "latestSpread": "RAN -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 135
   },
   "26c93a0fb3baf8842c064fe3aad7082d": {
     "id": "26c93a0fb3baf8842c064fe3aad7082d",
@@ -2749,11 +2987,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "New York Islanders",
-    "latestLeadML": -135,
+    "latestLeadML": -120,
     "latestSpread": "ISL -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 190
   },
   "3553bd967a739912ede178eb373433b8": {
     "id": "3553bd967a739912ede178eb373433b8",
@@ -2771,11 +3011,13 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Buffalo Sabres",
-    "latestLeadML": -155,
+    "latestLeadML": -135,
     "latestSpread": "SAB -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 170
   },
   "6be85c97118cc429ba24770044f011cd": {
     "id": "6be85c97118cc429ba24770044f011cd",
@@ -2793,10 +3035,376 @@
     "status": "PENDING",
     "finalScore": null,
     "profit100": null,
-    "lastUpdatedUTC": "2026-11-27T10:53:28.417004+00:00",
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
     "latestFavTeam": "Edmonton Oilers",
     "latestLeadML": -220,
     "latestSpread": "OIL -1.5",
-    "snapshots": 2
+    "snapshots": 3,
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 110
+  },
+  "6a172659dcbd6344e1b89ea63f20786c": {
+    "id": "6a172659dcbd6344e1b89ea63f20786c",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-28T21:10:00Z",
+    "awayTeam": "Montr\u00e9al Canadiens",
+    "homeTeam": "Vegas Golden Knights",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Vegas Golden Knights",
+    "openingLeadML": -122,
+    "openingSpread": "KNI -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 190,
+    "gap": 20,
+    "valueRating": 11.0,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Vegas Golden Knights",
+    "latestLeadML": -122,
+    "latestSpread": "KNI -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 190,
+    "snapshots": 1
+  },
+  "caa1c061c2ace9568a038a36abf48a25": {
+    "id": "caa1c061c2ace9568a038a36abf48a25",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-28T23:10:00Z",
+    "awayTeam": "Tampa Bay Lightning",
+    "homeTeam": "Florida Panthers",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Tampa Bay Lightning",
+    "openingLeadML": -112,
+    "openingSpread": "LIG +1.5",
+    "openingSpreadPoint": 1.5,
+    "openingSpreadPrice": -250,
+    "gap": 6,
+    "valueRating": 3.2,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Tampa Bay Lightning",
+    "latestLeadML": -112,
+    "latestSpread": "LIG +1.5",
+    "latestSpreadPoint": 1.5,
+    "latestSpreadPrice": -250,
+    "snapshots": 1
+  },
+  "79a04197d6f55ccaf3fbccea1207874b": {
+    "id": "79a04197d6f55ccaf3fbccea1207874b",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Calgary Flames",
+    "homeTeam": "New York Rangers",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "New York Rangers",
+    "openingLeadML": -192,
+    "openingSpread": "RAN -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 124,
+    "gap": 21,
+    "valueRating": 13.8,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "New York Rangers",
+    "latestLeadML": -192,
+    "latestSpread": "RAN -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 124,
+    "snapshots": 1
+  },
+  "e52a03fb10019b305f480dbb4b76f824": {
+    "id": "e52a03fb10019b305f480dbb4b76f824",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Ottawa Senators",
+    "homeTeam": "Carolina Hurricanes",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Carolina Hurricanes",
+    "openingLeadML": -250,
+    "openingSpread": "HUR -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": -108,
+    "gap": 7,
+    "valueRating": 5.0,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Carolina Hurricanes",
+    "latestLeadML": -250,
+    "latestSpread": "HUR -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": -108,
+    "snapshots": 1
+  },
+  "5b55930ad4bc2fc98ab0d37fa53d7a59": {
+    "id": "5b55930ad4bc2fc98ab0d37fa53d7a59",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Nashville Predators",
+    "homeTeam": "Detroit Red Wings",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Detroit Red Wings",
+    "openingLeadML": -112,
+    "openingSpread": "WIN -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 210,
+    "gap": 15,
+    "valueRating": 7.9,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Detroit Red Wings",
+    "latestLeadML": -112,
+    "latestSpread": "WIN -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 210,
+    "snapshots": 1
+  },
+  "274d3542bf8eff313ed96f04ff26e743": {
+    "id": "274d3542bf8eff313ed96f04ff26e743",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Winnipeg Jets",
+    "homeTeam": "New Jersey Devils",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "New Jersey Devils",
+    "openingLeadML": -192,
+    "openingSpread": "DEV -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 114,
+    "gap": 8,
+    "valueRating": 5.3,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "New Jersey Devils",
+    "latestLeadML": -192,
+    "latestSpread": "DEV -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 114,
+    "snapshots": 1
+  },
+  "2eb8dba3fd1115cc292ba861af377253": {
+    "id": "2eb8dba3fd1115cc292ba861af377253",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Toronto Maple Leafs",
+    "homeTeam": "Pittsburgh Penguins",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Pittsburgh Penguins",
+    "openingLeadML": -122,
+    "openingSpread": "PEN -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 190,
+    "gap": 8,
+    "valueRating": 4.4,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Pittsburgh Penguins",
+    "latestLeadML": -122,
+    "latestSpread": "PEN -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 190,
+    "snapshots": 1
+  },
+  "13c3edd2c9dc19cce0a916e9db43cc44": {
+    "id": "13c3edd2c9dc19cce0a916e9db43cc44",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:10:00Z",
+    "awayTeam": "Washington Capitals",
+    "homeTeam": "St Louis Blues",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "St Louis Blues",
+    "openingLeadML": -112,
+    "openingSpread": "BLU -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 205,
+    "gap": 19,
+    "valueRating": 10.0,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "St Louis Blues",
+    "latestLeadML": -112,
+    "latestSpread": "BLU -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 205,
+    "snapshots": 1
+  },
+  "2b6e5d5ff42cf859e0a34051ee14caf2": {
+    "id": "2b6e5d5ff42cf859e0a34051ee14caf2",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T00:40:00Z",
+    "awayTeam": "New York Islanders",
+    "homeTeam": "Philadelphia Flyers",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "New York Islanders",
+    "openingLeadML": -122,
+    "openingSpread": "ISL -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 190,
+    "gap": 8,
+    "valueRating": 4.4,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "New York Islanders",
+    "latestLeadML": -122,
+    "latestSpread": "ISL -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 190,
+    "snapshots": 1
+  },
+  "c7d8345f0df3b99a79c00eefada5673a": {
+    "id": "c7d8345f0df3b99a79c00eefada5673a",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T01:10:00Z",
+    "awayTeam": "Utah Mammoth",
+    "homeTeam": "Dallas Stars",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Dallas Stars",
+    "openingLeadML": -155,
+    "openingSpread": "STA -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 150,
+    "gap": 13,
+    "valueRating": 7.9,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Dallas Stars",
+    "latestLeadML": -155,
+    "latestSpread": "STA -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 150,
+    "snapshots": 1
+  },
+  "b593db6702ca42144f478008ba894214": {
+    "id": "b593db6702ca42144f478008ba894214",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T02:10:00Z",
+    "awayTeam": "Anaheim Ducks",
+    "homeTeam": "Los Angeles Kings",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Los Angeles Kings",
+    "openingLeadML": -142,
+    "openingSpread": "KIN -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 160,
+    "gap": 15,
+    "valueRating": 8.8,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Los Angeles Kings",
+    "latestLeadML": -142,
+    "latestSpread": "KIN -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 160,
+    "snapshots": 1
+  },
+  "b23cbb8c5378e792e7ac624fec34b7f5": {
+    "id": "b23cbb8c5378e792e7ac624fec34b7f5",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T02:10:00Z",
+    "awayTeam": "San Jose Sharks",
+    "homeTeam": "Colorado Avalanche",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Colorado Avalanche",
+    "openingLeadML": -278,
+    "openingSpread": "AVA -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": -120,
+    "gap": 22,
+    "valueRating": 16.2,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Colorado Avalanche",
+    "latestLeadML": -278,
+    "latestSpread": "AVA -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": -120,
+    "snapshots": 1
+  },
+  "94344b740781b59e4e387c487269635a": {
+    "id": "94344b740781b59e4e387c487269635a",
+    "sport": "hockey",
+    "sportKey": "icehockey_nhl",
+    "commenceTime": "2026-11-29T03:10:00Z",
+    "awayTeam": "Edmonton Oilers",
+    "homeTeam": "Seattle Kraken",
+    "firstSeenUTC": "2026-11-27T20:45:51.521114+00:00",
+    "openingFavTeam": "Edmonton Oilers",
+    "openingLeadML": -170,
+    "openingSpread": "OIL -1.5",
+    "openingSpreadPoint": -1.5,
+    "openingSpreadPrice": 140,
+    "gap": 19,
+    "valueRating": 12.0,
+    "status": "PENDING",
+    "atsStatus": "PENDING",
+    "finalScore": null,
+    "profit100": null,
+    "atsProfit100": null,
+    "lastUpdatedUTC": "2026-11-27T20:45:51.521114+00:00",
+    "latestFavTeam": "Edmonton Oilers",
+    "latestLeadML": -170,
+    "latestSpread": "OIL -1.5",
+    "latestSpreadPoint": -1.5,
+    "latestSpreadPrice": 140,
+    "snapshots": 1
   }
 }
