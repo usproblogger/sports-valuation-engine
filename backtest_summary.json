@@ -1,14 +1,14 @@
 {
-  "lastSyncUTC": "2026-11-27T22:53:58.916780+00:00",
-  "totalMemorizedGames": 137,
-  "totalGradedGames": 72,
-  "record": "44W - 28L",
-  "winRatePct": 61.1,
-  "flat100NetProfit": -585.13,
-  "atsGradedGames": 71,
-  "atsRecord": "33W - 38L",
-  "atsWinRatePct": 46.5,
-  "atsFlat100NetProfit": -799.97,
-  "highValue25PlusCount": 5,
-  "highValue25PlusProfit": -28.99
+  "lastSyncUTC": "2026-11-28T10:48:28.511712+00:00",
+  "totalMemorizedGames": 146,
+  "totalGradedGames": 99,
+  "record": "55W - 44L",
+  "winRatePct": 55.6,
+  "flat100NetProfit": -1630.62,
+  "atsGradedGames": 98,
+  "atsRecord": "43W - 55L",
+  "atsWinRatePct": 43.9,
+  "atsFlat100NetProfit": -1590.87,
+  "highValue25PlusCount": 7,
+  "highValue25PlusProfit": -101.96
 }
